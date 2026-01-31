@@ -32,4 +32,3 @@ stream = ExtResource("4_6oc8a")
 volume_db = -10.0
 
 [connection signal="input_event" from="Hitbox" to="." method="_on_hitbox_input_event"]
-

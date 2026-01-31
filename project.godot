@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=240
 window/size/viewport_height=135
+window/size/window_width_override=1200
+window/size/window_height_override=675
 window/stretch/mode="viewport"
 window/per_pixel_transparency/allowed=true
 
@@ -41,6 +43,7 @@ Quit={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
