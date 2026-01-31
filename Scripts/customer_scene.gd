@@ -44,10 +44,11 @@ var _mood_level: int
 @export var mood_level: int = 50:
 	set(value):
 		_mood_level = value
-		var mood_ind:int = mood_level_curve.values().find_custom(func(c): return mood_level>=min(c.x,c.y) and mood_level<=max(c.x,c.y))
+		var mood_ind:int = mood_level_curve.values().find_custom(func(c): return _mood_level>=min(c.x,c.y) and _mood_level<=max(c.x,c.y))
 		mood = Mood.keys().find(mood_level_curve.keys()[mood_ind]) as Mood
-		if mood_level > 100:
+		if _mood_level < 0:
 			leave()
+		if _mood_level > 100: _mood_level = 100
 	get():
 		return _mood_level
 
@@ -127,7 +128,7 @@ func leave() -> void:
 			animator.play("Blink Out")
 
 func damage(value:float) -> void:
-	mood_level += roundi(value*mood_scale)
+	mood_level -= roundi(value*mood_scale)
 
 
 func _ready() -> void:
