@@ -12,9 +12,10 @@ class_name MainNode
 ##             Node Attachements
 ## -----------------------------------------------------------------------------
 
-@export_group("Node Attachments")
+@export_group("Attachments")
 @export var customer_spawn: Marker2D
 @export var item_spawn: Marker2D
+@export var item_scene: PackedScene
 
 ## -----------------------------------------------------------------------------
 ##             Input

@@ -19,7 +19,7 @@ class_name CustomerData
 func generate_new() -> CustomerNode:
 	var new_customer: CustomerNode = customer_scene.instantiate()
 	new_customer.sprite_frames = sprites.pick_random()
-	new_customer.item = items[randi_range(0,items.size()-1)]
+	new_customer.item = items[randi_range(0,items.size()-1)].gen()
 	new_customer.mood_level = randi_range(starting_mood_range[0],starting_mood_range[1])
 	new_customer.mood_scale = randf_range(mood_scale_range[0],mood_scale_range[1])
 	new_customer.transition_in = CustomerNode.Transitions.values().pick_random()

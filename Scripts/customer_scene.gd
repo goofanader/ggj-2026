@@ -78,7 +78,7 @@ var mood: Mood = Mood.Happy:
 enum Transitions {Walk,Run,Beam,Blink}
 @export var transition_in: Transitions = Transitions.Walk
 @export var transition_out: Transitions = Transitions.Walk
-@export var item: Resource
+@export var item: Node
 
 
 func entered() -> void:
