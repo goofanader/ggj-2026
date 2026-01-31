@@ -60,6 +60,7 @@ position = Vector2(-35, 15)
 texture = ExtResource("5_7enb7")
 
 [node name="ScanSpotArea" type="Area2D" parent="Fg/Regiester/ScanSpot" unique_id=859012442]
+collision_layer = 0
 
 [node name="ScanSpotShape" type="CollisionShape2D" parent="Fg/Regiester/ScanSpot/ScanSpotArea" unique_id=691975609]
 rotation = 1.5707964

@@ -22,6 +22,13 @@ func _process(delta: float) -> void:
 			target_pos.y = stop
 		if (target_pos-position).length() > 2:
 			set_position(position + (target_pos - position).normalized() * follow_cursor * delta)
+		
+		#Let go if mouse is not held
+		if not Input.is_mouse_button_pressed(MouseButton.MOUSE_BUTTON_LEFT):
+			held = false
+			$Drop.play()
+			#TODO: Set new stop. Not important.
+		
 	elif position.y < stop:
 		set_position(position + Vector2.DOWN * fall * delta)
 
@@ -33,11 +40,10 @@ func initialize(pos: Vector2) -> void:
 	#TODO: randomize item sprite
 
 
-func _on_color_rect_gui_input(event: InputEvent) -> void:
+func _on_hitbox_input_event(viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton:
-		if event.pressed:
+		if event.button_index == MouseButton.MOUSE_BUTTON_LEFT and event.pressed:
 			held = true
-			hold_point = get_viewport().get_mouse_position()-position
-		else:
-			held = false
-			#TODO: Set new stop. Not important.
+			hold_point = viewport.get_mouse_position()-position
+			$Pickup.play()
+			viewport.set_input_as_handled()
