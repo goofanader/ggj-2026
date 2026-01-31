@@ -19,17 +19,19 @@
 [sub_resource type="Resource" id="Resource_mlytr"]
 script = ExtResource("2_l533x")
 sprites = Array[SpriteFrames]([ExtResource("3_1051w")])
+customer_scene = ExtResource("7_7enb7")
 metadata/_custom_type_script = "uid://4t7ehoq1t80x"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4y6ly"]
 radius = 3.0
 height = 18.0
 
-[node name="Main Scene" type="Node2D" unique_id=125374370 node_paths=PackedStringArray("customer_spawn")]
+[node name="Main Scene" type="Node2D" unique_id=125374370 node_paths=PackedStringArray("customer_spawn", "customer_nodes")]
 script = ExtResource("1_4y6ly")
 customer_data = SubResource("Resource_mlytr")
 customer_spawn = NodePath("CharacterSpawn")
 item_scene = ExtResource("2_56oky")
+customer_nodes = [NodePath("Customer")]
 
 [node name="Bg" type="Node2D" parent="." unique_id=177786591]
 
@@ -123,3 +125,6 @@ position = Vector2(44, 86)
 
 [connection signal="area_entered" from="Fg/Register/ScanSpot/ScanSpotArea" to="Fg/Register" method="_on_scan_spot_area_area_entered"]
 [connection signal="input_event" from="Fg/Register/ClickBox" to="Fg/Register" method="_on_click_box_input_event"]
+
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=825516288]
+position = Vector2(103, 64)

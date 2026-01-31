@@ -11,7 +11,6 @@ class_name CustomerData
 	set(value):
 		mood_scale_range = Vector2(min(value[0],value[1]),max(value[0],value[1]))
 
-
 @export var customer_scene: PackedScene
 
 

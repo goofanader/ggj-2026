@@ -23,12 +23,17 @@ class_name MainNode
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Quit"):
 		get_tree().quit()
+	elif event.is_action_pressed("Spawn New Customer"):
+		new_customer()
+	elif event.is_action_pressed("Clear Customers"):
+		clear_customers()
 
 ## -----------------------------------------------------------------------------
 ##             Customer Methods
 ## -----------------------------------------------------------------------------
 
-var customer_nodes: Array[CustomerNode] = []
+@export_group("Internal Variables")
+@export var customer_nodes: Array[CustomerNode] = []
 
 func new_customer() -> void:
 	var customer_node:CustomerNode = customer_data.generate_new()
