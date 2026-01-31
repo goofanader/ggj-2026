@@ -123,8 +123,10 @@ offset_bottom = 50.0
 [node name="CharacterSpawn" type="Marker2D" parent="." unique_id=459509201]
 position = Vector2(44, 86)
 
-[connection signal="area_entered" from="Fg/Register/ScanSpot/ScanSpotArea" to="Fg/Register" method="_on_scan_spot_area_area_entered"]
-[connection signal="input_event" from="Fg/Register/ClickBox" to="Fg/Register" method="_on_click_box_input_event"]
-
 [node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=825516288]
 position = Vector2(103, 64)
+
+[connection signal="checkout" from="Fg/Register" to="." method="_on_register_checkout"]
+[connection signal="scan" from="Fg/Register" to="." method="_on_register_scan"]
+[connection signal="area_entered" from="Fg/Register/ScanSpot/ScanSpotArea" to="Fg/Register" method="_on_scan_spot_area_area_entered"]
+[connection signal="input_event" from="Fg/Register/ClickBox" to="Fg/Register" method="_on_click_box_input_event"]

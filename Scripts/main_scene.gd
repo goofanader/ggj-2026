@@ -7,6 +7,8 @@ class_name MainNode
 
 @export_group("Game Data")
 @export var customer_data: CustomerData
+var items = []
+var scan_number: int
 
 ## -----------------------------------------------------------------------------
 ##             Node Attachements
@@ -65,10 +67,33 @@ func drop_items() -> void:
 		var item = item_scene.instantiate()
 		item.initialize($Fg/ItemDrops.get_child(i).position)
 		$Fg.add_child(item)
-		item.connect("mistake",on_item_mistake)
+		item.connect("mistake",_on_item_mistake)
+		items.append(item)
+	scan_number = 0
 
-func on_item_mistake(type: String) -> void:
-	#TODO: Affect customer mood
+
+func _on_item_mistake(type: String) -> void:
+	customer_nodes[0].damage(10) #Apply damage to customer TODO: Fix
 	print("I am very angry")
 	if type == "scan":
 		print("You scanned that item twice")
+
+
+## -----------------------------------------------------------------------------
+##             Signal Methods
+## -----------------------------------------------------------------------------
+
+func _on_register_scan() -> void:
+	scan_number += 1
+
+
+func _on_register_checkout() -> void:
+	if scan_number < items.size():
+		customer_nodes[0].damage(10) #Apply damage to customer TODO: Fix
+		print("What the heck you didn't scan all my stuff")
+	for item in items:
+		item.disconnect("mistake",_on_item_mistake)
+		item.queue_free()
+	items = []
+	print("Bye Felicia")
+	clear_customers()
