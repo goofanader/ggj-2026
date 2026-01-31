@@ -12,6 +12,9 @@ class_name CustomerNode
 	"Neutral": Vector2i(41,80),
 	"Happy": Vector2i(81,100),
 }
+@export var audio_files: Dictionary[String,AudioStream] = {}
+
+
 
 ## -----------------------------------------------------------------------------
 ##             Node Attachements
@@ -23,6 +26,7 @@ class_name CustomerNode
 @export var mood_node: AnimatedSprite2D
 @export var expr_node: AnimatedSprite2D
 @export var animator: AnimationPlayer
+@export var audio_node: AudioStreamPlayer2D
 
 ## -----------------------------------------------------------------------------
 ##             External Data
@@ -41,7 +45,7 @@ var _mood_level: int
 	set(value):
 		_mood_level = value
 		var mood_ind:int = mood_level_curve.values().find_custom(func(c): return mood_level>=min(c.x,c.y) and mood_level<=max(c.x,c.y))
-		mood = mood_level_curve.keys()[mood_ind]
+		mood = Mood.keys().find(mood_level_curve.keys()[mood_ind]) as Mood
 		if mood_level > 100:
 			leave()
 	get():
@@ -84,9 +88,18 @@ enum Transitions {Walk,Run,Beam,Blink}
 func entered() -> void:
 	place_item()
 
+func exited() -> void:
+	var t: Timer = Timer.new()
+	t.wait_time = 1.0
+	t.timeout.connect(queue_free)
+	t.start()
+
 func place_item() -> void:
 	main_node.drop_items()
 
+func play_sound(sound_name:String) -> void:
+	audio_node.stream = audio_files[sound_name]
+	audio_node.play()
 
 func enter() -> void:
 	match transition_in:
@@ -99,7 +112,6 @@ func enter() -> void:
 		Transitions.Blink:
 			animator.play("Blink In")
 
-
 func leave() -> void:
 	match transition_in:
 		Transitions.Walk:
@@ -110,7 +122,6 @@ func leave() -> void:
 			animator.play("Beam Out")
 		Transitions.Blink:
 			animator.play("Blink Out")
-
 
 func damage(value:float) -> void:
 	mood_level += roundi(value*mood_scale)

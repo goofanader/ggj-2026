@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://dfife271rokxq"]
 
 [ext_resource type="Script" uid="uid://ck04ncqyco8q4" path="res://Scripts/customer_scene.gd" id="1_o7g7w"]
+[ext_resource type="AudioStream" uid="uid://b3weqto38tqty" path="res://Assets/Sounds/Beam_Up.wav" id="2_c7i8l"]
 [ext_resource type="SpriteFrames" uid="uid://ig0bwfm563il" path="res://Assets/Art/Characters/customer_test_frames.tres" id="2_j21p7"]
 [ext_resource type="Texture2D" uid="uid://cyho4ggubdvhx" path="res://Assets/Art/Characters/Anger.png" id="3_j21p7"]
+[ext_resource type="AudioStream" uid="uid://bbnehfw45v3gl" path="res://Assets/Sounds/Beam_Down.wav" id="3_kosw0"]
+[ext_resource type="AudioStream" uid="uid://xwtv3v5lefag" path="res://Assets/Sounds/Door_Close.wav" id="4_1r5ol"]
 [ext_resource type="Texture2D" uid="uid://tli5yhf22qms" path="res://Assets/Art/Characters/Mood.png" id="4_rje0e"]
+[ext_resource type="AudioStream" uid="uid://s3cccg8tvs07" path="res://Assets/Sounds/Door_Open.wav" id="5_6nvjr"]
+[ext_resource type="AudioStream" uid="uid://ctalrj1cl3ssu" path="res://Assets/Sounds/Electric_Sparks.wav" id="6_4qdli"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c7i8l"]
 atlas = ExtResource("3_j21p7")
@@ -129,9 +134,12 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1.5),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.33333334, 1.5),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": ["Beam Down"],
+"method": &"play_sound"
+}, {
 "args": [],
 "method": &"entered"
 }]
@@ -159,11 +167,14 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1.5),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.36666667, 1.5),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": ["Beam Up"],
+"method": &"play_sound"
+}, {
 "args": [],
-"method": &"leave"
+"method": &"exited"
 }]
 }
 
@@ -188,9 +199,12 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.06666667, 1),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": ["Electric Sparks"],
+"method": &"play_sound"
+}, {
 "args": [],
 "method": &"entered"
 }]
@@ -217,11 +231,14 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": ["Electric Sparks"],
+"method": &"play_sound"
+}, {
 "args": [],
-"method": &"leave"
+"method": &"exited"
 }]
 }
 
@@ -271,9 +288,12 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.033333335, 1),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": ["Door Open"],
+"method": &"play_sound"
+}, {
 "args": [],
 "method": &"entered"
 }]
@@ -299,11 +319,14 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.8666667, 1),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": ["Door Close"],
+"method": &"play_sound"
+}, {
 "args": [],
-"method": &"leave"
+"method": &"exited"
 }]
 }
 
@@ -328,9 +351,12 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(3),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.06666667, 3),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": ["Door Open"],
+"method": &"play_sound"
+}, {
 "args": [],
 "method": &"entered"
 }]
@@ -357,11 +383,14 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(3),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(2.7, 3),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": ["Door Close"],
+"method": &"play_sound"
+}, {
 "args": [],
-"method": &"leave"
+"method": &"exited"
 }]
 }
 
@@ -378,13 +407,21 @@ _data = {
 &"Walk Out": SubResource("Animation_1r5ol")
 }
 
-[node name="Customer" type="Node2D" unique_id=1278525423 node_paths=PackedStringArray("frame_node", "sprite_node", "mood_node", "expr_node", "animator")]
+[node name="Customer" type="Node2D" unique_id=1278525423 node_paths=PackedStringArray("frame_node", "sprite_node", "mood_node", "expr_node", "animator", "audio_node")]
 script = ExtResource("1_o7g7w")
+audio_files = Dictionary[String, AudioStream]({
+"Beam Down": ExtResource("3_kosw0"),
+"Beam Up": ExtResource("2_c7i8l"),
+"Door Close": ExtResource("4_1r5ol"),
+"Door Open": ExtResource("5_6nvjr"),
+"Electric Sparks": ExtResource("6_4qdli")
+})
 frame_node = NodePath("Customer_Frame")
 sprite_node = NodePath("Customer_Frame/Customer Sprite")
 mood_node = NodePath("Customer_Frame/Moon Indicator")
 expr_node = NodePath("Customer_Frame/Customer Expression")
 animator = NodePath("Customer_Frame/AnimationPlayer")
+audio_node = NodePath("Customer_Frame/AudioStreamPlayer2D")
 sprite_frames = ExtResource("2_j21p7")
 
 [node name="Customer_Frame" type="Node2D" parent="." unique_id=2114948699]
@@ -407,3 +444,5 @@ animation = &"Happy"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Customer_Frame" unique_id=485819954]
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_6nvjr")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Customer_Frame" unique_id=1207895765]
