@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemInfo" format=3 uid="uid://88muoywacpla"]
+
+[ext_resource type="Script" uid="uid://cy2k7p7g6ndyu" path="res://scripts/Inventory/ItemInfo.gd" id="1_pmqx6"]
+
+[resource]
+script = ExtResource("1_pmqx6")
+id = "FirstMask"
+name = "N/A"
+description = "N/A"
+metadata/_custom_type_script = "uid://cy2k7p7g6ndyu"
