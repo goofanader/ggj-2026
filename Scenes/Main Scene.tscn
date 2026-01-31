@@ -1,5 +1,20 @@
 [gd_scene format=3 uid="uid://d2wig6v3ksphj"]
 
+[ext_resource type="Script" uid="uid://doxe6253y3sku" path="res://Scripts/main_scene.gd" id="1_4y6ly"]
+[ext_resource type="Texture2D" uid="uid://cpspwe73ld65c" path="res://Assets/Art/Background/wall_bg.png" id="1_atbvb"]
+[ext_resource type="PackedScene" uid="uid://rfyl0f42xd2f" path="res://Scenes/Item.tscn" id="2_56oky"]
+[ext_resource type="Texture2D" uid="uid://ujp8tw0paiu6" path="res://Assets/Art/Background/back_table.png" id="2_ke1vn"]
+[ext_resource type="Texture2D" uid="uid://qd1d050vdn30" path="res://Assets/Art/Background/front_table.png" id="3_v87v2"]
+[ext_resource type="Texture2D" uid="uid://b6ry56fg0rdoj" path="res://Assets/Art/Background/register.png" id="4_156p1"]
+[ext_resource type="PackedScene" uid="uid://05e0gnh4hnan" path="res://Scenes/Character Stats.tscn" id="4_v87v2"]
+[ext_resource type="Texture2D" uid="uid://j7ahjlb32un3" path="res://Assets/Art/Background/scanner_spot.png" id="5_7enb7"]
+[ext_resource type="PackedScene" uid="uid://dfife271rokxq" path="res://Scenes/Customer.tscn" id="7_7enb7"]
+[ext_resource type="PackedScene" uid="uid://yvs2w16l73e7" path="res://Scenes/Dialog.tscn" id="9_105va"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4y6ly"]
+radius = 6.0
+height = 28.0
+
 [ext_resource type="Script" uid="uid://dkm503fdcm768" path="res://Scripts/main_scene.gd" id="1_4y6ly"]
 [ext_resource type="Texture2D" path="res://Assets/Art/Background/wall_bg.png" id="1_atbvb"]
 [ext_resource type="Resource" uid="uid://d5pgw36jkobl" path="res://Data/customer_data.tres" id="2_56oky"]
@@ -66,6 +81,19 @@ texture = ExtResource("5_7enb7")
 [node name="ScanSpotShape" type="CollisionShape2D" parent="Fg/Regiester/ScanSpot/ScanSpotArea" unique_id=691975609]
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_4y6ly")
+
+[node name="ItemDrops" type="Node2D" parent="Fg" unique_id=1262851053]
+visible = false
+
+[node name="Drop0" type="Marker2D" parent="Fg/ItemDrops" unique_id=1330372353]
+position = Vector2(44, 86)
+
+[node name="Drop1" type="Marker2D" parent="Fg/ItemDrops" unique_id=1042847844]
+position = Vector2(29, 86)
+
+[node name="Drop2" type="Marker2D" parent="Fg/ItemDrops" unique_id=2057453444]
+position = Vector2(14, 86)
+
 
 [node name="Character Stats" parent="." unique_id=1264797244 instance=ExtResource("4_v87v2")]
 z_index = 20

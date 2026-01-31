@@ -55,6 +55,14 @@ func clear_customers() -> void:
 
 var item_nodes: Array[Node]
 
+func drop_items() -> void:
+	#Assuming max items is 3
+	var n_items = randi_range(1,3)
+	for i in range(n_items):
+		var item = item_scene.instantiate()
+		item.initialize($Fg/ItemDrops.get_child(i).position)
+		$Fg.add_child(item)
+
 func place_item(item_node:Node) -> void:
 	item_nodes.append(item_node)
 	pass
