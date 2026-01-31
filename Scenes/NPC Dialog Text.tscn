@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bjd2n02siedyh"]
 
-[ext_resource type="Script" uid="uid://bcg2mcrnllo8h" path="res://Scripts/dialog_text.gd" id="1_6hu0m"]
+[ext_resource type="Script" uid="uid://brnprtkcf4psr" path="res://scripts/Dialogue/dialog_text.gd" id="1_6hu0m"]
 [ext_resource type="Texture2D" uid="uid://2ymdh0dvvus3" path="res://Assets/Art/UI/Dialog_Frame.png" id="2_q60wy"]
 
-[node name="DialogText" type="Control" unique_id=1277136958 node_paths=PackedStringArray("label_node")]
+[node name="DialogText" type="Control" unique_id=1277136958]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +11,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6hu0m")
-label_node = NodePath("Label")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1544786797]
 layout_mode = 1
@@ -50,3 +49,9 @@ offset_right = -4.0
 offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1927155377]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+fit_content = true

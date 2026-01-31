@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cya7perkdex2" path="res://Assets/Art/UI/Dialog_Border.png" id="1_0tpv1"]
 [ext_resource type="Script" uid="uid://b3lwv6j48lin3" path="res://scripts/Dialogue/main_dialogue.gd" id="1_jf8ex"]
 [ext_resource type="PackedScene" uid="uid://bjd2n02siedyh" path="res://Scenes/NPC Dialog Text.tscn" id="2_0tpv1"]
+[ext_resource type="Script" uid="uid://brnprtkcf4psr" path="res://scripts/Dialogue/dialog_entry.gd" id="3_7rife"]
 [ext_resource type="PackedScene" uid="uid://c2l3c07072dy1" path="res://Scenes/PC Dialog Text.tscn" id="3_nm2tb"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0tpv1"]
@@ -63,6 +64,7 @@ z_index = 1
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
+script = ExtResource("3_7rife")
 
 [node name="DialogText" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=1277136958 instance=ExtResource("2_0tpv1")]
 layout_mode = 2

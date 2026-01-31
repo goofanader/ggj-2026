@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c2l3c07072dy1"]
 
-[ext_resource type="Script" uid="uid://bcg2mcrnllo8h" path="res://Scripts/dialog_text.gd" id="1_7ojtb"]
+[ext_resource type="Script" uid="uid://bcg2mcrnllo8h" path="res://scripts/Dialogue/dialog_text.gd" id="1_7ojtb"]
 [ext_resource type="Texture2D" uid="uid://2ymdh0dvvus3" path="res://Assets/Art/UI/Dialog_Frame.png" id="2_s402j"]
 
 [node name="DialogText" type="Control" unique_id=1277136958 node_paths=PackedStringArray("label_node")]
@@ -52,3 +52,14 @@ offset_right = -5.0
 offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1622199237]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=878835757]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+fit_content = true
