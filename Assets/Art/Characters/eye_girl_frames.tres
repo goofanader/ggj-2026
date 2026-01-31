@@ -1,0 +1,42 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://peoq2t8hhfx6"]
+
+[ext_resource type="Texture2D" uid="uid://biljqyw5xth0c" path="res://Assets/Art/Characters/eye_girl.png" id="1_43u1p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0n73"]
+atlas = ExtResource("1_43u1p")
+region = Rect2(0, 0, 82, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wq0cn"]
+atlas = ExtResource("1_43u1p")
+region = Rect2(82, 0, 82, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2i4ot"]
+atlas = ExtResource("1_43u1p")
+region = Rect2(164, 0, 82, 104)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0n73")
+}],
+"loop": true,
+"name": &"Happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wq0cn")
+}],
+"loop": true,
+"name": &"Neutral",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2i4ot")
+}],
+"loop": true,
+"name": &"Sad",
+"speed": 5.0
+}]
