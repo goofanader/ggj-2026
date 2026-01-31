@@ -8,6 +8,16 @@ var stop: float
 var held: bool = false
 var hold_point: Vector2
 
+var textures = [
+	preload("res://Assets/Art/Items/Cyber_Circle_Mask.png"),
+	preload("res://Assets/Art/Items/gold_cat.png"),
+	preload("res://Assets/Art/Items/green_mask.png"),
+	preload("res://Assets/Art/Items/Masquerade_Mask.png"),
+	preload("res://Assets/Art/Items/Oni_Mask.png"),
+	preload("res://Assets/Art/Items/skull.png"),
+	preload("res://Assets/Art/Items/Scuba_Mask.png")
+]
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -36,8 +46,7 @@ func _process(delta: float) -> void:
 func initialize(pos: Vector2) -> void:
 	set_position(pos)
 	stop = pos.y + settle
-	
-	#TODO: randomize item sprite
+	$Sprite2D.texture = textures[randi()%textures.size()]
 
 
 func _on_hitbox_input_event(viewport: Node, event: InputEvent, _shape_idx: int) -> void:
