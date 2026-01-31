@@ -83,27 +83,26 @@ bg_color = Color(0.32941177, 0.6509804, 0.41568628, 1)
 corner_detail = 1
 
 [node name="Character Stats" type="Node2D" unique_id=1264797244]
-position = Vector2(0, -31)
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=639407537]
 offset_left = -20.0
-offset_top = -20.0
+offset_top = -51.0
 offset_right = 20.0
-offset_bottom = 21.0
+offset_bottom = -10.0
 color = Color(0.30588236, 0.24313726, 0.3529412, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1938157375]
-position = Vector2(-1, -1)
+position = Vector2(-1, -32)
 sprite_frames = SubResource("SpriteFrames_6rtnr")
 animation = &"Angry"
-frame_progress = 0.66196597
+frame_progress = 0.8097742
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1475072478]
 offset_left = -23.0
-offset_top = -23.0
+offset_top = -54.0
 offset_right = 23.0
-offset_bottom = 24.0
+offset_bottom = -7.0
 texture = ExtResource("2_tpcvg")
 patch_margin_left = 5
 patch_margin_top = 5

@@ -165,7 +165,7 @@ metadata/_custom_type_script = "uid://cdfq424n0esed"
 
 [node name="Character Stats" parent="." unique_id=1264797244 instance=ExtResource("25_bgl0a")]
 z_index = 20
-position = Vector2(197, 97)
+position = Vector2(197, 130)
 
 [connection signal="area_entered" from="Fg/Register/ScanSpot/ScanSpotArea" to="Fg/Register" method="_on_scan_spot_area_area_entered"]
 [connection signal="input_event" from="Fg/Register/ClickBox" to="Fg/Register" method="_on_click_box_input_event"]

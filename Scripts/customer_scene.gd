@@ -33,7 +33,6 @@ class_name CustomerNode
 ## -----------------------------------------------------------------------------
 
 @export_group("External Data")
-@export var main_node: MainNode
 @export var sprite_frames: SpriteFrames:
 	set(value):
 		sprite_frames = value
@@ -85,6 +84,16 @@ enum Transitions {Walk,Run,Beam,Blink}
 @export var transition_out: Transitions = Transitions.Walk
 @export var item: Node
 
+## -----------------------------------------------------------------------------
+##             Signals
+## -----------------------------------------------------------------------------
+
+signal leaving(node)
+signal drop_item
+
+## -----------------------------------------------------------------------------
+##             Methods
+## -----------------------------------------------------------------------------
 
 func entered() -> void:
 	place_item()
@@ -96,7 +105,7 @@ func exited() -> void:
 	t.start(1.0)
 
 func place_item() -> void:
-	main_node.drop_items()
+	drop_item.emit()
 
 func play_sound(sound_name:String) -> void:
 	audio_node.stream = audio_files[sound_name]
@@ -116,7 +125,8 @@ func enter() -> void:
 var _is_leaving: bool = false
 func leave() -> void:
 	if _is_leaving: return
-	_is_leaving = true	
+	_is_leaving = true
+	leaving.emit(self)
 	match transition_in:
 		Transitions.Walk:
 			animator.play("Walk Out")

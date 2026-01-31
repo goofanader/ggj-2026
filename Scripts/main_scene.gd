@@ -40,15 +40,17 @@ func new_customer() -> void:
 	var customer_node:CustomerNode = customer_data.generate_new()
 	add_customer(customer_node)
 
-func add_customer(customer_node) -> void:
+func add_customer(customer_node: CustomerNode) -> void:
 	customer_nodes.append(customer_node)
-	customer_node.main_node = self
+	customer_node.leaving.connect(remove_customer)
+	customer_node.drop_item.connect(drop_items)
 	customer_node.position = customer_spawn.position
 	add_child(customer_node)
 	customer_node.enter()
 
 func remove_customer(customer_node:CustomerNode) -> void:
-	customer_nodes.erase(customer_node)
+	if customer_nodes.has(customer_node):
+		customer_nodes.erase(customer_node)
 	customer_node.leave()
 	
 func clear_customers() -> void:
