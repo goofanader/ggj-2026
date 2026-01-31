@@ -90,9 +90,9 @@ func entered() -> void:
 
 func exited() -> void:
 	var t: Timer = Timer.new()
-	t.wait_time = 1.0
 	t.timeout.connect(queue_free)
-	t.start()
+	add_child(t)
+	t.start(1.0)
 
 func place_item() -> void:
 	main_node.drop_items()
@@ -112,7 +112,10 @@ func enter() -> void:
 		Transitions.Blink:
 			animator.play("Blink In")
 
+var _is_leaving: bool = false
 func leave() -> void:
+	if _is_leaving: return
+	_is_leaving = true	
 	match transition_in:
 		Transitions.Walk:
 			animator.play("Walk Out")

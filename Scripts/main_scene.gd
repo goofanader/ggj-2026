@@ -17,6 +17,7 @@ var scan_number: int
 @export_group("Attachments")
 @export var customer_spawn: Marker2D
 @export var item_scene: PackedScene
+@export var background_audio_node: BackgroundSoundPlayer
 
 ## -----------------------------------------------------------------------------
 ##             Input
@@ -53,7 +54,7 @@ func remove_customer(customer_node:CustomerNode) -> void:
 	customer_node.leave()
 	
 func clear_customers() -> void:
-	for customer_node: CustomerNode in customer_nodes:
+	for customer_node: CustomerNode in customer_nodes.duplicate():
 		remove_customer(customer_node)
 
 ## -----------------------------------------------------------------------------
