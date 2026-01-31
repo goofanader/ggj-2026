@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://doxe6253y3sku" path="res://Scripts/main_scene.gd" id="1_4y6ly"]
 [ext_resource type="Texture2D" uid="uid://cpspwe73ld65c" path="res://Assets/Art/Background/wall_bg.png" id="1_atbvb"]
+[ext_resource type="PackedScene" uid="uid://rfyl0f42xd2f" path="res://Scenes/Item.tscn" id="2_56oky"]
 [ext_resource type="Texture2D" uid="uid://ujp8tw0paiu6" path="res://Assets/Art/Background/back_table.png" id="2_ke1vn"]
 [ext_resource type="Texture2D" uid="uid://qd1d050vdn30" path="res://Assets/Art/Background/front_table.png" id="3_v87v2"]
 [ext_resource type="Texture2D" uid="uid://b6ry56fg0rdoj" path="res://Assets/Art/Background/register.png" id="4_156p1"]
@@ -16,6 +17,7 @@ height = 28.0
 
 [node name="Main Scene" type="Node2D" unique_id=125374370]
 script = ExtResource("1_4y6ly")
+item_scene = ExtResource("2_56oky")
 
 [node name="Bg" type="Node2D" parent="." unique_id=177786591]
 
@@ -62,6 +64,18 @@ texture = ExtResource("5_7enb7")
 [node name="ScanSpotShape" type="CollisionShape2D" parent="Fg/Regiester/ScanSpot/ScanSpotArea" unique_id=691975609]
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_4y6ly")
+
+[node name="ItemDrops" type="Node2D" parent="Fg" unique_id=1262851053]
+visible = false
+
+[node name="Drop0" type="Marker2D" parent="Fg/ItemDrops" unique_id=1330372353]
+position = Vector2(44, 86)
+
+[node name="Drop1" type="Marker2D" parent="Fg/ItemDrops" unique_id=1042847844]
+position = Vector2(29, 86)
+
+[node name="Drop2" type="Marker2D" parent="Fg/ItemDrops" unique_id=2057453444]
+position = Vector2(14, 86)
 
 [node name="Character Stats" parent="." unique_id=1264797244 instance=ExtResource("4_v87v2")]
 z_index = 20
