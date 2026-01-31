@@ -1,3 +1,77 @@
 [gd_scene format=3 uid="uid://d2wig6v3ksphj"]
 
+[ext_resource type="Script" uid="uid://doxe6253y3sku" path="res://Scripts/main_scene.gd" id="1_4y6ly"]
+[ext_resource type="Texture2D" uid="uid://cpspwe73ld65c" path="res://Assets/Art/Background/wall_bg.png" id="1_atbvb"]
+[ext_resource type="Texture2D" uid="uid://ujp8tw0paiu6" path="res://Assets/Art/Background/back_table.png" id="2_ke1vn"]
+[ext_resource type="Texture2D" uid="uid://qd1d050vdn30" path="res://Assets/Art/Background/front_table.png" id="3_v87v2"]
+[ext_resource type="Texture2D" uid="uid://b6ry56fg0rdoj" path="res://Assets/Art/Background/register.png" id="4_156p1"]
+[ext_resource type="PackedScene" uid="uid://05e0gnh4hnan" path="res://Scenes/Character Stats.tscn" id="4_v87v2"]
+[ext_resource type="Texture2D" uid="uid://j7ahjlb32un3" path="res://Assets/Art/Background/scanner_spot.png" id="5_7enb7"]
+[ext_resource type="PackedScene" uid="uid://dfife271rokxq" path="res://Scenes/Customer.tscn" id="7_7enb7"]
+[ext_resource type="PackedScene" uid="uid://yvs2w16l73e7" path="res://Scenes/Dialog.tscn" id="9_105va"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4y6ly"]
+radius = 6.0
+height = 28.0
+
 [node name="Main Scene" type="Node2D" unique_id=125374370]
+script = ExtResource("1_4y6ly")
+
+[node name="Bg" type="Node2D" parent="." unique_id=177786591]
+
+[node name="Background Image" type="TextureRect" parent="Bg" unique_id=198714438]
+offset_right = 240.0
+offset_bottom = 135.0
+texture = ExtResource("1_atbvb")
+metadata/_edit_lock_ = true
+
+[node name="Background Color" type="ColorRect" parent="Bg" unique_id=264494243]
+z_index = -100
+offset_right = 240.0
+offset_bottom = 135.0
+color = Color(0.654902, 0.6509804, 0.67058825, 1)
+metadata/_edit_lock_ = true
+
+[node name="Fg" type="Node2D" parent="." unique_id=180572099]
+z_index = 10
+
+[node name="Table" type="Node2D" parent="Fg" unique_id=1858751311]
+
+[node name="Table Back" type="TextureRect" parent="Fg/Table" unique_id=1438263211]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_ke1vn")
+metadata/_edit_lock_ = true
+
+[node name="Table Front" type="TextureRect" parent="Fg/Table" unique_id=1101406131]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_v87v2")
+metadata/_edit_lock_ = true
+
+[node name="Regiester" type="Sprite2D" parent="Fg" unique_id=57658671]
+position = Vector2(137, 70)
+texture = ExtResource("4_156p1")
+
+[node name="ScanSpot" type="Sprite2D" parent="Fg/Regiester" unique_id=1839340899]
+position = Vector2(-35, 15)
+texture = ExtResource("5_7enb7")
+
+[node name="ScanSpotArea" type="Area2D" parent="Fg/Regiester/ScanSpot" unique_id=859012442]
+
+[node name="ScanSpotShape" type="CollisionShape2D" parent="Fg/Regiester/ScanSpot/ScanSpotArea" unique_id=691975609]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_4y6ly")
+
+[node name="Character Stats" parent="." unique_id=1264797244 instance=ExtResource("4_v87v2")]
+z_index = 20
+position = Vector2(196, 102)
+
+[node name="Customer" parent="." unique_id=1278525423 instance=ExtResource("7_7enb7")]
+position = Vector2(44, 86)
+
+[node name="Dialog" parent="." unique_id=1176274323 instance=ExtResource("9_105va")]
+offset_left = 64.0
+offset_top = -2.0
+offset_right = 155.0
+offset_bottom = 50.0
