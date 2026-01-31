@@ -17,3 +17,5 @@ offset_right = 6.0
 grow_horizontal = 2
 grow_vertical = 0
 color = Color(0, 1, 1, 1)
+
+[connection signal="gui_input" from="ColorRect" to="." method="_on_color_rect_gui_input"]
