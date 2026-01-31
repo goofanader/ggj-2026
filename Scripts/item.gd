@@ -1,5 +1,7 @@
 extends Node2D
 
+signal mistake(type: String)
+
 @export var settle: int = 2 #Initial drop
 @export var fall: int = 75 #Fall speed
 @export var follow_cursor: int = 150 #Speed you can move them
@@ -7,6 +9,7 @@ extends Node2D
 var stop: float
 var held: bool = false
 var hold_point: Vector2
+var scanned: bool
 
 var textures = [
 	preload("res://Assets/Art/Items/Cyber_Circle_Mask.png"),
@@ -20,7 +23,7 @@ var textures = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	scanned = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -56,3 +59,10 @@ func _on_hitbox_input_event(viewport: Node, event: InputEvent, _shape_idx: int) 
 			hold_point = viewport.get_mouse_position()-position
 			$Pickup.play()
 			viewport.set_input_as_handled()
+
+
+func _on_hitbox_area_entered(_area: Area2D) -> void:
+	if not scanned:
+		scanned = true
+	else:
+		mistake.emit("scan")
