@@ -33,7 +33,6 @@ class_name CustomerNode
 ## -----------------------------------------------------------------------------
 
 @export_group("External Data")
-@export var main_node: MainNode
 @export var sprite_frames: SpriteFrames:
 	set(value):
 		sprite_frames = value
@@ -44,10 +43,11 @@ var _mood_level: int
 @export var mood_level: int = 50:
 	set(value):
 		_mood_level = value
-		var mood_ind:int = mood_level_curve.values().find_custom(func(c): return mood_level>=min(c.x,c.y) and mood_level<=max(c.x,c.y))
+		var mood_ind:int = mood_level_curve.values().find_custom(func(c): return _mood_level>=min(c.x,c.y) and _mood_level<=max(c.x,c.y))
 		mood = Mood.keys().find(mood_level_curve.keys()[mood_ind]) as Mood
-		if mood_level > 100:
+		if _mood_level < 0:
 			leave()
+		if _mood_level > 100: _mood_level = 100
 	get():
 		return _mood_level
 
@@ -84,6 +84,16 @@ enum Transitions {Walk,Run,Beam,Blink}
 @export var transition_out: Transitions = Transitions.Walk
 @export var item: Node
 
+## -----------------------------------------------------------------------------
+##             Signals
+## -----------------------------------------------------------------------------
+
+signal leaving(node)
+signal drop_item
+
+## -----------------------------------------------------------------------------
+##             Methods
+## -----------------------------------------------------------------------------
 
 func entered() -> void:
 	place_item()
@@ -95,7 +105,7 @@ func exited() -> void:
 	t.start(1.0)
 
 func place_item() -> void:
-	main_node.drop_items()
+	drop_item.emit()
 
 func play_sound(sound_name:String) -> void:
 	audio_node.stream = audio_files[sound_name]
@@ -115,7 +125,8 @@ func enter() -> void:
 var _is_leaving: bool = false
 func leave() -> void:
 	if _is_leaving: return
-	_is_leaving = true	
+	_is_leaving = true
+	leaving.emit(self)
 	match transition_in:
 		Transitions.Walk:
 			animator.play("Walk Out")
@@ -127,7 +138,7 @@ func leave() -> void:
 			animator.play("Blink Out")
 
 func damage(value:float) -> void:
-	mood_level += roundi(value*mood_scale)
+	mood_level -= roundi(value*mood_scale)
 
 
 func _ready() -> void:
