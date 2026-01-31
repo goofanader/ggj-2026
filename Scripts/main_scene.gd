@@ -9,9 +9,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func drop_items() -> void:
 	#Assuming max items is 3
-	var n_items = 3#randi_range(1,3)
+	var n_items = randi_range(1,3)
 	for i in range(n_items):
 		var item = item_scene.instantiate()
 		item.initialize($Fg/ItemDrops.get_child(i).position)
-		print("Position ",i," ",$Fg/ItemDrops.get_child(i).position) 
 		$Fg.add_child(item)
