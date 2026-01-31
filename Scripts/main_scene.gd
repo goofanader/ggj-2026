@@ -65,3 +65,10 @@ func drop_items() -> void:
 		var item = item_scene.instantiate()
 		item.initialize($Fg/ItemDrops.get_child(i).position)
 		$Fg.add_child(item)
+		item.connect("mistake",on_item_mistake)
+
+func on_item_mistake(type: String) -> void:
+	#TODO: Affect customer mood
+	print("I am very angry")
+	if type == "scan":
+		print("You scanned that item twice")

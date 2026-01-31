@@ -1,27 +1,26 @@
 [gd_scene format=3 uid="uid://rfyl0f42xd2f"]
 
 [ext_resource type="Script" uid="uid://bm2yebf4unob4" path="res://Scripts/item.gd" id="1_3r01x"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_2oiv6"]
+[ext_resource type="Texture2D" uid="uid://bomlcdl4nbd72" path="res://Assets/Art/Items/Cyber_Circle_Mask.png" id="2_6oc8a"]
 [ext_resource type="AudioStream" uid="uid://cjcbc47371the" path="res://Assets/Sounds/Object_Pickup.wav" id="3_08o4a"]
 [ext_resource type="AudioStream" uid="uid://cfstn3lwxg1fo" path="res://Assets/Sounds/Object_Putdown.wav" id="4_6oc8a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_08o4a"]
-size = Vector2(24, 24)
+size = Vector2(20, 19)
 
 [node name="Item" type="Node2D" unique_id=1956444918]
 script = ExtResource("1_3r01x")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1984896446]
-collision_mask = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=122331081]
-position = Vector2(0, -12)
+position = Vector2(0, -10.5)
 shape = SubResource("RectangleShape2D_08o4a")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1937111830]
-position = Vector2(7.1525574e-07, -11.999999)
-scale = Vector2(0.18749999, 0.1875)
-texture = ExtResource("2_2oiv6")
+position = Vector2(0, -10)
+texture = ExtResource("2_6oc8a")
 
 [node name="Pickup" type="AudioStreamPlayer" parent="." unique_id=449928595]
 stream = ExtResource("3_08o4a")
@@ -31,4 +30,5 @@ volume_db = -10.0
 stream = ExtResource("4_6oc8a")
 volume_db = -10.0
 
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="input_event" from="Hitbox" to="." method="_on_hitbox_input_event"]

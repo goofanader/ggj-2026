@@ -8,10 +8,13 @@
 [ext_resource type="SpriteFrames" uid="uid://ig0bwfm563il" path="res://Assets/Art/Characters/customer_test_frames.tres" id="3_1051w"]
 [ext_resource type="Texture2D" uid="uid://qd1d050vdn30" path="res://Assets/Art/Background/front_table.png" id="3_v87v2"]
 [ext_resource type="Texture2D" uid="uid://b6ry56fg0rdoj" path="res://Assets/Art/Background/register.png" id="4_156p1"]
-[ext_resource type="PackedScene" uid="uid://05e0gnh4hnan" path="res://Scenes/UI Scene.tscn" id="4_v87v2"]
+[ext_resource type="PackedScene" path="res://Scenes/UI Scene.tscn" id="4_v87v2"]
 [ext_resource type="Texture2D" uid="uid://j7ahjlb32un3" path="res://Assets/Art/Background/scanner_spot.png" id="5_7enb7"]
 [ext_resource type="PackedScene" uid="uid://dfife271rokxq" path="res://Scenes/Customer.tscn" id="7_7enb7"]
 [ext_resource type="PackedScene" uid="uid://yvs2w16l73e7" path="res://Scenes/Dialog.tscn" id="9_105va"]
+[ext_resource type="Script" uid="uid://dw5l65yena3g6" path="res://Scenes/register.gd" id="9_mlytr"]
+[ext_resource type="AudioStream" uid="uid://b7yo0mbh8h2j0" path="res://Assets/Sounds/Register_Beep.wav" id="11_5ye1r"]
+[ext_resource type="AudioStream" uid="uid://btohdyemvub5e" path="res://Assets/Sounds/Register_Kaching.wav" id="12_5ye1r"]
 
 [sub_resource type="Resource" id="Resource_mlytr"]
 script = ExtResource("2_l533x")
@@ -20,8 +23,8 @@ customer_scene = ExtResource("7_7enb7")
 metadata/_custom_type_script = "uid://4t7ehoq1t80x"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4y6ly"]
-radius = 6.0
-height = 28.0
+radius = 3.0
+height = 18.0
 
 [node name="Main Scene" type="Node2D" unique_id=125374370 node_paths=PackedStringArray("customer_spawn", "customer_nodes")]
 script = ExtResource("1_4y6ly")
@@ -62,20 +65,35 @@ offset_bottom = 40.0
 texture = ExtResource("3_v87v2")
 metadata/_edit_lock_ = true
 
-[node name="Regiester" type="Sprite2D" parent="Fg" unique_id=57658671]
+[node name="Register" type="Sprite2D" parent="Fg" unique_id=57658671]
 position = Vector2(137, 70)
 texture = ExtResource("4_156p1")
+script = ExtResource("9_mlytr")
 
-[node name="ScanSpot" type="Sprite2D" parent="Fg/Regiester" unique_id=1839340899]
+[node name="ScanSpot" type="Sprite2D" parent="Fg/Register" unique_id=1839340899]
 position = Vector2(-35, 15)
 texture = ExtResource("5_7enb7")
 
-[node name="ScanSpotArea" type="Area2D" parent="Fg/Regiester/ScanSpot" unique_id=859012442]
-collision_layer = 0
+[node name="ScanSpotArea" type="Area2D" parent="Fg/Register/ScanSpot" unique_id=859012442]
+collision_layer = 2
 
-[node name="ScanSpotShape" type="CollisionShape2D" parent="Fg/Regiester/ScanSpot/ScanSpotArea" unique_id=691975609]
+[node name="ScanSpotShape" type="CollisionShape2D" parent="Fg/Register/ScanSpot/ScanSpotArea" unique_id=691975609]
+position = Vector2(0, 1)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_4y6ly")
+
+[node name="ClickBox" type="Area2D" parent="Fg/Register" unique_id=619295673]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fg/Register/ClickBox" unique_id=1581214277]
+polygon = PackedVector2Array(-13, 18, -13, -18, 13, -18, 18, -15, 18, -4, 26, 12, 26, 19, -13, 19)
+
+[node name="Beeper" type="AudioStreamPlayer" parent="Fg/Register" unique_id=1662849847]
+stream = ExtResource("11_5ye1r")
+
+[node name="KaChing" type="AudioStreamPlayer" parent="Fg/Register" unique_id=796664077]
+stream = ExtResource("12_5ye1r")
 
 [node name="ItemDrops" type="Node2D" parent="Fg" unique_id=1262851053]
 visible = false
@@ -104,6 +122,9 @@ offset_bottom = 50.0
 
 [node name="CharacterSpawn" type="Marker2D" parent="." unique_id=459509201]
 position = Vector2(44, 86)
+
+[connection signal="area_entered" from="Fg/Register/ScanSpot/ScanSpotArea" to="Fg/Register" method="_on_scan_spot_area_area_entered"]
+[connection signal="input_event" from="Fg/Register/ClickBox" to="Fg/Register" method="_on_click_box_input_event"]
 
 [node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=825516288]
 position = Vector2(103, 64)
