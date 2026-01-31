@@ -99,7 +99,7 @@ func _on_register_scan() -> void:
 
 func _on_register_checkout() -> void:
 	print(customer_nodes)
-	if customer_nodes.size() > 0:
+	if customer_nodes.size() > 0 and items.size() > 0:
 		if scan_number < items.size():
 			customer_nodes[0].damage(30)
 			print("What the heck you didn't scan all my stuff")
