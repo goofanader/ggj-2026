@@ -2,6 +2,7 @@ extends Node
 class_name ItemManager
 
 var items: Dictionary = {} # item id, ItemInfo
+var money_amt = 0
 
 func add_item(item: ItemInfo) -> void:
 	if item == null:
