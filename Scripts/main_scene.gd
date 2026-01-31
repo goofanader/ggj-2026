@@ -52,10 +52,12 @@ func add_customer(customer_node) -> void:
 func remove_customer(customer_node:CustomerNode) -> void:
 	customer_nodes.erase(customer_node)
 	customer_node.leave()
+	clear_items()
 	
 func clear_customers() -> void:
-	for customer_node: CustomerNode in customer_nodes.duplicate():
-		remove_customer(customer_node)
+	if customer_nodes.size() > 0:
+		for customer_node: CustomerNode in customer_nodes.duplicate():
+			remove_customer(customer_node)
 
 ## -----------------------------------------------------------------------------
 ##             Item Methods
@@ -74,11 +76,16 @@ func drop_items() -> void:
 
 
 func _on_item_mistake(type: String) -> void:
-	customer_nodes[0].damage(10) #Apply damage to customer TODO: Fix
+	customer_nodes[0].damage(20)
 	print("I am very angry")
 	if type == "scan":
 		print("You scanned that item twice")
 
+func clear_items() -> void:
+	for item in items:
+		item.disconnect("mistake",_on_item_mistake)
+		item.queue_free()
+	items = []
 
 ## -----------------------------------------------------------------------------
 ##             Signal Methods
@@ -89,12 +96,12 @@ func _on_register_scan() -> void:
 
 
 func _on_register_checkout() -> void:
-	if scan_number < items.size():
-		customer_nodes[0].damage(10) #Apply damage to customer TODO: Fix
-		print("What the heck you didn't scan all my stuff")
-	for item in items:
-		item.disconnect("mistake",_on_item_mistake)
-		item.queue_free()
-	items = []
-	print("Bye Felicia")
-	clear_customers()
+	print(customer_nodes)
+	if customer_nodes.size() > 0:
+		if scan_number < items.size():
+			customer_nodes[0].damage(30)
+			print("What the heck you didn't scan all my stuff")
+		else:
+			print("Bye Felicia")
+			remove_customer(customer_nodes[0])
+		
