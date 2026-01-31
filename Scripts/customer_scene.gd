@@ -85,7 +85,7 @@ func entered() -> void:
 	place_item()
 
 func place_item() -> void:
-	main_node.place_item(item)
+	main_node.drop_items()
 
 
 func enter() -> void:
