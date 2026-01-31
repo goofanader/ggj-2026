@@ -167,5 +167,7 @@ metadata/_custom_type_script = "uid://cdfq424n0esed"
 z_index = 20
 position = Vector2(197, 130)
 
+[connection signal="checkout" from="Fg/Register" to="." method="_on_register_checkout"]
+[connection signal="scan" from="Fg/Register" to="." method="_on_register_scan"]
 [connection signal="area_entered" from="Fg/Register/ScanSpot/ScanSpotArea" to="Fg/Register" method="_on_scan_spot_area_area_entered"]
 [connection signal="input_event" from="Fg/Register/ClickBox" to="Fg/Register" method="_on_click_box_input_event"]
