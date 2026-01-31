@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CustomerData" format=3 uid="uid://d5pgw36jkobl"]
+
+[ext_resource type="PackedScene" uid="uid://dfife271rokxq" path="res://Scenes/Customer.tscn" id="1_idtt8"]
+[ext_resource type="Script" uid="uid://k76i6oltjixx" path="res://Scripts/customer_data.gd" id="1_mmugl"]
+
+[resource]
+script = ExtResource("1_mmugl")
+sprites = null
+starting_mood_range = null
+mood_scale_range = null
+items = null
+customer_scene = ExtResource("1_idtt8")
+metadata/_custom_type_script = "uid://4t7ehoq1t80x"
