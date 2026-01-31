@@ -31,6 +31,11 @@ Quit={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="items"
+2d_physics/layer_2="scanner"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
