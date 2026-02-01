@@ -28,6 +28,7 @@
 [ext_resource type="AudioStream" uid="uid://bt8ff4k6ganh6" path="res://Assets/Sounds/Train_Leaving.wav" id="22_n5ssh"]
 [ext_resource type="AudioStream" uid="uid://xuit6twp15r8" path="res://Assets/Sounds/Train_Overhead.wav" id="23_1n7h2"]
 [ext_resource type="PackedScene" uid="uid://bctllivmcvv5h" path="res://Scenes/Character Stats.tscn" id="25_bgl0a"]
+[ext_resource type="Script" uid="uid://civlgr2erxdai" path="res://Scenes/ui_sounds.gd" id="29_v38rm"]
 
 [sub_resource type="Resource" id="Resource_mlytr"]
 script = ExtResource("2_l533x")
@@ -201,7 +202,7 @@ theme_override_colors/font_color = Color(0.36862746, 0.99215686, 0.96862745, 1)
 theme_override_font_sizes/font_size = 32
 text = "Face Value"
 
-[node name="StartButton" type="Button" parent="MainMenu" unique_id=1836191856]
+[node name="StartButton" type="Button" parent="MainMenu" unique_id=1836191856 groups=["Button"]]
 z_index = 1
 layout_mode = 0
 offset_left = 20.0
@@ -212,7 +213,7 @@ theme_override_colors/font_color = Color(0.8352941, 0.31764707, 0.45882353, 1)
 theme_override_font_sizes/font_size = 10
 text = "Start Game"
 
-[node name="CreditsButton" type="Button" parent="MainMenu" unique_id=635588734]
+[node name="CreditsButton" type="Button" parent="MainMenu" unique_id=635588734 groups=["Button"]]
 z_index = 1
 layout_mode = 0
 offset_left = 19.0
@@ -230,7 +231,7 @@ offset_right = 240.0
 offset_bottom = 135.0
 color = Color(0.23921569, 0.23137255, 0.37254903, 1)
 
-[node name="CreditsBackButton" type="Button" parent="Credits" unique_id=1066826023]
+[node name="CreditsBackButton" type="Button" parent="Credits" unique_id=1066826023 groups=["Button"]]
 z_index = 1
 layout_mode = 0
 offset_right = 8.0
@@ -292,6 +293,10 @@ offset_right = 242.0
 offset_bottom = 103.0
 text = "Yinfinity
 Sound & Art"
+
+[node name="UISounds" type="AudioStreamPlayer" parent="." unique_id=1520807796]
+volume_db = -7.0
+script = ExtResource("29_v38rm")
 
 [connection signal="timeout" from="Bg/Rain/Timer" to="Bg/Rain" method="_on_timer_timeout"]
 [connection signal="checkout" from="Fg/Register" to="." method="_on_register_checkout"]
