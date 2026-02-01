@@ -473,6 +473,7 @@ text = "Volume"
 [connection signal="input_event" from="GameScene/Fg/Register/ClickBox" to="GameScene/Fg/Register" method="_on_click_box_input_event"]
 [connection signal="timeout" from="GameScene/Customer/CustomerTimer" to="." method="_on_customer_timer_timeout"]
 [connection signal="timeout" from="GameScene/Customer/WaitTimer" to="." method="_on_wait_timer_timeout"]
+[connection signal="clicked" from="GameScene/UI/ChoiceBox" to="." method="player_reponse"]
 [connection signal="pressed" from="MainMenu/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MainMenu/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="MainMenu/OptionsButton" to="." method="_on_options_button_pressed"]

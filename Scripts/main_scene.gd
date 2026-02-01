@@ -51,7 +51,6 @@ func _ready() -> void:
 	$MainMenu.visible = true
 	dialog_box.clear_text()
 	choice_box.clear_choices()
-	choice_box.clicked.connect(player_reponse)
 	player.game_over.connect(game_over)
 
 func start_game() -> void:
