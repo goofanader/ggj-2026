@@ -4,8 +4,15 @@ class_name csv_reader
 
 static func load_csv(path: String) -> dialog_resource:
 	var resource = dialog_resource.new()
-	
+	if(resource == null):
+		print("didnt make resource")
+		
+	print("made resource")
 	var file := FileAccess.open(path, FileAccess.READ)
+	
+	if (file == null):
+		push_error("Failed to open CSV: " + path)
+		return resource
 	
 	file.get_csv_line()
 	
@@ -22,7 +29,7 @@ static func load_csv(path: String) -> dialog_resource:
 			choice.damage = int(row[i + 1])
 			choice.annoyance = int(row[i + 2])
 			
-			print("Choice: ", choice.text, "Damage:", choice.damage, "Annoyance:", choice.annoyance)
+			print("Choice: ", choice.text, " Damage: ", choice.damage, " Annoyance: ", choice.annoyance)
 
 			line.choices.append(choice)
 			i += 3

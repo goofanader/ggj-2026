@@ -7,7 +7,9 @@ var dialogue: dialog_resource
 var current: dialogue_lines
 
 func _ready():
+	print("DialogueManager ready")
 	DialogueManager.dialogue = dialogue
+	DialogueManager.start("res://scripts/Dialogue/dialogue.csv")
 	
 func start(csv_path: String) -> void:
 	dialogue = csv_reader.load_csv(csv_path)
@@ -16,9 +18,9 @@ func start(csv_path: String) -> void:
 
 func _play() -> void:
 	if dialogue == null or dialogue.lines.is_empty():
-		print("No lines loaded")
+		push_error("No lines loaded")
 		return
-
+		
 	current = dialogue.lines[randi() % dialogue.lines.size()]
 	line.emit(current)
 	

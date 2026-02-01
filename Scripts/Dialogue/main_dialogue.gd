@@ -19,8 +19,7 @@ func _on_line(next):
 	texty.set_text(next.text)
 	texty.clicked.connect(_on_text_clicked)
 	
-	#await get_tree().process_frame
-	#scroll_container.scroll_vertical = scroll_container.get_v_scroll_bar().max_value
+	await get_tree().process_frame
 
 func _on_text_clicked(texty):
 	texty.queue_free()
