@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://m0ynb0lsrpk"]
 
-[ext_resource type="Script" uid="uid://ws8e522lr8i3" path="res://scripts/choice_text.gd" id="1_iba8c"]
+[ext_resource type="Script" uid="uid://ws8e522lr8i3" path="res://Scripts/choice_text.gd" id="1_iba8c"]
 [ext_resource type="Texture2D" uid="uid://2ymdh0dvvus3" path="res://Assets/Art/UI/Dialog_Frame.png" id="2_iba8c"]
 [ext_resource type="FontFile" uid="uid://dwf2v3x68ys0h" path="res://Assets/Theme and Font/PetitePx.ttf" id="3_kmuuh"]
-[ext_resource type="Shader" uid="uid://duh37qely848e" path="res://Assets/Outline.gdshader" id="4_bjgak"]
+[ext_resource type="Shader" path="res://Assets/Outline.gdshader" id="4_bjgak"]
+[ext_resource type="AudioStream" uid="uid://ddwulfirw0qmn" path="res://Assets/Sounds/Select_4.ogg" id="5_ln77u"]
+[ext_resource type="AudioStream" uid="uid://bb3my2v5kkpnc" path="res://Assets/Sounds/Confirm_1.ogg" id="6_c45gs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s402j"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -110,6 +112,14 @@ color = Color(0.3019608, 0.49019608, 0.35686275, 1)
 [node name="Button" type="Button" parent="MarginContainer2" unique_id=1044754748]
 layout_mode = 2
 flat = true
+
+[node name="Hover" type="AudioStreamPlayer" parent="." unique_id=1983966275]
+stream = ExtResource("5_ln77u")
+volume_db = -7.0
+
+[node name="Choose" type="AudioStreamPlayer" parent="." unique_id=1294729241]
+stream = ExtResource("6_c45gs")
+volume_db = -7.0
 
 [connection signal="mouse_entered" from="MarginContainer2/Button" to="." method="_on_button_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer2/Button" to="." method="_on_button_mouse_exited"]

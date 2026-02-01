@@ -90,6 +90,9 @@ func game_over() -> void:
 	print("You bastards are lucky i need to make rent")
 	$GameOver/GameOverScore.text = "You earned "+str(score)+" credits"
 	$GameOver.visible = true
+	$GameScene/Customer/WaitTimer.stop()
+	$GameScene/Customer/CustomerTimer.stop()
+	$GameScene/Customer/LongWaitTimer.stop()
 	dialog_box.clear_text()
 	choice_box.clear_choices()
 
@@ -234,9 +237,12 @@ func _on_main_menu_button_pressed() -> void:
 
 func _on_click_box_mouse_entered() -> void:	
 	register_sprite.material = register_shader_material
+	$GameScene/UI/UISounds.on_button_hovered()
 
 func _on_click_box_mouse_exited() -> void:	
 	register_sprite.material = null
+
+
 func _on_long_wait_timer_timeout() -> void:
 	$"GameScene/UI/Dialog Box".add_text(waiting_speech[randi()%waiting_speech.size()],DialogBox.Direction.Left,mistake_text_color)
 	emotional_damage(3)

@@ -40,10 +40,12 @@ signal clicked(choice)
 func picked() -> void:
 	print("Clicked Choice: %s"%text)
 	clicked.emit(data)
+	$Choose.play()
 
 
 func _on_button_mouse_entered() -> void:
 	box_button.material = box_button_material
+	$Hover.play()
 
 func _on_button_mouse_exited() -> void:
 	box_button.material = null

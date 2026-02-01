@@ -79,6 +79,7 @@ func _on_hitbox_area_entered(_area: Area2D) -> void:
 
 func _on_hitbox_mouse_entered() -> void:
 	item_sprite.material = item_shader_material
+	$Hover.play()
 
 func _on_hitbox_mouse_exited() -> void:
 	item_sprite.material = null
