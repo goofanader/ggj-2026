@@ -3,8 +3,6 @@ extends AudioStreamPlayer
 var hover_sound = preload("res://Assets/Sounds/Select_4.ogg")
 var press_sound = preload("res://Assets/Sounds/Confirm_1.ogg")
 
-# Instructions: Add buttons to "Button" group and they will make sound!
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var buttons: Array = get_tree().get_nodes_in_group("Button")
