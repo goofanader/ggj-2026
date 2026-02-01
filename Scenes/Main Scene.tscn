@@ -1,32 +1,26 @@
 [gd_scene format=3 uid="uid://d2wig6v3ksphj"]
 
-[ext_resource type="Script" uid="uid://doxe6253y3sku" path="res://Scripts/main_scene.gd" id="1_4y6ly"]
+[ext_resource type="Script" uid="uid://doxe6253y3sku" path="res://scripts/main_scene.gd" id="1_4y6ly"]
 [ext_resource type="PackedScene" uid="uid://rfyl0f42xd2f" path="res://Scenes/Item.tscn" id="2_56oky"]
-[ext_resource type="Resource" uid="uid://by18pcudlsla4" path="res://Scripts/Character Data.tres" id="2_fjyh7"]
+[ext_resource type="Resource" uid="uid://by18pcudlsla4" path="res://scripts/Character Data.tres" id="2_fjyh7"]
 [ext_resource type="Texture2D" uid="uid://ujp8tw0paiu6" path="res://Assets/Art/Background/back_table.png" id="2_ke1vn"]
 [ext_resource type="Texture2D" uid="uid://b6ry56fg0rdoj" path="res://Assets/Art/Background/register.png" id="4_156p1"]
 [ext_resource type="Texture2D" uid="uid://j7ahjlb32un3" path="res://Assets/Art/Background/scanner_spot.png" id="5_7enb7"]
-[ext_resource type="Script" uid="uid://bgccdanfxwkna" path="res://Scripts/FrequentAudioData.gd" id="5_s0c2j"]
 [ext_resource type="Script" uid="uid://cdfq424n0esed" path="res://Scripts/background_sounds.gd" id="5_uctcs"]
 [ext_resource type="Texture2D" uid="uid://1xp7sa4enjc0" path="res://Assets/Art/Background/street.png" id="8_1n7h2"]
-[ext_resource type="Script" uid="uid://dsiwpy0t3rcm4" path="res://Scripts/rain.gd" id="9_777q4"]
-[ext_resource type="Script" uid="uid://dw5l65yena3g6" path="res://Scripts/register.gd" id="9_mlytr"]
+[ext_resource type="Script" uid="uid://dsiwpy0t3rcm4" path="res://scripts/rain.gd" id="9_777q4"]
+[ext_resource type="Script" uid="uid://dw5l65yena3g6" path="res://scripts/register.gd" id="9_mlytr"]
 [ext_resource type="PackedScene" uid="uid://dxkajydmw3b80" path="res://Scenes/rain_drop.tscn" id="10_n5ssh"]
 [ext_resource type="AudioStream" uid="uid://b7yo0mbh8h2j0" path="res://Assets/Sounds/Register_Beep.wav" id="11_5ye1r"]
 [ext_resource type="Texture2D" uid="uid://bxubgsq3bmdbn" path="res://Assets/Art/Background/back_wall.png" id="11_v38rm"]
 [ext_resource type="AudioStream" uid="uid://btohdyemvub5e" path="res://Assets/Sounds/Register_Kaching.wav" id="12_5ye1r"]
 [ext_resource type="Texture2D" uid="uid://dy6n5gvk4rihg" path="res://Assets/Art/Background/table_front.png" id="13_fjyh7"]
 [ext_resource type="AudioStream" uid="uid://b26oyhgbm2dpi" path="res://Assets/Sounds/Background_Loop.ogg" id="17_mtrcc"]
-[ext_resource type="AudioStream" uid="uid://b8ik7htsx2j7g" path="res://Assets/Sounds/Bustling_People.wav" id="19_moxyw"]
-[ext_resource type="AudioStream" uid="uid://cpklr4e6fipph" path="res://Assets/Sounds/Siren_Close.wav" id="20_bgl0a"]
-[ext_resource type="AudioStream" uid="uid://dqb0tvtrm0wix" path="res://Assets/Sounds/Siren_Far.wav" id="21_777q4"]
-[ext_resource type="AudioStream" uid="uid://bt8ff4k6ganh6" path="res://Assets/Sounds/Train_Leaving.wav" id="22_n5ssh"]
-[ext_resource type="AudioStream" uid="uid://xuit6twp15r8" path="res://Assets/Sounds/Train_Overhead.wav" id="23_1n7h2"]
+[ext_resource type="Shader" uid="uid://duh37qely848e" path="res://Assets/Outline.gdshader" id="20_laryo"]
 [ext_resource type="PackedScene" uid="uid://bctllivmcvv5h" path="res://Scenes/Character Stats.tscn" id="25_bgl0a"]
-[ext_resource type="AudioStream" uid="uid://qg8f6y2koavf" path="res://Assets/Sounds/Welding_Sparks.wav" id="28_qf2de"]
-[ext_resource type="Script" uid="uid://civlgr2erxdai" path="res://Scripts/ui_sounds.gd" id="29_v38rm"]
+[ext_resource type="Script" uid="uid://civlgr2erxdai" path="res://scripts/ui_sounds.gd" id="29_v38rm"]
 [ext_resource type="AudioStream" uid="uid://5h56gmnlubea" path="res://Assets/Sounds/Track_8.ogg" id="30_fjyh7"]
-[ext_resource type="Script" uid="uid://dcb1dchykhvg8" path="res://Scripts/volume_slider.gd" id="30_laryo"]
+[ext_resource type="Script" uid="uid://dcb1dchykhvg8" path="res://scripts/volume_slider.gd" id="30_laryo"]
 [ext_resource type="Theme" uid="uid://dr0407s0ett1j" path="res://Assets/Theme and Font/font_theme.tres" id="30_qf2de"]
 [ext_resource type="FontFile" uid="uid://xw3mwauixwlx" path="res://Assets/Theme and Font/TeenyPx.ttf" id="30_qmgfp"]
 [ext_resource type="PackedScene" uid="uid://w3nj60ktwukq" path="res://Scenes/Dialog Box.tscn" id="34_b8f0w"]
@@ -39,40 +33,39 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Resource" id="Resource_v38rm"]
-script = ExtResource("5_s0c2j")
-audio_track = ExtResource("19_moxyw")
-
-[sub_resource type="Resource" id="Resource_fjyh7"]
-script = ExtResource("5_s0c2j")
-audio_track = ExtResource("20_bgl0a")
-period = Vector2i(120, 240)
-
-[sub_resource type="Resource" id="Resource_qf2de"]
-script = ExtResource("5_s0c2j")
-audio_track = ExtResource("21_777q4")
-period = Vector2i(60, 120)
-
-[sub_resource type="Resource" id="Resource_laryo"]
-script = ExtResource("5_s0c2j")
-audio_track = ExtResource("22_n5ssh")
-period = Vector2i(90, 180)
-
-[sub_resource type="Resource" id="Resource_qmgfp"]
-script = ExtResource("5_s0c2j")
-audio_track = ExtResource("23_1n7h2")
-period = Vector2i(60, 120)
-
-[sub_resource type="Resource" id="Resource_b8f0w"]
-script = ExtResource("5_s0c2j")
-audio_track = ExtResource("28_qf2de")
-period = Vector2i(10, 30)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_laryo"]
+shader = ExtResource("20_laryo")
+shader_parameter/color = Color(0.19607843, 0.19215687, 0.23137255, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b8f0w"]
+shader = ExtResource("20_laryo")
+shader_parameter/color = Color(0.32941177, 0.6509804, 0.41568628, 0)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4y6ly"]
 radius = 3.0
 height = 18.0
+
+[sub_resource type="GDScript" id="GDScript_laryo"]
+script/source = "extends Node2D
+
+@onready var shader_material := material as ShaderMaterial
+			
+func _on_mouse_hover() -> void:
+	shader_material.set_shader_parameter(\"enabled\", true)
+
+func _on_mouse_exited() -> void:
+	shader_material.set_shader_parameter(\"enabled\", false)
+"
 
 [node name="Main Scene" type="Node2D" unique_id=125374370 node_paths=PackedStringArray("customer_spawn", "player", "dialog_box", "choice_box")]
 script = ExtResource("1_4y6ly")
@@ -113,7 +106,6 @@ metadata/_edit_lock_ = true
 [node name="BackgroundSoundPlayer" type="Node" parent="GameScene/Bg" unique_id=944899967]
 script = ExtResource("5_uctcs")
 looping_audio_tracks = Array[AudioStream]([ExtResource("17_mtrcc")])
-frequent_audio_tracks = Array[ExtResource("5_s0c2j")]([SubResource("Resource_v38rm"), SubResource("Resource_fjyh7"), SubResource("Resource_qf2de"), SubResource("Resource_laryo"), SubResource("Resource_qmgfp"), SubResource("Resource_b8f0w")])
 
 [node name="Music" type="AudioStreamPlayer" parent="GameScene/Bg" unique_id=1151610429]
 stream = ExtResource("30_fjyh7")
@@ -145,6 +137,7 @@ texture = ExtResource("4_156p1")
 script = ExtResource("9_mlytr")
 
 [node name="ScanSpot" type="Sprite2D" parent="GameScene/Fg/Register" unique_id=1839340899]
+material = SubResource("ShaderMaterial_b8f0w")
 position = Vector2(-35, 15)
 texture = ExtResource("5_7enb7")
 
@@ -159,6 +152,7 @@ shape = SubResource("CapsuleShape2D_4y6ly")
 [node name="ClickBox" type="Area2D" parent="GameScene/Fg/Register" unique_id=619295673]
 collision_layer = 4
 collision_mask = 0
+script = SubResource("GDScript_laryo")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GameScene/Fg/Register/ClickBox" unique_id=1581214277]
 polygon = PackedVector2Array(-13, 18, -13, -18, 13, -18, 18, -15, 18, -4, 26, 12, 26, 19, -13, 19)
@@ -192,6 +186,9 @@ wait_time = 3.0
 one_shot = true
 
 [node name="WaitTimer" type="Timer" parent="GameScene/Customer" unique_id=78673344]
+
+[node name="LongWaitTimer" type="Timer" parent="GameScene/Customer" unique_id=348881625]
+wait_time = 8.0
 
 [node name="UI" type="Node2D" parent="GameScene" unique_id=271245212]
 
@@ -302,10 +299,10 @@ color = Color(0, 0, 0, 0.8784314)
 [node name="Title" type="Label" parent="GameOver" unique_id=2046216672]
 layout_mode = 0
 offset_left = 25.0
-offset_top = 10.0
+offset_top = -3.0
 offset_right = 217.0
-offset_bottom = 65.0
-theme_override_colors/font_color = Color(0.36862746, 0.99215686, 0.96862745, 1)
+offset_bottom = 52.0
+theme_override_colors/font_color = Color(0.8352941, 0.31764707, 0.45882353, 1)
 theme_override_fonts/font = ExtResource("35_lmxys")
 theme_override_font_sizes/font_size = 64
 text = "Game Over"
@@ -314,11 +311,11 @@ horizontal_alignment = 1
 [node name="MainMenuButton" type="Button" parent="GameOver" unique_id=920694157 groups=["Button"]]
 z_index = 1
 layout_mode = 0
-offset_left = 68.0
-offset_top = 79.0
-offset_right = 173.0
-offset_bottom = 101.0
-theme_override_colors/font_color = Color(0.8352941, 0.31764707, 0.45882353, 1)
+offset_left = 67.0
+offset_top = 81.0
+offset_right = 172.0
+offset_bottom = 103.0
+theme_override_colors/font_color = Color(0.2901961, 0.8156863, 0.8862745, 1)
 theme_override_fonts/font = ExtResource("35_lmxys")
 theme_override_font_sizes/font_size = 16
 text = "Return to Main Menu?"
@@ -327,9 +324,9 @@ text = "Return to Main Menu?"
 z_index = 1
 layout_mode = 0
 offset_left = 96.0
-offset_top = 99.0
+offset_top = 104.0
 offset_right = 139.0
-offset_bottom = 121.0
+offset_bottom = 126.0
 theme_override_colors/font_color = Color(0.36862746, 0.99215686, 0.5529412, 1)
 theme_override_fonts/font = ExtResource("35_lmxys")
 theme_override_font_sizes/font_size = 16
@@ -337,14 +334,24 @@ text = "Credits"
 
 [node name="Funny" type="Label" parent="GameOver" unique_id=1428474594]
 layout_mode = 0
-offset_left = -284.0
-offset_top = 62.0
-offset_right = 528.0
-offset_bottom = 79.0
-theme_override_colors/font_color = Color(0.99215686, 0.99607843, 0.5372549, 1)
+offset_left = 1.0
+offset_top = 64.0
+offset_right = 239.0
+offset_bottom = 81.0
+theme = ExtResource("30_qf2de")
+theme_override_colors/font_color = Color(0.99215686, 0.36862746, 0.39215687, 1)
 theme_override_fonts/font = ExtResource("30_qmgfp")
-text = "Ugh.. you bastards are lucky that I need to pay rent..."
+text = "UGH.. YOU BOZOS ARE LUCKY THAT I NEED TO PAY RENT"
 horizontal_alignment = 1
+
+[node name="GameOverScore" type="Label" parent="GameOver" unique_id=1443951766]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 47.0
+offset_right = 162.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(0.99215686, 0.99607843, 0.5372549, 1)
+text = "You earned 0 credits"
 
 [node name="Credits" type="ColorRect" parent="." unique_id=1504391242]
 visible = false
@@ -473,8 +480,12 @@ text = "Volume"
 [connection signal="scan" from="GameScene/Fg/Register" to="." method="_on_register_scan"]
 [connection signal="area_entered" from="GameScene/Fg/Register/ScanSpot/ScanSpotArea" to="GameScene/Fg/Register" method="_on_scan_spot_area_area_entered"]
 [connection signal="input_event" from="GameScene/Fg/Register/ClickBox" to="GameScene/Fg/Register" method="_on_click_box_input_event"]
+[connection signal="mouse_entered" from="GameScene/Fg/Register/ClickBox" to="." method="_on_click_box_mouse_entered"]
+[connection signal="mouse_exited" from="GameScene/Fg/Register/ClickBox" to="." method="_on_click_box_mouse_exited"]
 [connection signal="timeout" from="GameScene/Customer/CustomerTimer" to="." method="_on_customer_timer_timeout"]
 [connection signal="timeout" from="GameScene/Customer/WaitTimer" to="." method="_on_wait_timer_timeout"]
+[connection signal="timeout" from="GameScene/Customer/LongWaitTimer" to="." method="_on_long_wait_timer_timeout"]
+[connection signal="clicked" from="GameScene/UI/ChoiceBox" to="." method="player_reponse"]
 [connection signal="pressed" from="MainMenu/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MainMenu/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="MainMenu/OptionsButton" to="." method="_on_options_button_pressed"]

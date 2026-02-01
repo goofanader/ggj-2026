@@ -5,6 +5,8 @@ signal mistake(type: String)
 @export var settle: int = 2 #Initial drop
 @export var fall: int = 75 #Fall speed
 @export var follow_cursor: int = 150 #Speed you can move them
+@onready var item_sprite := $Sprite2D
+@onready var item_shader_material := item_sprite.material as ShaderMaterial
 
 var stop: float
 var held: bool = false
@@ -18,12 +20,19 @@ var textures = [
 	preload("res://Assets/Art/Items/Masquerade_Mask.png"),
 	preload("res://Assets/Art/Items/Oni_Mask.png"),
 	preload("res://Assets/Art/Items/skull.png"),
-	preload("res://Assets/Art/Items/Scuba_Mask.png")
+	preload("res://Assets/Art/Items/Scuba_Mask.png"),
+	preload("res://Assets/Art/Items/Doll_Mask.png"),
+	preload("res://Assets/Art/Items/Fish_Mask.png"),
+	preload("res://Assets/Art/Items/Vendetta_Neon_Mask.png"),
+	preload("res://Assets/Art/Items/Angel_Mask.png"),
+	preload("res://Assets/Art/Items/Alien_Mask.png"),
+	preload("res://Assets/Art/Items/Egypt_Mask.png"),
 ]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	scanned = false
+	item_sprite.material = null
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -66,3 +75,10 @@ func _on_hitbox_area_entered(_area: Area2D) -> void:
 		scanned = true
 	else:
 		mistake.emit("scan")
+
+
+func _on_hitbox_mouse_entered() -> void:
+	item_sprite.material = item_shader_material
+
+func _on_hitbox_mouse_exited() -> void:
+	item_sprite.material = null

@@ -12,6 +12,9 @@ class_name ChoiceText
 @export var player_damage: int = 0
 @export var customer_damage: int = 0
 
+@onready var box_button := $MarginContainer3/NinePatchRect
+@onready var box_button_material := box_button.material as ShaderMaterial
+
 var data: ChoiceData
 
 func load_data(data_:ChoiceData) -> void:
@@ -21,6 +24,9 @@ func load_data(data_:ChoiceData) -> void:
 	player_damage = data.player_damage
 	customer_damage = data.customer_damage
 
+
+func _ready() -> void:
+	box_button.material = null
 
 signal clicked(choice)
 
@@ -34,3 +40,10 @@ signal clicked(choice)
 func picked() -> void:
 	print("Clicked Choice: %s"%text)
 	clicked.emit(data)
+
+
+func _on_button_mouse_entered() -> void:
+	box_button.material = box_button_material
+
+func _on_button_mouse_exited() -> void:
+	box_button.material = null
