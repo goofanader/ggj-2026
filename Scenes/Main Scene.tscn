@@ -28,7 +28,9 @@
 [ext_resource type="AudioStream" uid="uid://bt8ff4k6ganh6" path="res://Assets/Sounds/Train_Leaving.wav" id="22_n5ssh"]
 [ext_resource type="AudioStream" uid="uid://xuit6twp15r8" path="res://Assets/Sounds/Train_Overhead.wav" id="23_1n7h2"]
 [ext_resource type="PackedScene" uid="uid://bctllivmcvv5h" path="res://Scenes/Character Stats.tscn" id="25_bgl0a"]
+[ext_resource type="AudioStream" uid="uid://qg8f6y2koavf" path="res://Assets/Sounds/Welding_Sparks.wav" id="28_qf2de"]
 [ext_resource type="Script" uid="uid://civlgr2erxdai" path="res://Scenes/ui_sounds.gd" id="29_v38rm"]
+[ext_resource type="AudioStream" uid="uid://5h56gmnlubea" path="res://Assets/Sounds/Track_8.ogg" id="30_fjyh7"]
 
 [sub_resource type="Resource" id="Resource_mlytr"]
 script = ExtResource("2_l533x")
@@ -53,18 +55,27 @@ audio_track = ExtResource("19_moxyw")
 [sub_resource type="Resource" id="Resource_fjyh7"]
 script = ExtResource("5_s0c2j")
 audio_track = ExtResource("20_bgl0a")
+period = Vector2i(120, 240)
 
 [sub_resource type="Resource" id="Resource_qf2de"]
 script = ExtResource("5_s0c2j")
 audio_track = ExtResource("21_777q4")
+period = Vector2i(60, 120)
 
 [sub_resource type="Resource" id="Resource_laryo"]
 script = ExtResource("5_s0c2j")
 audio_track = ExtResource("22_n5ssh")
+period = Vector2i(90, 180)
 
 [sub_resource type="Resource" id="Resource_qmgfp"]
 script = ExtResource("5_s0c2j")
 audio_track = ExtResource("23_1n7h2")
+period = Vector2i(60, 120)
+
+[sub_resource type="Resource" id="Resource_b8f0w"]
+script = ExtResource("5_s0c2j")
+audio_track = ExtResource("28_qf2de")
+period = Vector2i(10, 30)
 
 [node name="Main Scene" type="Node2D" unique_id=125374370 node_paths=PackedStringArray("customer_spawn", "player")]
 script = ExtResource("1_4y6ly")
@@ -173,7 +184,7 @@ position = Vector2(103, 64)
 [node name="BackgroundSoundPlayer" type="Node" parent="." unique_id=944899967]
 script = ExtResource("5_uctcs")
 looping_audio_tracks = Array[AudioStream]([ExtResource("17_mtrcc")])
-frequent_audio_tracks = Array[ExtResource("5_s0c2j")]([SubResource("Resource_v38rm"), SubResource("Resource_fjyh7"), SubResource("Resource_qf2de"), SubResource("Resource_laryo"), SubResource("Resource_qmgfp")])
+frequent_audio_tracks = Array[ExtResource("5_s0c2j")]([SubResource("Resource_v38rm"), SubResource("Resource_fjyh7"), SubResource("Resource_qf2de"), SubResource("Resource_laryo"), SubResource("Resource_qmgfp"), SubResource("Resource_b8f0w")])
 
 [node name="Character Stats" parent="." unique_id=1264797244 instance=ExtResource("25_bgl0a")]
 z_index = 20
@@ -297,6 +308,12 @@ Sound & Art"
 [node name="UISounds" type="AudioStreamPlayer" parent="." unique_id=1520807796]
 volume_db = -7.0
 script = ExtResource("29_v38rm")
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1151610429]
+stream = ExtResource("30_fjyh7")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
 
 [connection signal="timeout" from="Bg/Rain/Timer" to="Bg/Rain" method="_on_timer_timeout"]
 [connection signal="checkout" from="Fg/Register" to="." method="_on_register_checkout"]
