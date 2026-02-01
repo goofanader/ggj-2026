@@ -317,11 +317,11 @@ text = "Credits"
 
 [node name="Funny" type="Label" parent="GameOver" unique_id=1428474594]
 layout_mode = 0
-offset_left = -283.0
+offset_left = -284.0
 offset_top = 62.0
-offset_right = 529.0
+offset_right = 528.0
 offset_bottom = 79.0
-theme_override_colors/font_color = Color(0.36862746, 0.99215686, 0.96862745, 1)
+theme_override_colors/font_color = Color(0.99215686, 0.99607843, 0.5372549, 1)
 theme_override_fonts/font = ExtResource("35_lmxys")
 theme_override_font_sizes/font_size = 15
 text = "Ugh.. you bastards are lucky that I need to pay rent..."
