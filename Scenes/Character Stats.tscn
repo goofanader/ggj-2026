@@ -28,8 +28,8 @@ metadata/_edit_use_anchors_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1938157375]
 position = Vector2(-1, -32)
 sprite_frames = ExtResource("2_4kaq4")
-animation = &"Angry"
-frame_progress = 0.8097742
+animation = &"Sad"
+frame_progress = 0.98919594
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1475072478]
 offset_left = -23.0
