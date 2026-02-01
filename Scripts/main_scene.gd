@@ -13,6 +13,8 @@ var customer_leaving_early_damage: float = 15.0
 var replay = false
 @export var customer_text_color: Color = Color(0.314, 0.475, 0.592, 1.0)
 @export var player_text_color: Color = Color(0.302, 0.49, 0.357, 1.0)
+@export var mistake_text_color: Color = Color(0.835, 0.318, 0.459, 1.0)
+var score: int
 
 ## -----------------------------------------------------------------------------
 ##             Node Attachements
@@ -54,6 +56,7 @@ func _ready() -> void:
 
 func start_game() -> void:
 	$GameScene/Customer/CustomerTimer.start()
+	score = 0
 
 func game_over() -> void:
 	print("You bastards are lucky i need to make rent")
@@ -139,7 +142,7 @@ func drop_items() -> void:
 func _on_item_mistake(type: String) -> void:
 	customer_nodes[0].damage(20)
 	if type == "scan":
-		print("You scanned that item twice")
+		$"GameScene/UI/Dialog Box".add_text("Oi, you scanned that twice.",DialogBox.Direction.Left,mistake_text_color)
 
 func clear_items() -> void:
 	for item in items:
@@ -156,14 +159,14 @@ func _on_register_scan() -> void:
 
 
 func _on_register_checkout() -> void:
-	print(customer_nodes)
 	if customer_nodes.size() > 0 and items.size() > 0:
 		if scan_number < items.size():
-			customer_nodes[0].damage(30)
-			print("What the heck you didn't scan all my stuff")
+			customer_nodes[0].damage(25)
+			$"GameScene/UI/Dialog Box".add_text("Hey, you didn't scan all my stuff.",DialogBox.Direction.Left,mistake_text_color)
 		else:
+			score += 100 * items.size() # 100 credits per item?
+			$GameScene/UI/Score/CreditScore.text = "Credits: "+str(score)
 			remove_customer(customer_nodes[0])
-		
 
 
 func _on_customer_timer_timeout() -> void:
