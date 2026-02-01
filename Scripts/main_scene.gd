@@ -145,3 +145,9 @@ func _on_credits_button_pressed() -> void:
 
 func _on_credits_back_button_pressed() -> void:
 	$Credits.visible = false
+
+func _on_options_back_button_pressed() -> void:
+	$Options.visible = false
+
+func _on_options_button_pressed() -> void:
+	$Options.visible = true
