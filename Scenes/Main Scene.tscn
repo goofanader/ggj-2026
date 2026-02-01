@@ -195,7 +195,7 @@ one_shot = true
 [node name="WaitTimer" type="Timer" parent="GameScene/Customer" unique_id=78673344]
 
 [node name="LongWaitTimer" type="Timer" parent="GameScene/Customer" unique_id=348881625]
-wait_time = 8.0
+wait_time = 9.0
 
 [node name="UI" type="Node2D" parent="GameScene" unique_id=271245212]
 
