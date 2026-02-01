@@ -15,7 +15,7 @@
 [ext_resource type="SpriteFrames" uid="uid://borlb3ab3ej5x" path="res://Assets/Art/Characters/robot_frames.tres" id="6_777q4"]
 [ext_resource type="PackedScene" uid="uid://dfife271rokxq" path="res://Scenes/Customer.tscn" id="7_7enb7"]
 [ext_resource type="PackedScene" uid="uid://yvs2w16l73e7" path="res://Scenes/Dialog.tscn" id="9_105va"]
-[ext_resource type="Script" uid="uid://dw5l65yena3g6" path="res://Scenes/register.gd" id="9_mlytr"]
+[ext_resource type="Script" uid="uid://dw5l65yena3g6" path="res://Scripts/register.gd" id="9_mlytr"]
 [ext_resource type="AudioStream" uid="uid://b7yo0mbh8h2j0" path="res://Assets/Sounds/Register_Beep.wav" id="11_5ye1r"]
 [ext_resource type="AudioStream" uid="uid://btohdyemvub5e" path="res://Assets/Sounds/Register_Kaching.wav" id="12_5ye1r"]
 [ext_resource type="AudioStream" uid="uid://b26oyhgbm2dpi" path="res://Assets/Sounds/Background_Loop.ogg" id="17_mtrcc"]
@@ -61,11 +61,13 @@ script = ExtResource("5_s0c2j")
 audio_track = ExtResource("23_1n7h2")
 metadata/_custom_type_script = "uid://bgccdanfxwkna"
 
-[node name="Main Scene" type="Node2D" unique_id=125374370 node_paths=PackedStringArray("customer_spawn")]
+[node name="Main Scene" type="Node2D" unique_id=125374370 node_paths=PackedStringArray("customer_spawn", "player", "customer_nodes")]
 script = ExtResource("1_4y6ly")
 customer_data = SubResource("Resource_mlytr")
 customer_spawn = NodePath("CharacterSpawn")
 item_scene = ExtResource("2_56oky")
+player = NodePath("Character Stats")
+customer_nodes = [NodePath("Customer")]
 
 [node name="Bg" type="Node2D" parent="." unique_id=177786591]
 

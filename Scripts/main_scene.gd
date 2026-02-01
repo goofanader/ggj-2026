@@ -17,7 +17,7 @@ var scan_number: int
 @export_group("Attachments")
 @export var customer_spawn: Marker2D
 @export var item_scene: PackedScene
-@export var background_audio_node: BackgroundSoundPlayer
+@export var player: CharacterStats
 
 ## -----------------------------------------------------------------------------
 ##             Input
