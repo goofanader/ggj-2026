@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="dialog_resource" format=3 uid="uid://d3u7117wnykut"]
+
+[ext_resource type="Script" uid="uid://dvhq6ljyr07i0" path="res://scripts/Dialogue/dialogue_lines.gd" id="1_y4b6u"]
+[ext_resource type="Script" uid="uid://g5w2k2iarl1k" path="res://scripts/Dialogue/dialog_resource.gd" id="2_k8h3d"]
+
+[resource]
+script = ExtResource("2_k8h3d")
+csv_path = "res://scripts/Dialogue/dialogue.csv"
+metadata/_custom_type_script = "uid://g5w2k2iarl1k"

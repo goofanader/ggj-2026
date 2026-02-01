@@ -1,6 +1,8 @@
 extends Node
 
-func load_csv(path: String) -> dialog_resource:
+class_name csv_reader
+
+static func load_csv(path: String) -> dialog_resource:
 	var resource = dialog_resource.new()
 	
 	var file := FileAccess.open(path, FileAccess.READ)
@@ -9,15 +11,22 @@ func load_csv(path: String) -> dialog_resource:
 	
 	while not file.eof_reached():
 		var row := file.get_csv_line()
-		var j := dialogue_choices.new()
 		
 		var line := dialogue_lines.new()
+		line.text = row[0]
 		
-		for i in range(row):
-			j[i].text = row[i]
-			j[i].damage = row[i+1]
-			j[i].annoyance = row[i+2]
+		var i := 1
+		while i + 2 < row.size():
+			var choice := dialogue_choices.new()
+			choice.text = row[i]
+			choice.damage = int(row[i + 1])
+			choice.annoyance = int(row[i + 2])
 			
-			resource.lines.append(j)
+			print("Choice: ", choice.text, "Damage:", choice.damage, "Annoyance:", choice.annoyance)
+
+			line.choices.append(choice)
+			i += 3
+		resource.lines.append(line) 
 			
+	print("successfully loaded")
 	return resource

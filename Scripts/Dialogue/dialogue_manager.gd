@@ -1,32 +1,26 @@
 extends Node
 
-signal line(step)
-signal choice(step)
+signal line(line: dialogue_lines)
+signal choice(choice: dialogue_choices)
 
-var data := []
-var i := 0
+var dialogue: dialog_resource
+var current: dialogue_lines
 
-func start(d):
-	data = d
-	i = 0
-	_play()
+func _ready():
+	DialogueManager.dialogue = dialogue
 	
-func _play():
-	if i >= data.size():
+func start(csv_path: String) -> void:
+	dialogue = csv_reader.load_csv(csv_path)
+	print("Csv loaded")
+	_play()
+
+func _play() -> void:
+	if dialogue == null or dialogue.lines.is_empty():
+		print("No lines loaded")
 		return
 
-	var next = data[i]
+	current = dialogue.lines[randi() % dialogue.lines.size()]
+	line.emit(current)
 	
-	if next.has("talking"):
-		line.emit(next)
-	elif next.has("choice"):
-		choice.emit(next)
-
-func next():
-	i+=1
-	_play()
-	
-#func completed()
-	
-func choices(i: int) -> void:
-	return
+func choose(i: int) -> void:
+	choice.emit(current.choices[i])

@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://b6ry56fg0rdoj" path="res://Assets/Art/Background/register.png" id="4_156p1"]
 [ext_resource type="Texture2D" uid="uid://j7ahjlb32un3" path="res://Assets/Art/Background/scanner_spot.png" id="5_7enb7"]
 [ext_resource type="SpriteFrames" uid="uid://peoq2t8hhfx6" path="res://Assets/Art/Characters/eye_girl_frames.tres" id="5_bgl0a"]
-[ext_resource type="Script" uid="uid://bgccdanfxwkna" path="res://Scripts/FrequentAudioData.gd" id="5_s0c2j"]
 [ext_resource type="Script" uid="uid://cdfq424n0esed" path="res://Scripts/background_sounds.gd" id="5_uctcs"]
 [ext_resource type="SpriteFrames" uid="uid://borlb3ab3ej5x" path="res://Assets/Art/Characters/robot_frames.tres" id="6_777q4"]
 [ext_resource type="PackedScene" uid="uid://dfife271rokxq" path="res://Scenes/Customer.tscn" id="7_7enb7"]
@@ -19,11 +18,6 @@
 [ext_resource type="AudioStream" uid="uid://b7yo0mbh8h2j0" path="res://Assets/Sounds/Register_Beep.wav" id="11_5ye1r"]
 [ext_resource type="AudioStream" uid="uid://btohdyemvub5e" path="res://Assets/Sounds/Register_Kaching.wav" id="12_5ye1r"]
 [ext_resource type="AudioStream" uid="uid://b26oyhgbm2dpi" path="res://Assets/Sounds/Background_Loop.ogg" id="17_mtrcc"]
-[ext_resource type="AudioStream" uid="uid://b8ik7htsx2j7g" path="res://Assets/Sounds/Bustling_People.wav" id="19_moxyw"]
-[ext_resource type="AudioStream" uid="uid://cpklr4e6fipph" path="res://Assets/Sounds/Siren_Close.wav" id="20_bgl0a"]
-[ext_resource type="AudioStream" uid="uid://dqb0tvtrm0wix" path="res://Assets/Sounds/Siren_Far.wav" id="21_777q4"]
-[ext_resource type="AudioStream" uid="uid://bt8ff4k6ganh6" path="res://Assets/Sounds/Train_Leaving.wav" id="22_n5ssh"]
-[ext_resource type="AudioStream" uid="uid://xuit6twp15r8" path="res://Assets/Sounds/Train_Overhead.wav" id="23_1n7h2"]
 [ext_resource type="PackedScene" uid="uid://bctllivmcvv5h" path="res://Scenes/Character Stats.tscn" id="25_bgl0a"]
 
 [sub_resource type="Resource" id="Resource_mlytr"]
@@ -35,31 +29,6 @@ metadata/_custom_type_script = "uid://4t7ehoq1t80x"
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4y6ly"]
 radius = 3.0
 height = 18.0
-
-[sub_resource type="Resource" id="Resource_v38rm"]
-script = ExtResource("5_s0c2j")
-audio_track = ExtResource("19_moxyw")
-metadata/_custom_type_script = "uid://bgccdanfxwkna"
-
-[sub_resource type="Resource" id="Resource_fjyh7"]
-script = ExtResource("5_s0c2j")
-audio_track = ExtResource("20_bgl0a")
-metadata/_custom_type_script = "uid://bgccdanfxwkna"
-
-[sub_resource type="Resource" id="Resource_qf2de"]
-script = ExtResource("5_s0c2j")
-audio_track = ExtResource("21_777q4")
-metadata/_custom_type_script = "uid://bgccdanfxwkna"
-
-[sub_resource type="Resource" id="Resource_laryo"]
-script = ExtResource("5_s0c2j")
-audio_track = ExtResource("22_n5ssh")
-metadata/_custom_type_script = "uid://bgccdanfxwkna"
-
-[sub_resource type="Resource" id="Resource_qmgfp"]
-script = ExtResource("5_s0c2j")
-audio_track = ExtResource("23_1n7h2")
-metadata/_custom_type_script = "uid://bgccdanfxwkna"
 
 [node name="Main Scene" type="Node2D" unique_id=125374370 node_paths=PackedStringArray("customer_spawn", "player")]
 script = ExtResource("1_4y6ly")
@@ -157,7 +126,6 @@ position = Vector2(103, 64)
 [node name="BackgroundSoundPlayer" type="Node" parent="." unique_id=944899967]
 script = ExtResource("5_uctcs")
 looping_audio_tracks = Array[AudioStream]([ExtResource("17_mtrcc")])
-frequent_audio_tracks = [SubResource("Resource_v38rm"), SubResource("Resource_fjyh7"), SubResource("Resource_qf2de"), SubResource("Resource_laryo"), SubResource("Resource_qmgfp")]
 
 [node name="Character Stats" parent="." unique_id=1264797244 instance=ExtResource("25_bgl0a")]
 z_index = 20
