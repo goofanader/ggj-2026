@@ -88,7 +88,7 @@ func start_game() -> void:
 
 func game_over() -> void:
 	print("You bastards are lucky i need to make rent")
-	$GameOver/GameOverScore.text = "You earned "+str(score)+" credits"
+	$GameOver/GameOverScore.text = "You earned "+str(score)+" chips"
 	$GameOver.visible = true
 	$GameScene/Customer/WaitTimer.stop()
 	$GameScene/Customer/CustomerTimer.stop()
@@ -206,7 +206,7 @@ func _on_register_checkout() -> void:
 			emotional_damage(3)
 		else:
 			score += 100 * items.size() # 100 credits per item?
-			$GameScene/UI/Score/CreditScore.text = "Credits: "+str(score)
+			$GameScene/UI/Score/CreditScore.text = "Chips: "+str(score)
 			remove_customer(customer_nodes[0])
 func _on_customer_timer_timeout() -> void:
 	new_customer()
