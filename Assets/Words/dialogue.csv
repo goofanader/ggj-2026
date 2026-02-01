@@ -1,6 +1,11 @@
 question,r1,cust_r1,res1_player_hp,res1_cust_hp,r2,cust_r2,res2_player_hp,res2_cust_hp
 "Hey, how's it going?","It's goin', how 'bout you?","Doin' good, bud!",-5,-5,*grunt*,"Hey, I asked a question, bud! Don't ignore me!",10,20
 You always have the best deals!,"Here at Face Value, we gotchu! *grin*","Haha, you really got that customer service smile, huh?",10,0,"Actually, Wise Guise has better deals...","Wait, seriously? Thanks for the tip!",5,-5
-I can't believe you had this!,I can't believe we had this either!,Buddy... you new or somethin'?,10,10,We're the only ones in the West End that's got it!,"I'll def have to come back for more, thanks!",15,-10
-You really saved my chrome.,No problem. That'll be 100 chips.,100 chips? Is that... a deal?,5,10,"At Face Value, we've got all you need and more!",Thank ya! I can go to the party dressed up real nice now.,10,-10
-I gotta tell my crew about this place!,Let them know we got the best deals in the West End!,"Yeah, they'll be here with all the chips! Rad.",15,0,You should really tell them about Wise Guise instead. They have better stock.,"Yo, sayin' that kinda stuff is gonna get ya in trouble with your boss, no?",5,-5
+I can't believe you had this!,I can't believe we had this either!,Buddy... you new or somethin'?,10,10,We're the only ones in the West Sec that's got it!,"I'll def have to come back for more, thanks!",15,-10
+You really saved my chrome.,No problem. That'll be 100 chips.,100 chips? Is that... a deal?,5,10,"At Face Value, we've got all you need and more!",Thank ya! I can go to the party dressed up real nice now.,-5,-10
+I gotta tell my crew about this place!,Let them know we got the best deals in the West Sector!,"Yeah, they'll be here with all the chips! Rad.",-5,0,You should really tell them about Wise Guise instead. They have better stock.,"Yo, sayin' that kinda stuff is gonna get ya in trouble with your boss, no?",5,-5
+I hope you can help me out!,That's what we're here for.,Yup!,0,0,I hope so too...,You don't know?,10,10
+I heard you guys had good quality gear.,Who told you that?,Are you scamming me or something?,5,10,Best in the biz. *big smile*,Tier.,5,-5
+This is the place.,You know it.,Glad I came.,-5,-5,So I've been told.,Hm?,0,5
+"Lovely day, eh?",Sure...,You should smile more...,5,5,Too sunny for me.,"You're a bit gloomy, aren't you?",5,5
+Streets are packed today.,West Sec block party is today.,Too bad you gotta work.,0,-10,"""Face Value, providing service rain, shine, or fun!""",Um... okay...,15,0

@@ -37,11 +37,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_tree().quit()
 	
 	## TODO: Remove these before export
-	elif event.is_action_pressed("Spawn New Customer"):
-		$GameScene/Customer/CustomerTimer.stop()
-		new_customer()
-	elif event.is_action_pressed("Clear Customers"):
-		clear_customers()
+	#elif event.is_action_pressed("Spawn New Customer"):
+		#$GameScene/Customer/CustomerTimer.stop()
+		#new_customer()
+	#elif event.is_action_pressed("Clear Customers"):
+		#clear_customers()
 
 
 ## -----------------------------------------------------------------------------
