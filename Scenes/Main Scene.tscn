@@ -54,6 +54,10 @@ script = ExtResource("3_laryo")
 text = "How you doin'?"
 choices = Array[ExtResource("4_qmgfp")]([SubResource("Resource_b8f0w"), SubResource("Resource_7l4at")])
 metadata/_custom_type_script = "uid://bn37jdrgm7ons"
+[ext_resource type="AudioStream" uid="uid://qg8f6y2koavf" path="res://Assets/Sounds/Welding_Sparks.wav" id="28_qf2de"]
+[ext_resource type="Script" uid="uid://civlgr2erxdai" path="res://Scripts/ui_sounds.gd" id="29_v38rm"]
+[ext_resource type="AudioStream" uid="uid://5h56gmnlubea" path="res://Assets/Sounds/Track_8.ogg" id="30_fjyh7"]
+[ext_resource type="Script" uid="uid://dcb1dchykhvg8" path="res://Scripts/volume_slider.gd" id="30_laryo"]
 
 [sub_resource type="Resource" id="Resource_mlytr"]
 script = ExtResource("2_l533x")
@@ -81,18 +85,27 @@ audio_track = ExtResource("19_moxyw")
 [sub_resource type="Resource" id="Resource_fjyh7"]
 script = ExtResource("5_s0c2j")
 audio_track = ExtResource("20_bgl0a")
+period = Vector2i(120, 240)
 
 [sub_resource type="Resource" id="Resource_qf2de"]
 script = ExtResource("5_s0c2j")
 audio_track = ExtResource("21_777q4")
+period = Vector2i(60, 120)
 
 [sub_resource type="Resource" id="Resource_laryo"]
 script = ExtResource("5_s0c2j")
 audio_track = ExtResource("22_n5ssh")
+period = Vector2i(90, 180)
 
 [sub_resource type="Resource" id="Resource_qmgfp"]
 script = ExtResource("5_s0c2j")
 audio_track = ExtResource("23_1n7h2")
+period = Vector2i(60, 120)
+
+[sub_resource type="Resource" id="Resource_b8f0w"]
+script = ExtResource("5_s0c2j")
+audio_track = ExtResource("28_qf2de")
+period = Vector2i(10, 30)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4y6ly"]
 radius = 3.0
@@ -208,6 +221,13 @@ offset_right = 237.0
 offset_bottom = 51.0
 pivot_offset_ratio = Vector2(0, 1)
 
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=825516288]
+position = Vector2(103, 64)
+
+[node name="BackgroundSoundPlayer" type="Node" parent="." unique_id=944899967]
+script = ExtResource("5_uctcs")
+looping_audio_tracks = Array[AudioStream]([ExtResource("17_mtrcc")])
+frequent_audio_tracks = Array[ExtResource("5_s0c2j")]([SubResource("Resource_v38rm"), SubResource("Resource_fjyh7"), SubResource("Resource_qf2de"), SubResource("Resource_laryo"), SubResource("Resource_qmgfp"), SubResource("Resource_b8f0w")])
 [node name="ChoiceBox" parent="GameScene/UI" unique_id=881347333 instance=ExtResource("30_fjyh7")]
 visible = false
 z_index = 20
@@ -284,6 +304,16 @@ theme_override_colors/font_color = Color(0.36862746, 0.99215686, 0.5529412, 1)
 theme_override_fonts/font = ExtResource("29_laryo")
 theme_override_font_sizes/font_size = 16
 text = "Credits"
+
+[node name="OptionsButton" type="Button" parent="MainMenu" unique_id=1153712563 groups=["Button"]]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 100.0
+offset_right = 111.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(0.36862746, 0.39215687, 0.99215686, 1)
+theme_override_font_sizes/font_size = 10
+text = "Options"
 
 [node name="Credits" type="ColorRect" parent="." unique_id=1504391242]
 visible = false
@@ -373,6 +403,58 @@ theme_override_fonts/font = ExtResource("29_laryo")
 text = "Yinfinity
 Sound & Art"
 
+[node name="Options" type="ColorRect" parent="." unique_id=871676240]
+visible = false
+z_index = 30
+offset_right = 240.0
+offset_bottom = 135.0
+color = Color(0.23921569, 0.23137255, 0.37254903, 1)
+
+[node name="OptionsBackButton" type="Button" parent="Options" unique_id=1291964318 groups=["Button"]]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(0.36862746, 0.39215687, 0.99215686, 1)
+theme_override_font_sizes/font_size = 10
+text = "Back"
+
+[node name="VolumeSlider" type="HSlider" parent="Options" unique_id=1903272819]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 96.0
+offset_right = 213.0
+offset_bottom = 112.0
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("30_laryo")
+
+[node name="Label" type="Label" parent="Options" unique_id=1134208136]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 66.0
+offset_right = 145.0
+offset_bottom = 89.0
+theme_override_colors/font_color = Color(0.36862746, 0.39215687, 0.99215686, 1)
+text = "Volume"
+
+[node name="UISounds" type="AudioStreamPlayer" parent="." unique_id=1520807796]
+volume_db = -7.0
+script = ExtResource("29_v38rm")
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1151610429]
+stream = ExtResource("30_fjyh7")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
+
+[connection signal="timeout" from="Bg/Rain/Timer" to="Bg/Rain" method="_on_timer_timeout"]
+[connection signal="checkout" from="Fg/Register" to="." method="_on_register_checkout"]
+[connection signal="scan" from="Fg/Register" to="." method="_on_register_scan"]
+[connection signal="area_entered" from="Fg/Register/ScanSpot/ScanSpotArea" to="Fg/Register" method="_on_scan_spot_area_area_entered"]
+[connection signal="input_event" from="Fg/Register/ClickBox" to="Fg/Register" method="_on_click_box_input_event"]
+[connection signal="timeout" from="CustomerTimer" to="." method="_on_customer_timer_timeout"]
+[connection signal="timeout" from="WaitTimer" to="." method="_on_wait_timer_timeout"]
 [connection signal="timeout" from="GameScene/Bg/Rain/Timer" to="GameScene/Bg/Rain" method="_on_timer_timeout"]
 [connection signal="checkout" from="GameScene/Fg/Register" to="." method="_on_register_checkout"]
 [connection signal="scan" from="GameScene/Fg/Register" to="." method="_on_register_scan"]
@@ -382,4 +464,7 @@ Sound & Art"
 [connection signal="timeout" from="GameScene/Customer/WaitTimer" to="." method="_on_wait_timer_timeout"]
 [connection signal="pressed" from="MainMenu/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MainMenu/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="MainMenu/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="Credits/CreditsBackButton" to="." method="_on_credits_back_button_pressed"]
+[connection signal="pressed" from="Options/OptionsBackButton" to="." method="_on_options_back_button_pressed"]
+[connection signal="value_changed" from="Options/VolumeSlider" to="Options/VolumeSlider" method="_on_value_changed"]
