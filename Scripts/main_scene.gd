@@ -230,6 +230,7 @@ func _on_options_button_pressed() -> void:
 	
 func _on_main_menu_button_pressed() -> void:
 	$GameOver.visible = false
+	get_tree().paused = false
 	get_tree().reload_current_scene()
 
 func _on_click_box_mouse_entered() -> void:	

@@ -1,27 +1,27 @@
 [gd_scene format=3 uid="uid://d2wig6v3ksphj"]
 
-[ext_resource type="Script" uid="uid://doxe6253y3sku" path="res://scripts/main_scene.gd" id="1_4y6ly"]
+[ext_resource type="Script" uid="uid://doxe6253y3sku" path="res://Scripts/main_scene.gd" id="1_4y6ly"]
 [ext_resource type="PackedScene" uid="uid://rfyl0f42xd2f" path="res://Scenes/Item.tscn" id="2_56oky"]
-[ext_resource type="Resource" uid="uid://by18pcudlsla4" path="res://scripts/Character Data.tres" id="2_fjyh7"]
+[ext_resource type="Resource" uid="uid://by18pcudlsla4" path="res://Scripts/Character Data.tres" id="2_fjyh7"]
 [ext_resource type="Texture2D" uid="uid://ujp8tw0paiu6" path="res://Assets/Art/Background/back_table.png" id="2_ke1vn"]
 [ext_resource type="Texture2D" uid="uid://b6ry56fg0rdoj" path="res://Assets/Art/Background/register.png" id="4_156p1"]
 [ext_resource type="Texture2D" uid="uid://j7ahjlb32un3" path="res://Assets/Art/Background/scanner_spot.png" id="5_7enb7"]
 [ext_resource type="Script" uid="uid://cdfq424n0esed" path="res://Scripts/background_sounds.gd" id="5_uctcs"]
 [ext_resource type="Texture2D" uid="uid://1xp7sa4enjc0" path="res://Assets/Art/Background/street.png" id="8_1n7h2"]
-[ext_resource type="Script" uid="uid://dsiwpy0t3rcm4" path="res://scripts/rain.gd" id="9_777q4"]
-[ext_resource type="Script" uid="uid://dw5l65yena3g6" path="res://scripts/register.gd" id="9_mlytr"]
+[ext_resource type="Script" uid="uid://dsiwpy0t3rcm4" path="res://Scripts/rain.gd" id="9_777q4"]
+[ext_resource type="Script" uid="uid://dw5l65yena3g6" path="res://Scripts/register.gd" id="9_mlytr"]
 [ext_resource type="PackedScene" uid="uid://dxkajydmw3b80" path="res://Scenes/rain_drop.tscn" id="10_n5ssh"]
 [ext_resource type="AudioStream" uid="uid://b7yo0mbh8h2j0" path="res://Assets/Sounds/Register_Beep.wav" id="11_5ye1r"]
+[ext_resource type="AudioStream" uid="uid://b182mc6igfkdb" path="res://Assets/Sounds/Track_6.ogg" id="11_n5ssh"]
 [ext_resource type="Texture2D" uid="uid://bxubgsq3bmdbn" path="res://Assets/Art/Background/back_wall.png" id="11_v38rm"]
 [ext_resource type="AudioStream" uid="uid://btohdyemvub5e" path="res://Assets/Sounds/Register_Kaching.wav" id="12_5ye1r"]
 [ext_resource type="Texture2D" uid="uid://dy6n5gvk4rihg" path="res://Assets/Art/Background/table_front.png" id="13_fjyh7"]
 [ext_resource type="AudioStream" uid="uid://b26oyhgbm2dpi" path="res://Assets/Sounds/Background_Loop.ogg" id="17_mtrcc"]
 [ext_resource type="Shader" uid="uid://duh37qely848e" path="res://Assets/Outline.gdshader" id="20_laryo"]
 [ext_resource type="PackedScene" uid="uid://bctllivmcvv5h" path="res://Scenes/Character Stats.tscn" id="25_bgl0a"]
-[ext_resource type="AudioStream" uid="uid://b182mc6igfkdb" path="res://Assets/Sounds/Track_6.ogg" id="26_n5ssh"]
-[ext_resource type="Script" uid="uid://civlgr2erxdai" path="res://scripts/ui_sounds.gd" id="29_v38rm"]
+[ext_resource type="Script" uid="uid://civlgr2erxdai" path="res://Scripts/ui_sounds.gd" id="29_v38rm"]
 [ext_resource type="AudioStream" uid="uid://5h56gmnlubea" path="res://Assets/Sounds/Track_8.ogg" id="30_fjyh7"]
-[ext_resource type="Script" uid="uid://dcb1dchykhvg8" path="res://scripts/volume_slider.gd" id="30_laryo"]
+[ext_resource type="Script" uid="uid://dcb1dchykhvg8" path="res://Scripts/volume_slider.gd" id="30_laryo"]
 [ext_resource type="Theme" uid="uid://dr0407s0ett1j" path="res://Assets/Theme and Font/font_theme.tres" id="30_qf2de"]
 [ext_resource type="FontFile" uid="uid://xw3mwauixwlx" path="res://Assets/Theme and Font/TeenyPx.ttf" id="30_qmgfp"]
 [ext_resource type="PackedScene" uid="uid://w3nj60ktwukq" path="res://Scenes/Dialog Box.tscn" id="34_b8f0w"]
@@ -107,7 +107,6 @@ metadata/_edit_lock_ = true
 [node name="BackgroundSoundPlayer" type="Node" parent="GameScene/Bg" unique_id=944899967]
 script = ExtResource("5_uctcs")
 looping_audio_tracks = Array[AudioStream]([ExtResource("17_mtrcc")])
-frequent_audio_tracks = null
 
 [node name="Music" type="AudioStreamPlayer" parent="GameScene/Bg" unique_id=1151610429]
 stream = ExtResource("30_fjyh7")
@@ -115,9 +114,9 @@ volume_db = -10.0
 autoplay = true
 parameters/looping = true
 
-[node name="PauseMusic" type="AudioStreamPlayer" parent="GameScene/Bg" unique_id=167185101]
+[node name="PauseMusic" type="AudioStreamPlayer" parent="GameScene/Bg" unique_id=1923249407]
 process_mode = 2
-stream = ExtResource("26_n5ssh")
+stream = ExtResource("11_n5ssh")
 autoplay = true
 
 [node name="Fg" type="Node2D" parent="GameScene" unique_id=180572099]
@@ -349,7 +348,7 @@ offset_bottom = 81.0
 theme = ExtResource("30_qf2de")
 theme_override_colors/font_color = Color(0.99215686, 0.36862746, 0.39215687, 1)
 theme_override_fonts/font = ExtResource("30_qmgfp")
-text = "UGH.. YOU BASTARDS ARE LUCKY THAT I NEED TO PAY RENT"
+text = "UGH.. YOU BOZOS ARE LUCKY THAT I NEED TO PAY RENT"
 horizontal_alignment = 1
 
 [node name="GameOverScore" type="Label" parent="GameOver" unique_id=1443951766]
@@ -362,7 +361,6 @@ theme_override_colors/font_color = Color(0.99215686, 0.99607843, 0.5372549, 1)
 text = "You earned 0 credits"
 
 [node name="Credits" type="ColorRect" parent="." unique_id=1504391242]
-process_mode = 3
 visible = false
 z_index = 30
 offset_right = 240.0
@@ -370,6 +368,7 @@ offset_bottom = 135.0
 color = Color(0.23921569, 0.23137255, 0.37254903, 1)
 
 [node name="CreditsBackButton" type="Button" parent="Credits" unique_id=1066826023 groups=["Button"]]
+process_mode = 3
 z_index = 1
 layout_mode = 0
 offset_right = 8.0
