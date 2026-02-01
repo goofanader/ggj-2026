@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://dw5l65yena3g6" path="res://Scripts/register.gd" id="9_mlytr"]
 [ext_resource type="PackedScene" uid="uid://dxkajydmw3b80" path="res://Scenes/rain_drop.tscn" id="10_n5ssh"]
 [ext_resource type="AudioStream" uid="uid://b7yo0mbh8h2j0" path="res://Assets/Sounds/Register_Beep.wav" id="11_5ye1r"]
+[ext_resource type="AudioStream" uid="uid://b182mc6igfkdb" path="res://Assets/Sounds/Track_6.ogg" id="11_n5ssh"]
 [ext_resource type="Texture2D" uid="uid://bxubgsq3bmdbn" path="res://Assets/Art/Background/back_wall.png" id="11_v38rm"]
 [ext_resource type="AudioStream" uid="uid://btohdyemvub5e" path="res://Assets/Sounds/Register_Kaching.wav" id="12_5ye1r"]
 [ext_resource type="Texture2D" uid="uid://dy6n5gvk4rihg" path="res://Assets/Art/Background/table_front.png" id="13_fjyh7"]
@@ -112,6 +113,11 @@ stream = ExtResource("30_fjyh7")
 volume_db = -10.0
 autoplay = true
 parameters/looping = true
+
+[node name="PauseMusic" type="AudioStreamPlayer" parent="GameScene/Bg" unique_id=1923249407]
+process_mode = 2
+stream = ExtResource("11_n5ssh")
+autoplay = true
 
 [node name="Fg" type="Node2D" parent="GameScene" unique_id=180572099]
 z_index = 10
@@ -290,6 +296,7 @@ theme_override_font_sizes/font_size = 16
 text = "Options"
 
 [node name="GameOver" type="ColorRect" parent="." unique_id=1628017694]
+process_mode = 2
 visible = false
 z_index = 20
 offset_right = 240.0
@@ -361,6 +368,7 @@ offset_bottom = 135.0
 color = Color(0.23921569, 0.23137255, 0.37254903, 1)
 
 [node name="CreditsBackButton" type="Button" parent="Credits" unique_id=1066826023 groups=["Button"]]
+process_mode = 3
 z_index = 1
 layout_mode = 0
 offset_right = 8.0

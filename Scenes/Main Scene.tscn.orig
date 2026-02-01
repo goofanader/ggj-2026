@@ -6,14 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://ujp8tw0paiu6" path="res://Assets/Art/Background/back_table.png" id="2_ke1vn"]
 [ext_resource type="Texture2D" uid="uid://b6ry56fg0rdoj" path="res://Assets/Art/Background/register.png" id="4_156p1"]
 [ext_resource type="Texture2D" uid="uid://j7ahjlb32un3" path="res://Assets/Art/Background/scanner_spot.png" id="5_7enb7"]
-[ext_resource type="Script" path="res://Scripts/FrequentAudioData.gd" id="5_s0c2j"]
-[ext_resource type="Script" path="res://Scripts/background_sounds.gd" id="5_uctcs"]
+[ext_resource type="Script" uid="uid://cdfq424n0esed" path="res://Scripts/background_sounds.gd" id="5_uctcs"]
 [ext_resource type="Texture2D" uid="uid://1xp7sa4enjc0" path="res://Assets/Art/Background/street.png" id="8_1n7h2"]
-<<<<<<< HEAD
-[ext_resource type="Script" uid="uid://dsiwpy0t3rcm4" path="res://scripts/rain.gd" id="9_777q4"]
-=======
 [ext_resource type="Script" uid="uid://dsiwpy0t3rcm4" path="res://Scripts/rain.gd" id="9_777q4"]
->>>>>>> 37d934d4c354f783b6c284b37fcc7716f9450ad1
 [ext_resource type="Script" uid="uid://dw5l65yena3g6" path="res://Scripts/register.gd" id="9_mlytr"]
 [ext_resource type="PackedScene" uid="uid://dxkajydmw3b80" path="res://Scenes/rain_drop.tscn" id="10_n5ssh"]
 [ext_resource type="AudioStream" uid="uid://b7yo0mbh8h2j0" path="res://Assets/Sounds/Register_Beep.wav" id="11_5ye1r"]
@@ -21,15 +16,14 @@
 [ext_resource type="AudioStream" uid="uid://btohdyemvub5e" path="res://Assets/Sounds/Register_Kaching.wav" id="12_5ye1r"]
 [ext_resource type="Texture2D" uid="uid://dy6n5gvk4rihg" path="res://Assets/Art/Background/table_front.png" id="13_fjyh7"]
 [ext_resource type="AudioStream" uid="uid://b26oyhgbm2dpi" path="res://Assets/Sounds/Background_Loop.ogg" id="17_mtrcc"]
-[ext_resource type="AudioStream" uid="uid://b8ik7htsx2j7g" path="res://Assets/Sounds/Bustling_People.wav" id="19_moxyw"]
-[ext_resource type="AudioStream" uid="uid://cpklr4e6fipph" path="res://Assets/Sounds/Siren_Close.wav" id="20_bgl0a"]
 [ext_resource type="Shader" uid="uid://duh37qely848e" path="res://Assets/Outline.gdshader" id="20_laryo"]
-[ext_resource type="AudioStream" uid="uid://dqb0tvtrm0wix" path="res://Assets/Sounds/Siren_Far.wav" id="21_777q4"]
-[ext_resource type="AudioStream" uid="uid://bt8ff4k6ganh6" path="res://Assets/Sounds/Train_Leaving.wav" id="22_n5ssh"]
-[ext_resource type="AudioStream" uid="uid://xuit6twp15r8" path="res://Assets/Sounds/Train_Overhead.wav" id="23_1n7h2"]
 [ext_resource type="PackedScene" uid="uid://bctllivmcvv5h" path="res://Scenes/Character Stats.tscn" id="25_bgl0a"]
-[ext_resource type="AudioStream" uid="uid://qg8f6y2koavf" path="res://Assets/Sounds/Welding_Sparks.wav" id="28_qf2de"]
+<<<<<<< HEAD
+[ext_resource type="AudioStream" uid="uid://b182mc6igfkdb" path="res://Assets/Sounds/Track_6.ogg" id="26_n5ssh"]
+[ext_resource type="Script" uid="uid://civlgr2erxdai" path="res://scripts/ui_sounds.gd" id="29_v38rm"]
+=======
 [ext_resource type="Script" uid="uid://civlgr2erxdai" path="res://Scripts/ui_sounds.gd" id="29_v38rm"]
+>>>>>>> f0f9015359e3ece9df074f5781bae90cdb437096
 [ext_resource type="AudioStream" uid="uid://5h56gmnlubea" path="res://Assets/Sounds/Track_8.ogg" id="30_fjyh7"]
 [ext_resource type="Script" uid="uid://dcb1dchykhvg8" path="res://Scripts/volume_slider.gd" id="30_laryo"]
 [ext_resource type="Theme" uid="uid://dr0407s0ett1j" path="res://Assets/Theme and Font/font_theme.tres" id="30_qf2de"]
@@ -44,37 +38,7 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Resource" id="Resource_v38rm"]
-script = ExtResource("5_s0c2j")
-audio_track = ExtResource("19_moxyw")
-
-[sub_resource type="Resource" id="Resource_fjyh7"]
-script = ExtResource("5_s0c2j")
-audio_track = ExtResource("20_bgl0a")
-period = Vector2i(120, 240)
-
-[sub_resource type="Resource" id="Resource_qf2de"]
-script = ExtResource("5_s0c2j")
-audio_track = ExtResource("21_777q4")
-period = Vector2i(60, 120)
-
-[sub_resource type="Resource" id="Resource_laryo"]
-script = ExtResource("5_s0c2j")
-audio_track = ExtResource("22_n5ssh")
-period = Vector2i(90, 180)
-
-[sub_resource type="Resource" id="Resource_qmgfp"]
-script = ExtResource("5_s0c2j")
-audio_track = ExtResource("23_1n7h2")
-period = Vector2i(60, 120)
-
-[sub_resource type="Resource" id="Resource_b8f0w"]
-script = ExtResource("5_s0c2j")
-audio_track = ExtResource("28_qf2de")
-period = Vector2i(10, 30)
-
-<<<<<<< HEAD
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qmgfp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_laryo"]
 shader = ExtResource("20_laryo")
 shader_parameter/color = Color(0.19607843, 0.19215687, 0.23137255, 1)
 shader_parameter/width = 1.0
@@ -91,9 +55,6 @@ shader_parameter/pattern = 0
 shader_parameter/inside = false
 shader_parameter/add_margins = true
 shader_parameter/number_of_images = Vector2(1, 1)
-=======
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_laryo"]
->>>>>>> 37d934d4c354f783b6c284b37fcc7716f9450ad1
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4y6ly"]
 radius = 3.0
@@ -150,13 +111,18 @@ metadata/_edit_lock_ = true
 [node name="BackgroundSoundPlayer" type="Node" parent="GameScene/Bg" unique_id=944899967]
 script = ExtResource("5_uctcs")
 looping_audio_tracks = Array[AudioStream]([ExtResource("17_mtrcc")])
-frequent_audio_tracks = Array[ExtResource("5_s0c2j")]([SubResource("Resource_v38rm"), SubResource("Resource_fjyh7"), SubResource("Resource_qf2de"), SubResource("Resource_laryo"), SubResource("Resource_qmgfp"), SubResource("Resource_b8f0w")])
+frequent_audio_tracks = null
 
 [node name="Music" type="AudioStreamPlayer" parent="GameScene/Bg" unique_id=1151610429]
 stream = ExtResource("30_fjyh7")
 volume_db = -10.0
 autoplay = true
 parameters/looping = true
+
+[node name="PauseMusic" type="AudioStreamPlayer" parent="GameScene/Bg" unique_id=167185101]
+process_mode = 2
+stream = ExtResource("26_n5ssh")
+autoplay = true
 
 [node name="Fg" type="Node2D" parent="GameScene" unique_id=180572099]
 z_index = 10
@@ -176,11 +142,7 @@ texture = ExtResource("13_fjyh7")
 metadata/_edit_lock_ = true
 
 [node name="Register" type="Sprite2D" parent="GameScene/Fg" unique_id=57658671]
-<<<<<<< HEAD
-material = SubResource("ShaderMaterial_qmgfp")
-=======
 material = SubResource("ShaderMaterial_laryo")
->>>>>>> 37d934d4c354f783b6c284b37fcc7716f9450ad1
 position = Vector2(137, 70)
 texture = ExtResource("4_156p1")
 script = ExtResource("9_mlytr")
@@ -339,6 +301,7 @@ theme_override_font_sizes/font_size = 16
 text = "Options"
 
 [node name="GameOver" type="ColorRect" parent="." unique_id=1628017694]
+process_mode = 2
 visible = false
 z_index = 20
 offset_right = 240.0
@@ -390,7 +353,7 @@ offset_bottom = 81.0
 theme = ExtResource("30_qf2de")
 theme_override_colors/font_color = Color(0.99215686, 0.36862746, 0.39215687, 1)
 theme_override_fonts/font = ExtResource("30_qmgfp")
-text = "UGH.. YOU BASTARDS ARE LUCKY THAT I NEED TO PAY RENT"
+text = "UGH.. YOU BOZOS ARE LUCKY THAT I NEED TO PAY RENT"
 horizontal_alignment = 1
 
 [node name="GameOverScore" type="Label" parent="GameOver" unique_id=1443951766]
@@ -403,6 +366,7 @@ theme_override_colors/font_color = Color(0.99215686, 0.99607843, 0.5372549, 1)
 text = "You earned 0 credits"
 
 [node name="Credits" type="ColorRect" parent="." unique_id=1504391242]
+process_mode = 3
 visible = false
 z_index = 30
 offset_right = 240.0

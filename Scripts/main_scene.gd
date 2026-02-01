@@ -93,6 +93,7 @@ func game_over() -> void:
 	$GameScene/Customer/WaitTimer.stop()
 	$GameScene/Customer/CustomerTimer.stop()
 	$GameScene/Customer/LongWaitTimer.stop()
+	get_tree().paused = true;
 	dialog_box.clear_text()
 	choice_box.clear_choices()
 
@@ -214,7 +215,6 @@ func _on_wait_timer_timeout() -> void:
 	customer_nodes[0].damage(1)
 	#print("Time Passes")
 
-
 func _on_start_button_pressed() -> void:
 	$MainMenu.visible = false
 	start_game()
@@ -233,6 +233,7 @@ func _on_options_button_pressed() -> void:
 	
 func _on_main_menu_button_pressed() -> void:
 	$GameOver.visible = false
+	get_tree().paused = false
 	get_tree().reload_current_scene()
 
 func _on_click_box_mouse_entered() -> void:	
