@@ -15,6 +15,7 @@ class_name CustomerNode
 @export var audio_files: Dictionary[String,AudioStream] = {}
 
 
+
 ## -----------------------------------------------------------------------------
 ##             Node Attachements
 ## -----------------------------------------------------------------------------
@@ -44,7 +45,7 @@ var _mood_level: int = 50
 		var mood_ind:int = mood_level_curve.values().find_custom(func(c): return _mood_level<=c)
 		mood = Mood.keys().find(mood_level_curve.keys()[mood_ind]) as Mood
 		if _mood_level < 0:
-			leave(true)
+			leave()
 		if _mood_level > 100: _mood_level = 100
 	get():
 		return _mood_level
@@ -76,18 +77,14 @@ var mood: Mood = Mood.Happy:
 enum Transitions {Walk,Run,Beam,Blink}
 @export var transition_in: Transitions = Transitions.Walk
 @export var transition_out: Transitions = Transitions.Walk
-@export var question: QuestionData
-@export var customer_data: CustomerData
-
+@export var item: Node
 
 ## -----------------------------------------------------------------------------
 ##             Signals
 ## -----------------------------------------------------------------------------
 
-signal leaving(node, mad)
+signal leaving(node)
 signal drop_item
-signal ask_question(customer, question)
-signal speak(text)
 
 ## -----------------------------------------------------------------------------
 ##             Methods
@@ -95,7 +92,6 @@ signal speak(text)
 
 func entered() -> void:
 	place_item()
-	ask_question.emit(self,question)
 
 func exited() -> void:
 	var t: Timer = Timer.new()
@@ -126,11 +122,10 @@ func enter() -> void:
 			$Customer_Frame/AudioStreamPlayer2D.volume_db = 0
 
 var _is_leaving: bool = false
-func leave(mad:bool=false) -> void:
+func leave() -> void:
 	if _is_leaving: return
 	_is_leaving = true
-	speak.emit(customer_data.generate_response(self.mood))
-	leaving.emit(self,mad)
+	leaving.emit(self)
 	match transition_in:
 		Transitions.Walk:
 			animator.play("Walk Out")

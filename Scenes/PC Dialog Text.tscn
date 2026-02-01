@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://c2l3c07072dy1"]
+
+[ext_resource type="Script" uid="uid://bcg2mcrnllo8h" path="res://Scripts/dialog_text.gd" id="1_7ojtb"]
+[ext_resource type="Texture2D" uid="uid://2ymdh0dvvus3" path="res://Assets/Art/UI/Dialog_Frame.png" id="2_s402j"]
+
+[node name="DialogText" type="Control" unique_id=1277136958 node_paths=PackedStringArray("label_node")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7ojtb")
+label_node = NodePath("Label")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1544786797]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -4.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=216187389]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 240.81755
+offset_right = 241.6351
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(-1, 1)
+texture = ExtResource("2_s402j")
+patch_margin_left = 10
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Label" type="Label" parent="." unique_id=1587966996]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -5.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
