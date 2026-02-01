@@ -6,16 +6,23 @@
 [ext_resource type="Texture2D" uid="uid://ujp8tw0paiu6" path="res://Assets/Art/Background/back_table.png" id="2_ke1vn"]
 [ext_resource type="Texture2D" uid="uid://b6ry56fg0rdoj" path="res://Assets/Art/Background/register.png" id="4_156p1"]
 [ext_resource type="Texture2D" uid="uid://j7ahjlb32un3" path="res://Assets/Art/Background/scanner_spot.png" id="5_7enb7"]
-[ext_resource type="Script" uid="uid://cdfq424n0esed" path="res://Scripts/background_sounds.gd" id="5_uctcs"]
+[ext_resource type="Script" path="res://Scripts/background_sounds.gd" id="5_uctcs"]
 [ext_resource type="Texture2D" uid="uid://1xp7sa4enjc0" path="res://Assets/Art/Background/street.png" id="8_1n7h2"]
 [ext_resource type="Script" uid="uid://dsiwpy0t3rcm4" path="res://Scripts/rain.gd" id="9_777q4"]
 [ext_resource type="Script" uid="uid://dw5l65yena3g6" path="res://Scripts/register.gd" id="9_mlytr"]
+[ext_resource type="Script" path="res://Scripts/FrequentAudioData.gd" id="10_b8f0w"]
 [ext_resource type="PackedScene" uid="uid://dxkajydmw3b80" path="res://Scenes/rain_drop.tscn" id="10_n5ssh"]
 [ext_resource type="AudioStream" uid="uid://b7yo0mbh8h2j0" path="res://Assets/Sounds/Register_Beep.wav" id="11_5ye1r"]
+[ext_resource type="AudioStream" uid="uid://b8ik7htsx2j7g" path="res://Assets/Sounds/Bustling_People.wav" id="11_7l4at"]
 [ext_resource type="AudioStream" uid="uid://b182mc6igfkdb" path="res://Assets/Sounds/Track_6.ogg" id="11_n5ssh"]
 [ext_resource type="Texture2D" uid="uid://bxubgsq3bmdbn" path="res://Assets/Art/Background/back_wall.png" id="11_v38rm"]
 [ext_resource type="AudioStream" uid="uid://btohdyemvub5e" path="res://Assets/Sounds/Register_Kaching.wav" id="12_5ye1r"]
+[ext_resource type="AudioStream" uid="uid://dqb0tvtrm0wix" path="res://Assets/Sounds/Siren_Far.wav" id="12_lmxys"]
+[ext_resource type="AudioStream" uid="uid://cpklr4e6fipph" path="res://Assets/Sounds/Siren_Close.wav" id="13_22qr8"]
 [ext_resource type="Texture2D" uid="uid://dy6n5gvk4rihg" path="res://Assets/Art/Background/table_front.png" id="13_fjyh7"]
+[ext_resource type="AudioStream" uid="uid://bt8ff4k6ganh6" path="res://Assets/Sounds/Train_Leaving.wav" id="14_nca2y"]
+[ext_resource type="AudioStream" uid="uid://xuit6twp15r8" path="res://Assets/Sounds/Train_Overhead.wav" id="15_17a1j"]
+[ext_resource type="AudioStream" uid="uid://qg8f6y2koavf" path="res://Assets/Sounds/Welding_Sparks.wav" id="16_prxtw"]
 [ext_resource type="AudioStream" uid="uid://b26oyhgbm2dpi" path="res://Assets/Sounds/Background_Loop.ogg" id="17_mtrcc"]
 [ext_resource type="Shader" uid="uid://duh37qely848e" path="res://Assets/Outline.gdshader" id="20_laryo"]
 [ext_resource type="PackedScene" uid="uid://bctllivmcvv5h" path="res://Scenes/Character Stats.tscn" id="25_bgl0a"]
@@ -33,6 +40,35 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 240, 0)
 }
 point_count = 2
+
+[sub_resource type="Resource" id="Resource_fty1f"]
+script = ExtResource("10_b8f0w")
+audio_track = ExtResource("11_7l4at")
+
+[sub_resource type="Resource" id="Resource_gccbq"]
+script = ExtResource("10_b8f0w")
+audio_track = ExtResource("12_lmxys")
+period = Vector2i(60, 120)
+
+[sub_resource type="Resource" id="Resource_kuwt6"]
+script = ExtResource("10_b8f0w")
+audio_track = ExtResource("13_22qr8")
+period = Vector2i(120, 240)
+
+[sub_resource type="Resource" id="Resource_21qwh"]
+script = ExtResource("10_b8f0w")
+audio_track = ExtResource("14_nca2y")
+period = Vector2i(90, 180)
+
+[sub_resource type="Resource" id="Resource_17rmi"]
+script = ExtResource("10_b8f0w")
+audio_track = ExtResource("15_17a1j")
+period = Vector2i(60, 120)
+
+[sub_resource type="Resource" id="Resource_87k6p"]
+script = ExtResource("10_b8f0w")
+audio_track = ExtResource("16_prxtw")
+period = Vector2i(10, 30)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_laryo"]
 shader = ExtResource("20_laryo")
@@ -107,6 +143,7 @@ metadata/_edit_lock_ = true
 [node name="BackgroundSoundPlayer" type="Node" parent="GameScene/Bg" unique_id=944899967]
 script = ExtResource("5_uctcs")
 looping_audio_tracks = Array[AudioStream]([ExtResource("17_mtrcc")])
+frequent_audio_tracks = Array[ExtResource("10_b8f0w")]([SubResource("Resource_fty1f"), SubResource("Resource_gccbq"), SubResource("Resource_kuwt6"), SubResource("Resource_21qwh"), SubResource("Resource_17rmi"), SubResource("Resource_87k6p")])
 
 [node name="Music" type="AudioStreamPlayer" parent="GameScene/Bg" unique_id=1151610429]
 stream = ExtResource("30_fjyh7")
