@@ -4,6 +4,7 @@ extends HSlider
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	AudioServer.set_bus_volume_db(_bus, linear_to_db(0.5))
 	self.value = db_to_linear(AudioServer.get_bus_volume_db(_bus))
 
 
