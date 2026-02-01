@@ -15,6 +15,30 @@ var replay = false
 @export var player_text_color: Color = Color(0.302, 0.49, 0.357, 1.0)
 @export var mistake_text_color: Color = Color(0.835, 0.318, 0.459, 1.0)
 var score: int
+var double_scan_speech = [
+	"Oi, you scanned that twice.",
+	"Heyheyhey! I ain't payin' for that twice!",
+	"Uh wait, I think you double scanned that...",
+	"Did... I just hear a second beep?",
+	"Woah, check that again.",
+	"What are ya doin'?! That's too many rings!",
+]
+var miss_item_speech = [
+	"Hey, you didn't scan all my stuff.",
+	"Um, I think you should check to see you scanned it all.",
+	"I wanted all those items...",
+	"The total seems a little... small?",
+	"Is that... everything?",
+	"Yo! Ring it all up!",
+]
+var waiting_speech = [
+	"What's takin' so long, bub?",
+	"Take your time. No rush. Hahaha.",
+	"You new? So slow...",
+	"Hurry up! I got a date to catch.",
+	"You okay?",
+	"This is the slowest cashier ever...",
+]
 
 ## -----------------------------------------------------------------------------
 ##             Node Attachements
@@ -36,7 +60,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Quit"):
 		get_tree().quit()
 	
-	## TODO: Remove these before export
+
+	#For Debugging
 	#elif event.is_action_pressed("Spawn New Customer"):
 		#$GameScene/Customer/CustomerTimer.stop()
 		#new_customer()
@@ -59,6 +84,7 @@ func start_game() -> void:
 
 func game_over() -> void:
 	print("You bastards are lucky i need to make rent")
+	$GameOver/GameOverScore.text = "You earned "+str(score)+" credits"
 	$GameOver.visible = true
 	dialog_box.clear_text()
 	choice_box.clear_choices()
@@ -85,6 +111,7 @@ func add_customer(customer_node: CustomerNode) -> void:
 	add_child(customer_node)
 	customer_node.enter()
 	$GameScene/Customer/WaitTimer.start()
+	$GameScene/Customer/LongWaitTimer.start()
 
 func remove_customer(customer_node:CustomerNode, mad:bool=false) -> void:
 	choice_box.clear_choices(customer_node)
@@ -95,6 +122,7 @@ func remove_customer(customer_node:CustomerNode, mad:bool=false) -> void:
 		if mad: player.damage(customer_leaving_early_damage)
 	$GameScene/Customer/CustomerTimer.start(randf_range(3,4))
 	$GameScene/Customer/WaitTimer.stop()
+	$GameScene/Customer/LongWaitTimer.stop()
 	clear_items()
 	
 func clear_customers() -> void:
@@ -143,7 +171,7 @@ func drop_items() -> void:
 func _on_item_mistake(type: String) -> void:
 	customer_nodes[0].damage(20)
 	if type == "scan":
-		$"GameScene/UI/Dialog Box".add_text("Oi, you scanned that twice.",DialogBox.Direction.Left,mistake_text_color)
+		$"GameScene/UI/Dialog Box".add_text(double_scan_speech[randi()%double_scan_speech.size()],DialogBox.Direction.Left,mistake_text_color)
 
 func clear_items() -> void:
 	for item in items:
@@ -166,7 +194,7 @@ func _on_register_checkout() -> void:
 	if customer_nodes.size() > 0 and items.size() > 0:
 		if scan_number < items.size():
 			customer_nodes[0].damage(25)
-			$"GameScene/UI/Dialog Box".add_text("Hey, you didn't scan all my stuff.",DialogBox.Direction.Left,mistake_text_color)
+			$"GameScene/UI/Dialog Box".add_text(miss_item_speech[randi()%miss_item_speech.size()],DialogBox.Direction.Left,mistake_text_color)
 		else:
 			score += 100 * items.size() # 100 credits per item?
 			$GameScene/UI/Score/CreditScore.text = "Credits: "+str(score)
@@ -202,3 +230,7 @@ func _on_main_menu_button_pressed() -> void:
 	$GameOver.visible = false
 	get_tree().reload_current_scene()
 	
+
+func _on_long_wait_timer_timeout() -> void:
+	$"GameScene/UI/Dialog Box".add_text(waiting_speech[randi()%waiting_speech.size()],DialogBox.Direction.Left,mistake_text_color)
+	emotional_damage(3)

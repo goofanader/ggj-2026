@@ -18,7 +18,12 @@ var textures = [
 	preload("res://Assets/Art/Items/Masquerade_Mask.png"),
 	preload("res://Assets/Art/Items/Oni_Mask.png"),
 	preload("res://Assets/Art/Items/skull.png"),
-	preload("res://Assets/Art/Items/Scuba_Mask.png")
+	preload("res://Assets/Art/Items/Scuba_Mask.png"),
+	preload("res://Assets/Art/Items/Doll_Mask.png"),
+	preload("res://Assets/Art/Items/Fish_Mask.png"),
+	preload("res://Assets/Art/Items/Vendetta_Neon_Mask.png"),
+	preload("res://Assets/Art/Items/Angel_Mask.png"),
+	preload("res://Assets/Art/Items/Alien_Mask.png"),
 ]
 
 # Called when the node enters the scene tree for the first time.

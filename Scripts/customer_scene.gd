@@ -14,6 +14,14 @@ class_name CustomerNode
 }
 @export var audio_files: Dictionary[String,AudioStream] = {}
 var talked_to: bool
+var no_talk_lines = [
+	"Ignoring me???",
+	"Not even a smile to talk back?",
+	"Wow... Most unfriendly cashier ever...",
+	"Their communicator broken?",
+	"Well... at least I got my stuff...",
+	"No response...",
+]
 
 ## -----------------------------------------------------------------------------
 ##             Node Attachements
@@ -134,8 +142,8 @@ func leave(mad:bool=false) -> void:
 	if talked_to:
 		speak.emit(customer_data.generate_farewell(self.mood))
 	else:
-		speak.emit("You're not gonna say anything??")
-		emotional_damage.emit(25)
+		speak.emit(no_talk_lines[randi()%no_talk_lines.size()])
+		emotional_damage.emit(20)
 	leaving.emit(self,mad)
 	match transition_in:
 		Transitions.Walk:
