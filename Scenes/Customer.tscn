@@ -8,6 +8,20 @@
 [ext_resource type="AudioStream" uid="uid://xwtv3v5lefag" path="res://Assets/Sounds/Door_Close.wav" id="4_1r5ol"]
 [ext_resource type="AudioStream" uid="uid://s3cccg8tvs07" path="res://Assets/Sounds/Door_Open.wav" id="5_6nvjr"]
 [ext_resource type="AudioStream" uid="uid://ctalrj1cl3ssu" path="res://Assets/Sounds/Electric_Sparks.wav" id="6_4qdli"]
+[ext_resource type="Shader" uid="uid://dx1g4vgq21r4" path="res://Assets/ColorUpDown.gdshader" id="8_c7i8l"]
+[ext_resource type="Shader" uid="uid://ck2uv68va6xpu" path="res://Assets/ColorInOut.gdshader" id="9_kosw0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kosw0"]
+shader = ExtResource("8_c7i8l")
+shader_parameter/color = Color(0.3414807, 0.6536081, 0.29195392, 1)
+shader_parameter/ttb = true
+shader_parameter/height = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c7i8l"]
+shader = ExtResource("9_kosw0")
+shader_parameter/color = Color(0.36862746, 0.99215686, 0.5529412, 1)
+shader_parameter/ito = false
+shader_parameter/width = 0.37200001767
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c7i8l"]
 atlas = ExtResource("3_j21p7")
@@ -432,8 +446,10 @@ audio_node = NodePath("Customer_Frame/AudioStreamPlayer2D")
 sprite_frames = ExtResource("2_j21p7")
 
 [node name="Customer_Frame" type="Node2D" parent="." unique_id=2114948699]
+material = SubResource("ShaderMaterial_kosw0")
 
 [node name="Customer Sprite" type="AnimatedSprite2D" parent="Customer_Frame" unique_id=120687606]
+material = SubResource("ShaderMaterial_c7i8l")
 position = Vector2(-1, -50)
 sprite_frames = ExtResource("2_j21p7")
 animation = &"Happy"
