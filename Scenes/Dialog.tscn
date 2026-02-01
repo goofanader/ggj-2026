@@ -69,9 +69,11 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="DialogText2" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=1256239133 instance=ExtResource("2_0tpv1")]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
 [node name="DialogText3" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=233603935 instance=ExtResource("3_nm2tb")]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3

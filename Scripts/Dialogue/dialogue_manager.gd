@@ -26,5 +26,7 @@ func next():
 	i+=1
 	_play()
 	
+#func completed()
+	
 func choices(i: int) -> void:
 	return
