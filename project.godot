@@ -24,6 +24,10 @@ window/size/window_height_override=675
 window/stretch/mode="viewport"
 window/per_pixel_transparency/allowed=true
 
+[gui]
+
+theme/custom="uid://dr0407s0ett1j"
+
 [input]
 
 Quit={
