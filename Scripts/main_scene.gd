@@ -31,12 +31,19 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("Clear Customers"):
 		clear_customers()
 
+
+## -----------------------------------------------------------------------------
+##             Game Logic
+## -----------------------------------------------------------------------------
+func _ready() -> void:
+	$CustomerTimer.start()
+
 ## -----------------------------------------------------------------------------
 ##             Customer Methods
 ## -----------------------------------------------------------------------------
 
 @export_group("Internal Variables")
-@export var customer_nodes: Array[CustomerNode] = []
+var customer_nodes: Array[CustomerNode] = []
 
 func new_customer() -> void:
 	var customer_node:CustomerNode = customer_data.generate_new()
@@ -54,6 +61,7 @@ func remove_customer(customer_node:CustomerNode) -> void:
 	if customer_nodes.has(customer_node):
 		customer_nodes.erase(customer_node)
 	customer_node.leave()
+	$CustomerTimer.start(randi_range(1,2))
 	clear_items()
 	
 func clear_customers() -> void:
@@ -107,3 +115,7 @@ func _on_register_checkout() -> void:
 			print("Bye Felicia")
 			remove_customer(customer_nodes[0])
 		
+
+
+func _on_customer_timer_timeout() -> void:
+	new_customer()

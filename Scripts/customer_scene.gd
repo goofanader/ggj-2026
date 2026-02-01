@@ -143,3 +143,4 @@ func damage(value:float) -> void:
 
 func _ready() -> void:
 	sprite_frames = sprite_frames
+	set_visible(false)

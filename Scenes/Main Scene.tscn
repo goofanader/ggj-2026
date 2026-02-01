@@ -10,8 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://b6ry56fg0rdoj" path="res://Assets/Art/Background/register.png" id="4_156p1"]
 [ext_resource type="Texture2D" uid="uid://j7ahjlb32un3" path="res://Assets/Art/Background/scanner_spot.png" id="5_7enb7"]
 [ext_resource type="SpriteFrames" uid="uid://peoq2t8hhfx6" path="res://Assets/Art/Characters/eye_girl_frames.tres" id="5_bgl0a"]
-[ext_resource type="Script" uid="uid://bgccdanfxwkna" path="res://Scripts/FrequentAudioData.gd" id="5_s0c2j"]
-[ext_resource type="Script" uid="uid://cdfq424n0esed" path="res://Scripts/background_sounds.gd" id="5_uctcs"]
+[ext_resource type="Script" path="res://Scripts/FrequentAudioData.gd" id="5_s0c2j"]
+[ext_resource type="Script" path="res://Scripts/background_sounds.gd" id="5_uctcs"]
 [ext_resource type="SpriteFrames" uid="uid://borlb3ab3ej5x" path="res://Assets/Art/Characters/robot_frames.tres" id="6_777q4"]
 [ext_resource type="PackedScene" uid="uid://dfife271rokxq" path="res://Scenes/Customer.tscn" id="7_7enb7"]
 [ext_resource type="PackedScene" uid="uid://yvs2w16l73e7" path="res://Scenes/Dialog.tscn" id="9_105va"]
@@ -24,7 +24,7 @@
 [ext_resource type="AudioStream" uid="uid://dqb0tvtrm0wix" path="res://Assets/Sounds/Siren_Far.wav" id="21_777q4"]
 [ext_resource type="AudioStream" uid="uid://bt8ff4k6ganh6" path="res://Assets/Sounds/Train_Leaving.wav" id="22_n5ssh"]
 [ext_resource type="AudioStream" uid="uid://xuit6twp15r8" path="res://Assets/Sounds/Train_Overhead.wav" id="23_1n7h2"]
-[ext_resource type="PackedScene" uid="uid://bctllivmcvv5h" path="res://Scenes/Character Stats.tscn" id="25_bgl0a"]
+[ext_resource type="PackedScene" path="res://Scenes/Character Stats.tscn" id="25_bgl0a"]
 
 [sub_resource type="Resource" id="Resource_mlytr"]
 script = ExtResource("2_l533x")
@@ -61,12 +61,11 @@ script = ExtResource("5_s0c2j")
 audio_track = ExtResource("23_1n7h2")
 metadata/_custom_type_script = "uid://bgccdanfxwkna"
 
-[node name="Main Scene" type="Node2D" unique_id=125374370 node_paths=PackedStringArray("customer_spawn", "customer_nodes")]
+[node name="Main Scene" type="Node2D" unique_id=125374370 node_paths=PackedStringArray("customer_spawn")]
 script = ExtResource("1_4y6ly")
 customer_data = SubResource("Resource_mlytr")
 customer_spawn = NodePath("CharacterSpawn")
 item_scene = ExtResource("2_56oky")
-customer_nodes = [NodePath("Customer")]
 
 [node name="Bg" type="Node2D" parent="." unique_id=177786591]
 
@@ -142,9 +141,6 @@ position = Vector2(29, 86)
 [node name="Drop2" type="Marker2D" parent="Fg/ItemDrops" unique_id=2057453444]
 position = Vector2(14, 86)
 
-[node name="Customer" parent="." unique_id=1278525423 instance=ExtResource("7_7enb7")]
-position = Vector2(44, 86)
-
 [node name="Dialog" parent="." unique_id=1176274323 instance=ExtResource("9_105va")]
 offset_left = 64.0
 offset_top = -2.0
@@ -161,13 +157,19 @@ position = Vector2(103, 64)
 script = ExtResource("5_uctcs")
 looping_audio_tracks = Array[AudioStream]([ExtResource("17_mtrcc")])
 frequent_audio_tracks = Array[ExtResource("5_s0c2j")]([SubResource("Resource_v38rm"), SubResource("Resource_fjyh7"), SubResource("Resource_qf2de"), SubResource("Resource_laryo"), SubResource("Resource_qmgfp")])
-metadata/_custom_type_script = "uid://cdfq424n0esed"
 
 [node name="Character Stats" parent="." unique_id=1264797244 instance=ExtResource("25_bgl0a")]
 z_index = 20
 position = Vector2(197, 130)
 
+[node name="CustomerTimer" type="Timer" parent="." unique_id=1322700688]
+wait_time = 2.0
+one_shot = true
+
+[node name="WaitTimer" type="Timer" parent="." unique_id=78673344]
+
 [connection signal="checkout" from="Fg/Register" to="." method="_on_register_checkout"]
 [connection signal="scan" from="Fg/Register" to="." method="_on_register_scan"]
 [connection signal="area_entered" from="Fg/Register/ScanSpot/ScanSpotArea" to="Fg/Register" method="_on_scan_spot_area_area_entered"]
 [connection signal="input_event" from="Fg/Register/ClickBox" to="Fg/Register" method="_on_click_box_input_event"]
+[connection signal="timeout" from="CustomerTimer" to="." method="_on_customer_timer_timeout"]
