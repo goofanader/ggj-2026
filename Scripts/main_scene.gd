@@ -81,6 +81,7 @@ func add_customer(customer_node: CustomerNode) -> void:
 	customer_node.drop_item.connect(drop_items)
 	customer_node.ask_question.connect(ask_question)
 	customer_node.speak.connect(customer_speak)
+	customer_node.emotional_damage.connect(emotional_damage)
 	customer_node.position = customer_spawn.position
 	add_child(customer_node)
 	customer_node.enter()
@@ -153,6 +154,9 @@ func clear_items() -> void:
 ## -----------------------------------------------------------------------------
 ##             Signal Methods
 ## -----------------------------------------------------------------------------
+
+func emotional_damage(d: float) -> void:
+	$"GameScene/UI/Character Stats".damage(d)
 
 func _on_register_scan() -> void:
 	scan_number += 1

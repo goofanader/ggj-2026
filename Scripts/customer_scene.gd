@@ -13,7 +13,7 @@ class_name CustomerNode
 	"Happy": 100,
 }
 @export var audio_files: Dictionary[String,AudioStream] = {}
-
+var talked_to: bool
 
 ## -----------------------------------------------------------------------------
 ##             Node Attachements
@@ -88,6 +88,7 @@ signal leaving(node, mad)
 signal drop_item
 signal ask_question(customer, question)
 signal speak(text)
+signal emotional_damage(d)
 
 ## -----------------------------------------------------------------------------
 ##             Methods
@@ -96,6 +97,7 @@ signal speak(text)
 func entered() -> void:
 	place_item()
 	ask_question.emit(self,question)
+	talked_to = false
 
 func exited() -> void:
 	var t: Timer = Timer.new()
@@ -129,7 +131,11 @@ var _is_leaving: bool = false
 func leave(mad:bool=false) -> void:
 	if _is_leaving: return
 	_is_leaving = true
-	speak.emit(customer_data.generate_farewell(self.mood))
+	if talked_to:
+		speak.emit(customer_data.generate_farewell(self.mood))
+	else:
+		speak.emit("You're not gonna say anything??")
+		emotional_damage.emit(25)
 	leaving.emit(self,mad)
 	match transition_in:
 		Transitions.Walk:
