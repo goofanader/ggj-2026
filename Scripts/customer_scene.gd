@@ -23,6 +23,7 @@ class_name CustomerNode
 @export_group("Node Attachements")
 @export var frame_node: Node2D
 @export var sprite_node: AnimatedSprite2D
+@export var mood_node: AnimatedSprite2D
 @export var expr_node: AnimatedSprite2D
 @export var animator: AnimationPlayer
 @export var audio_node: AudioStreamPlayer2D
@@ -60,16 +61,20 @@ var mood: Mood = Mood.Happy:
 		match mood:
 			Mood.Happy:
 				sprite_node.play("Happy")
+				mood_node.play("Happy")
 				expr_node.visible = false
 			Mood.Neutral:
 				sprite_node.play("Neutral")
+				mood_node.play("Neutral")
 				expr_node.visible = false
 			Mood.Sad:
 				sprite_node.play("Sad")
+				mood_node.play("Sad")
 				expr_node.visible = true
 				expr_node.play("Angry 1")
 			Mood.Angry:
 				sprite_node.play("Sad")
+				mood_node.play("Angry")
 				expr_node.visible = true
 				expr_node.play("Angry 2")
 
@@ -110,16 +115,12 @@ func enter() -> void:
 	match transition_in:
 		Transitions.Walk:
 			animator.play("Walk In")
-			$Customer_Frame/AudioStreamPlayer2D.volume_db = 0
 		Transitions.Run:
 			animator.play("Run In")
-			$Customer_Frame/AudioStreamPlayer2D.volume_db = 0
 		Transitions.Beam:
 			animator.play("Beam In")
-			$Customer_Frame/AudioStreamPlayer2D.volume_db = -7
 		Transitions.Blink:
 			animator.play("Blink In")
-			$Customer_Frame/AudioStreamPlayer2D.volume_db = 0
 
 var _is_leaving: bool = false
 func leave() -> void:
@@ -129,16 +130,12 @@ func leave() -> void:
 	match transition_in:
 		Transitions.Walk:
 			animator.play("Walk Out")
-			$Customer_Frame/AudioStreamPlayer2D.volume_db = 0
 		Transitions.Run:
 			animator.play("Run Out")
-			$Customer_Frame/AudioStreamPlayer2D.volume_db = 0
 		Transitions.Beam:
 			animator.play("Beam Out")
-			$Customer_Frame/AudioStreamPlayer2D.volume_db = -7
 		Transitions.Blink:
 			animator.play("Blink Out")
-			$Customer_Frame/AudioStreamPlayer2D.volume_db = 0
 
 func damage(value:float) -> void:
 	mood_level -= roundi(value*mood_scale)

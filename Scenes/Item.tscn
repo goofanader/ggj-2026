@@ -24,11 +24,11 @@ texture = ExtResource("2_6oc8a")
 
 [node name="Pickup" type="AudioStreamPlayer" parent="." unique_id=449928595]
 stream = ExtResource("3_08o4a")
-volume_db = -15.0
+volume_db = -10.0
 
 [node name="Drop" type="AudioStreamPlayer" parent="." unique_id=814969455]
 stream = ExtResource("4_6oc8a")
-volume_db = -15.0
+volume_db = -10.0
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="input_event" from="Hitbox" to="." method="_on_hitbox_input_event"]
