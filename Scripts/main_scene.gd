@@ -19,7 +19,7 @@ var double_scan_speech = [
 	"Oi, you scanned that twice.",
 	"Heyheyhey! I ain't payin' for that twice!",
 	"Uh wait, I think you double scanned that...",
-	"Did... I just hear a second beep?",
+	"Did... I just hear another beep?",
 	"Woah, check that again.",
 	"What are ya doin'?! That's too many rings!",
 ]
@@ -172,6 +172,7 @@ func _on_item_mistake(type: String) -> void:
 	customer_nodes[0].damage(20)
 	if type == "scan":
 		$"GameScene/UI/Dialog Box".add_text(double_scan_speech[randi()%double_scan_speech.size()],DialogBox.Direction.Left,mistake_text_color)
+		emotional_damage(3)
 
 func clear_items() -> void:
 	for item in items:
@@ -195,6 +196,7 @@ func _on_register_checkout() -> void:
 		if scan_number < items.size():
 			customer_nodes[0].damage(25)
 			$"GameScene/UI/Dialog Box".add_text(miss_item_speech[randi()%miss_item_speech.size()],DialogBox.Direction.Left,mistake_text_color)
+			emotional_damage(3)
 		else:
 			score += 100 * items.size() # 100 credits per item?
 			$GameScene/UI/Score/CreditScore.text = "Credits: "+str(score)
