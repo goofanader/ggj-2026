@@ -1,5 +1,5 @@
 extends Node
-class_name BackgroundSoundPlayer
+#class_name BackgroundSoundPlayer
 
 @export var looping_audio_tracks: Array[AudioStream] = []
 @export var frequent_audio_tracks: Array[FrequentAudioData] = []
