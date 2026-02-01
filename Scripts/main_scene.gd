@@ -90,6 +90,7 @@ func game_over() -> void:
 	print("You bastards are lucky i need to make rent")
 	$GameOver/GameOverScore.text = "You earned "+str(score)+" credits"
 	$GameOver.visible = true
+	get_tree().paused = true;
 	dialog_box.clear_text()
 	choice_box.clear_choices()
 
@@ -210,7 +211,6 @@ func _on_customer_timer_timeout() -> void:
 func _on_wait_timer_timeout() -> void:
 	customer_nodes[0].damage(1)
 	#print("Time Passes")
-
 
 func _on_start_button_pressed() -> void:
 	$MainMenu.visible = false

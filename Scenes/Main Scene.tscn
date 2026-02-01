@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://b26oyhgbm2dpi" path="res://Assets/Sounds/Background_Loop.ogg" id="17_mtrcc"]
 [ext_resource type="Shader" uid="uid://duh37qely848e" path="res://Assets/Outline.gdshader" id="20_laryo"]
 [ext_resource type="PackedScene" uid="uid://bctllivmcvv5h" path="res://Scenes/Character Stats.tscn" id="25_bgl0a"]
+[ext_resource type="AudioStream" uid="uid://b182mc6igfkdb" path="res://Assets/Sounds/Track_6.ogg" id="26_n5ssh"]
 [ext_resource type="Script" uid="uid://civlgr2erxdai" path="res://scripts/ui_sounds.gd" id="29_v38rm"]
 [ext_resource type="AudioStream" uid="uid://5h56gmnlubea" path="res://Assets/Sounds/Track_8.ogg" id="30_fjyh7"]
 [ext_resource type="Script" uid="uid://dcb1dchykhvg8" path="res://scripts/volume_slider.gd" id="30_laryo"]
@@ -106,12 +107,18 @@ metadata/_edit_lock_ = true
 [node name="BackgroundSoundPlayer" type="Node" parent="GameScene/Bg" unique_id=944899967]
 script = ExtResource("5_uctcs")
 looping_audio_tracks = Array[AudioStream]([ExtResource("17_mtrcc")])
+frequent_audio_tracks = null
 
 [node name="Music" type="AudioStreamPlayer" parent="GameScene/Bg" unique_id=1151610429]
 stream = ExtResource("30_fjyh7")
 volume_db = -10.0
 autoplay = true
 parameters/looping = true
+
+[node name="PauseMusic" type="AudioStreamPlayer" parent="GameScene/Bg" unique_id=167185101]
+process_mode = 2
+stream = ExtResource("26_n5ssh")
+autoplay = true
 
 [node name="Fg" type="Node2D" parent="GameScene" unique_id=180572099]
 z_index = 10
@@ -290,6 +297,7 @@ theme_override_font_sizes/font_size = 16
 text = "Options"
 
 [node name="GameOver" type="ColorRect" parent="." unique_id=1628017694]
+process_mode = 2
 visible = false
 z_index = 20
 offset_right = 240.0
@@ -354,6 +362,7 @@ theme_override_colors/font_color = Color(0.99215686, 0.99607843, 0.5372549, 1)
 text = "You earned 0 credits"
 
 [node name="Credits" type="ColorRect" parent="." unique_id=1504391242]
+process_mode = 3
 visible = false
 z_index = 30
 offset_right = 240.0
