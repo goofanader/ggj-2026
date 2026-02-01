@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ujp8tw0paiu6" path="res://Assets/Art/Background/back_table.png" id="2_ke1vn"]
 [ext_resource type="Texture2D" uid="uid://b6ry56fg0rdoj" path="res://Assets/Art/Background/register.png" id="4_156p1"]
 [ext_resource type="Texture2D" uid="uid://j7ahjlb32un3" path="res://Assets/Art/Background/scanner_spot.png" id="5_7enb7"]
-[ext_resource type="Script" path="res://Scripts/background_sounds.gd" id="5_uctcs"]
+[ext_resource type="Script" uid="uid://cdfq424n0esed" path="res://Scripts/background_sounds.gd" id="5_uctcs"]
 [ext_resource type="Texture2D" uid="uid://1xp7sa4enjc0" path="res://Assets/Art/Background/street.png" id="8_1n7h2"]
 [ext_resource type="Script" uid="uid://dsiwpy0t3rcm4" path="res://Scripts/rain.gd" id="9_777q4"]
 [ext_resource type="Script" uid="uid://dw5l65yena3g6" path="res://Scripts/register.gd" id="9_mlytr"]
@@ -17,7 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://btohdyemvub5e" path="res://Assets/Sounds/Register_Kaching.wav" id="12_5ye1r"]
 [ext_resource type="Texture2D" uid="uid://dy6n5gvk4rihg" path="res://Assets/Art/Background/table_front.png" id="13_fjyh7"]
 [ext_resource type="AudioStream" uid="uid://b26oyhgbm2dpi" path="res://Assets/Sounds/Background_Loop.ogg" id="17_mtrcc"]
-[ext_resource type="Shader" path="res://Assets/Outline.gdshader" id="20_laryo"]
+[ext_resource type="Shader" uid="uid://duh37qely848e" path="res://Assets/Outline.gdshader" id="20_laryo"]
 [ext_resource type="PackedScene" uid="uid://bctllivmcvv5h" path="res://Scenes/Character Stats.tscn" id="25_bgl0a"]
 [ext_resource type="Script" uid="uid://civlgr2erxdai" path="res://Scripts/ui_sounds.gd" id="29_v38rm"]
 [ext_resource type="AudioStream" uid="uid://5h56gmnlubea" path="res://Assets/Sounds/Track_8.ogg" id="30_fjyh7"]
@@ -212,7 +212,7 @@ offset_top = -1.0
 offset_right = 46.0
 offset_bottom = 13.0
 theme_override_colors/font_color = Color(0.99215686, 0.99607843, 0.5372549, 1)
-text = "Credits: 0"
+text = "Chips: 0"
 
 [node name="Dialog Box" parent="GameScene/UI" unique_id=2096750107 instance=ExtResource("34_b8f0w")]
 z_index = 10
