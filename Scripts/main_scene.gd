@@ -121,6 +121,7 @@ func player_reponse(customer:CustomerNode, choice:ChoiceData) -> void:
 	player.damage(choice.player_damage)
 	customer_speak(choice.customer_response)
 	customer.damage(choice.customer_damage)
+	customer.talked_to = true
 
 
 ## -----------------------------------------------------------------------------
