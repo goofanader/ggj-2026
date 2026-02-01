@@ -1,6 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://dr0407s0ett1j"]
 
-[ext_resource type="FontFile" uid="uid://dwf2v3x68ys0h" path="res://Assets/PetitePx.ttf" id="1_c2io1"]
+[ext_resource type="FontFile" uid="uid://dwf2v3x68ys0h" path="res://Assets/Theme and Font/PetitePx.ttf" id="1_c2io1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vvubb"]
 content_margin_left = 4.0

@@ -1,0 +1,42 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://ig0bwfm563il"]
+
+[ext_resource type="Texture2D" uid="uid://cwwfvfedkx0ul" path="res://Assets/Art/Characters/antenna_guy.png" id="1_n76ef"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obf4n"]
+atlas = ExtResource("1_n76ef")
+region = Rect2(0, 0, 82, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elhhs"]
+atlas = ExtResource("1_n76ef")
+region = Rect2(82, 0, 82, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r141j"]
+atlas = ExtResource("1_n76ef")
+region = Rect2(164, 0, 82, 104)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obf4n")
+}],
+"loop": true,
+"name": &"Happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elhhs")
+}],
+"loop": true,
+"name": &"Neutral",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r141j")
+}],
+"loop": true,
+"name": &"Sad",
+"speed": 5.0
+}]

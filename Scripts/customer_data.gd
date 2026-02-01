@@ -1,3 +1,4 @@
+@tool
 extends Resource
 class_name CustomerData
 
@@ -15,6 +16,8 @@ class_name CustomerData
 
 @export var question_data: Array[QuestionData] = []
 @export var response_data: Dictionary[CustomerNode.Mood,Array] = {}
+
+
 
 
 

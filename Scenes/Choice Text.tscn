@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ws8e522lr8i3" path="res://Scripts/choice_text.gd" id="1_iba8c"]
 [ext_resource type="Texture2D" uid="uid://2ymdh0dvvus3" path="res://Assets/Art/UI/Dialog_Frame.png" id="2_iba8c"]
-[ext_resource type="FontFile" uid="uid://dwf2v3x68ys0h" path="res://Assets/PetitePx.ttf" id="3_kmuuh"]
+[ext_resource type="FontFile" uid="uid://dwf2v3x68ys0h" path="res://Assets/Theme and Font/PetitePx.ttf" id="3_kmuuh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s402j"]
 bg_color = Color(0.6, 0.6, 0.6, 0)

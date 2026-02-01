@@ -1,0 +1,75 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bv268ydwiv5k2"]
+
+[ext_resource type="Texture2D" uid="uid://ddolnq15tlah4" path="res://Assets/Art/Characters/player_sheet.png" id="1_nvpt6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nv4c"]
+atlas = ExtResource("1_nvpt6")
+region = Rect2(220, 0, 44, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0v7d4"]
+atlas = ExtResource("1_nvpt6")
+region = Rect2(264, 0, 44, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpcvg"]
+atlas = ExtResource("1_nvpt6")
+region = Rect2(0, 0, 44, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kaq4"]
+atlas = ExtResource("1_nvpt6")
+region = Rect2(44, 0, 44, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okjsw"]
+atlas = ExtResource("1_nvpt6")
+region = Rect2(88, 0, 44, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_um1ix"]
+atlas = ExtResource("1_nvpt6")
+region = Rect2(132, 0, 44, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fx7xa"]
+atlas = ExtResource("1_nvpt6")
+region = Rect2(176, 0, 44, 46)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_8nv4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0v7d4")
+}],
+"loop": true,
+"name": &"Angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tpcvg")
+}],
+"loop": true,
+"name": &"Happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_4kaq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okjsw")
+}],
+"loop": true,
+"name": &"Neutral",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_um1ix")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_fx7xa")
+}],
+"loop": true,
+"name": &"Sad",
+"speed": 5.0
+}]

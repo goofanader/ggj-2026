@@ -1,80 +1,8 @@
 [gd_scene format=3 uid="uid://bctllivmcvv5h"]
 
 [ext_resource type="Script" uid="uid://b3ngm7008iqeh" path="res://Scripts/character_stats.gd" id="1_4kaq4"]
-[ext_resource type="Texture2D" uid="uid://ddolnq15tlah4" path="res://Assets/Art/Characters/player_sheet.png" id="1_g4mlw"]
+[ext_resource type="SpriteFrames" uid="uid://bv268ydwiv5k2" path="res://Assets/Art/Characters/player_frames.tres" id="2_4kaq4"]
 [ext_resource type="Texture2D" uid="uid://cya7perkdex2" path="res://Assets/Art/UI/Dialog_Border.png" id="2_tpcvg"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8nv4c"]
-atlas = ExtResource("1_g4mlw")
-region = Rect2(220, 0, 44, 46)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0v7d4"]
-atlas = ExtResource("1_g4mlw")
-region = Rect2(264, 0, 44, 46)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tpcvg"]
-atlas = ExtResource("1_g4mlw")
-region = Rect2(0, 0, 44, 46)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4kaq4"]
-atlas = ExtResource("1_g4mlw")
-region = Rect2(44, 0, 44, 46)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_okjsw"]
-atlas = ExtResource("1_g4mlw")
-region = Rect2(88, 0, 44, 46)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_um1ix"]
-atlas = ExtResource("1_g4mlw")
-region = Rect2(132, 0, 44, 46)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fx7xa"]
-atlas = ExtResource("1_g4mlw")
-region = Rect2(176, 0, 44, 46)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_6rtnr"]
-animations = [{
-"frames": [{
-"duration": 3.0,
-"texture": SubResource("AtlasTexture_8nv4c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0v7d4")
-}],
-"loop": true,
-"name": &"Angry",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tpcvg")
-}],
-"loop": true,
-"name": &"Happy",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 3.0,
-"texture": SubResource("AtlasTexture_4kaq4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_okjsw")
-}],
-"loop": true,
-"name": &"Neutral",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_um1ix")
-}, {
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_fx7xa")
-}],
-"loop": true,
-"name": &"Sad",
-"speed": 5.0
-}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4mlw"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -98,7 +26,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1938157375]
 position = Vector2(-1, -32)
-sprite_frames = SubResource("SpriteFrames_6rtnr")
+sprite_frames = ExtResource("2_4kaq4")
 animation = &"Angry"
 frame_progress = 0.8097742
 

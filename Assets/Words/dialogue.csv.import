@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://b6vgtvh3loym7"
+
+[deps]
+
+files=["res://Assets/Words/dialogue.r1.translation", "res://Assets/Words/dialogue.cust.translation", "res://Assets/Words/dialogue.res1.translation", "res://Assets/Words/dialogue.res1.translation", "res://Assets/Words/dialogue.r2.translation", "res://Assets/Words/dialogue.cust.translation", "res://Assets/Words/dialogue.res2.translation", "res://Assets/Words/dialogue.res2.translation"]
+
+source_file="res://Assets/Words/dialogue.csv"
+dest_files=["res://Assets/Words/dialogue.r1.translation", "res://Assets/Words/dialogue.cust.translation", "res://Assets/Words/dialogue.res1.translation", "res://Assets/Words/dialogue.res1.translation", "res://Assets/Words/dialogue.r2.translation", "res://Assets/Words/dialogue.cust.translation", "res://Assets/Words/dialogue.res2.translation", "res://Assets/Words/dialogue.res2.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

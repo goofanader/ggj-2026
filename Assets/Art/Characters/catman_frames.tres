@@ -1,0 +1,42 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://baye73um8p0rh"]
+
+[ext_resource type="Texture2D" uid="uid://cn8miaio7rx3c" path="res://Assets/Art/Characters/catman.png" id="1_xr37i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qty71"]
+atlas = ExtResource("1_xr37i")
+region = Rect2(0, 0, 82, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eux5k"]
+atlas = ExtResource("1_xr37i")
+region = Rect2(82, 0, 82, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bagqa"]
+atlas = ExtResource("1_xr37i")
+region = Rect2(164, 0, 82, 104)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qty71")
+}],
+"loop": true,
+"name": &"Happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eux5k")
+}],
+"loop": true,
+"name": &"Neutral",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bagqa")
+}],
+"loop": true,
+"name": &"Sad",
+"speed": 5.0
+}]

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://xw3mwauixwlx"
-path="res://.godot/imported/TeenyPx.ttf-5024cecd9a4a40a361fbdaf0c3e3bd0e.fontdata"
+uid="uid://dwf2v3x68ys0h"
+path="res://.godot/imported/PetitePx.ttf-078a442bd4f93d95e8d9bf591e7bec9b.fontdata"
 
 [deps]
 
-source_file="res://Assets/TeenyPx.ttf"
-dest_files=["res://.godot/imported/TeenyPx.ttf-5024cecd9a4a40a361fbdaf0c3e3bd0e.fontdata"]
+source_file="res://Assets/Theme and Font/PetitePx.ttf"
+dest_files=["res://.godot/imported/PetitePx.ttf-078a442bd4f93d95e8d9bf591e7bec9b.fontdata"]
 
 [params]
 

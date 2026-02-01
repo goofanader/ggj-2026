@@ -1,0 +1,42 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://doqme7apm36ps"]
+
+[ext_resource type="Texture2D" uid="uid://desmtupmm7xiw" path="res://Assets/Art/Characters/face_mask.png" id="1_x2hde"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3h444"]
+atlas = ExtResource("1_x2hde")
+region = Rect2(0, 0, 82, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ys44v"]
+atlas = ExtResource("1_x2hde")
+region = Rect2(82, 0, 82, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g30s5"]
+atlas = ExtResource("1_x2hde")
+region = Rect2(164, 0, 82, 104)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3h444")
+}],
+"loop": true,
+"name": &"Happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ys44v")
+}],
+"loop": true,
+"name": &"Neutral",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g30s5")
+}],
+"loop": true,
+"name": &"Sad",
+"speed": 5.0
+}]

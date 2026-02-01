@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://rfyl0f42xd2f" path="res://Scenes/Item.tscn" id="2_56oky"]
 [ext_resource type="Texture2D" uid="uid://ujp8tw0paiu6" path="res://Assets/Art/Background/back_table.png" id="2_ke1vn"]
 [ext_resource type="Script" uid="uid://4t7ehoq1t80x" path="res://Scripts/customer_data.gd" id="2_l533x"]
-[ext_resource type="SpriteFrames" uid="uid://ig0bwfm563il" path="res://Assets/Art/Characters/customer_test_frames.tres" id="3_1051w"]
+[ext_resource type="SpriteFrames" uid="uid://ig0bwfm563il" path="res://Assets/Art/Characters/antenna_guy_frames.tres" id="3_1051w"]
 [ext_resource type="Script" uid="uid://bn37jdrgm7ons" path="res://Scripts/Question Data.gd" id="3_qmgfp"]
 [ext_resource type="Texture2D" uid="uid://b6ry56fg0rdoj" path="res://Assets/Art/Background/register.png" id="4_156p1"]
 [ext_resource type="Script" uid="uid://boul3g5xuysqv" path="res://Scripts/Choice Data.gd" id="4_qmgfp"]
@@ -15,10 +15,13 @@
 [ext_resource type="SpriteFrames" uid="uid://borlb3ab3ej5x" path="res://Assets/Art/Characters/robot_frames.tres" id="6_777q4"]
 [ext_resource type="PackedScene" uid="uid://dfife271rokxq" path="res://Scenes/Customer.tscn" id="7_7enb7"]
 [ext_resource type="Texture2D" uid="uid://1xp7sa4enjc0" path="res://Assets/Art/Background/street.png" id="8_1n7h2"]
+[ext_resource type="SpriteFrames" uid="uid://bthkayp6slu28" path="res://Assets/Art/Characters/bald_guy_frames.tres" id="9_17a1j"]
 [ext_resource type="Script" uid="uid://dsiwpy0t3rcm4" path="res://Scripts/rain.gd" id="9_777q4"]
 [ext_resource type="Script" uid="uid://dw5l65yena3g6" path="res://Scripts/register.gd" id="9_mlytr"]
 [ext_resource type="PackedScene" uid="uid://dxkajydmw3b80" path="res://Scenes/rain_drop.tscn" id="10_n5ssh"]
+[ext_resource type="SpriteFrames" uid="uid://baye73um8p0rh" path="res://Assets/Art/Characters/catman_frames.tres" id="10_prxtw"]
 [ext_resource type="AudioStream" uid="uid://b7yo0mbh8h2j0" path="res://Assets/Sounds/Register_Beep.wav" id="11_5ye1r"]
+[ext_resource type="SpriteFrames" uid="uid://doqme7apm36ps" path="res://Assets/Art/Characters/face_mask_frames.tres" id="11_fty1f"]
 [ext_resource type="Texture2D" uid="uid://bxubgsq3bmdbn" path="res://Assets/Art/Background/back_wall.png" id="11_v38rm"]
 [ext_resource type="AudioStream" uid="uid://btohdyemvub5e" path="res://Assets/Sounds/Register_Kaching.wav" id="12_5ye1r"]
 [ext_resource type="Texture2D" uid="uid://dy6n5gvk4rihg" path="res://Assets/Art/Background/table_front.png" id="13_fjyh7"]
@@ -35,7 +38,7 @@
 [ext_resource type="Script" uid="uid://dcb1dchykhvg8" path="res://Scripts/volume_slider.gd" id="30_laryo"]
 [ext_resource type="PackedScene" uid="uid://w3nj60ktwukq" path="res://Scenes/Dialog Box.tscn" id="34_b8f0w"]
 [ext_resource type="PackedScene" uid="uid://dmbb8d07rfnbd" path="res://Scenes/Choice Box.tscn" id="35_7l4at"]
-[ext_resource type="FontFile" uid="uid://dwf2v3x68ys0h" path="res://Assets/PetitePx.ttf" id="35_lmxys"]
+[ext_resource type="FontFile" uid="uid://dwf2v3x68ys0h" path="res://Assets/Theme and Font/PetitePx.ttf" id="35_lmxys"]
 
 [sub_resource type="Resource" id="Resource_7l4at"]
 script = ExtResource("4_qmgfp")
@@ -59,7 +62,7 @@ metadata/_custom_type_script = "uid://bn37jdrgm7ons"
 
 [sub_resource type="Resource" id="Resource_mlytr"]
 script = ExtResource("2_l533x")
-sprites = Array[SpriteFrames]([ExtResource("3_1051w"), ExtResource("5_bgl0a"), ExtResource("6_777q4")])
+sprites = Array[SpriteFrames]([ExtResource("3_1051w"), ExtResource("5_bgl0a"), ExtResource("6_777q4"), ExtResource("9_17a1j"), ExtResource("10_prxtw"), ExtResource("11_fty1f")])
 customer_scene = ExtResource("7_7enb7")
 question_data = Array[ExtResource("3_qmgfp")]([SubResource("Resource_22qr8")])
 response_data = Dictionary[int, Array]({
