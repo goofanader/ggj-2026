@@ -56,13 +56,16 @@ func add_customer(customer_node: CustomerNode) -> void:
 	customer_node.position = customer_spawn.position
 	add_child(customer_node)
 	customer_node.enter()
+	$WaitTimer.start()
 
 func remove_customer(customer_node:CustomerNode) -> void:
 	if customer_nodes.has(customer_node):
 		customer_nodes.erase(customer_node)
 	customer_node.leave()
 	$CustomerTimer.start(randi_range(1,2))
+	$WaitTimer.stop()
 	clear_items()
+	print("Bye Felicia")
 	
 func clear_customers() -> void:
 	if customer_nodes.size() > 0:
@@ -112,10 +115,14 @@ func _on_register_checkout() -> void:
 			customer_nodes[0].damage(30)
 			print("What the heck you didn't scan all my stuff")
 		else:
-			print("Bye Felicia")
 			remove_customer(customer_nodes[0])
 		
 
 
 func _on_customer_timer_timeout() -> void:
 	new_customer()
+
+
+func _on_wait_timer_timeout() -> void:
+	customer_nodes[0].damage(3)
+	print("Time Passes")
