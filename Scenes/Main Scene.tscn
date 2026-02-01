@@ -39,27 +39,22 @@ height = 18.0
 [sub_resource type="Resource" id="Resource_v38rm"]
 script = ExtResource("5_s0c2j")
 audio_track = ExtResource("19_moxyw")
-metadata/_custom_type_script = "uid://bgccdanfxwkna"
 
 [sub_resource type="Resource" id="Resource_fjyh7"]
 script = ExtResource("5_s0c2j")
 audio_track = ExtResource("20_bgl0a")
-metadata/_custom_type_script = "uid://bgccdanfxwkna"
 
 [sub_resource type="Resource" id="Resource_qf2de"]
 script = ExtResource("5_s0c2j")
 audio_track = ExtResource("21_777q4")
-metadata/_custom_type_script = "uid://bgccdanfxwkna"
 
 [sub_resource type="Resource" id="Resource_laryo"]
 script = ExtResource("5_s0c2j")
 audio_track = ExtResource("22_n5ssh")
-metadata/_custom_type_script = "uid://bgccdanfxwkna"
 
 [sub_resource type="Resource" id="Resource_qmgfp"]
 script = ExtResource("5_s0c2j")
 audio_track = ExtResource("23_1n7h2")
-metadata/_custom_type_script = "uid://bgccdanfxwkna"
 
 [node name="Main Scene" type="Node2D" unique_id=125374370 node_paths=PackedStringArray("customer_spawn", "player")]
 script = ExtResource("1_4y6ly")
@@ -129,6 +124,7 @@ stream = ExtResource("11_5ye1r")
 
 [node name="KaChing" type="AudioStreamPlayer" parent="Fg/Register" unique_id=796664077]
 stream = ExtResource("12_5ye1r")
+volume_db = -5.0
 
 [node name="ItemDrops" type="Node2D" parent="Fg" unique_id=1262851053]
 visible = false

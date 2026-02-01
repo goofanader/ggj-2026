@@ -115,12 +115,16 @@ func enter() -> void:
 	match transition_in:
 		Transitions.Walk:
 			animator.play("Walk In")
+			$Customer_Frame/AudioStreamPlayer2D.volume_db = 0
 		Transitions.Run:
 			animator.play("Run In")
+			$Customer_Frame/AudioStreamPlayer2D.volume_db = 0
 		Transitions.Beam:
 			animator.play("Beam In")
+			$Customer_Frame/AudioStreamPlayer2D.volume_db = -7
 		Transitions.Blink:
 			animator.play("Blink In")
+			$Customer_Frame/AudioStreamPlayer2D.volume_db = 0
 
 var _is_leaving: bool = false
 func leave() -> void:
@@ -130,12 +134,16 @@ func leave() -> void:
 	match transition_in:
 		Transitions.Walk:
 			animator.play("Walk Out")
+			$Customer_Frame/AudioStreamPlayer2D.volume_db = 0
 		Transitions.Run:
 			animator.play("Run Out")
+			$Customer_Frame/AudioStreamPlayer2D.volume_db = 0
 		Transitions.Beam:
 			animator.play("Beam Out")
+			$Customer_Frame/AudioStreamPlayer2D.volume_db = -7
 		Transitions.Blink:
 			animator.play("Blink Out")
+			$Customer_Frame/AudioStreamPlayer2D.volume_db = 0
 
 func damage(value:float) -> void:
 	mood_level -= roundi(value*mood_scale)

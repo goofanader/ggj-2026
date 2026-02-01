@@ -62,7 +62,7 @@ func remove_customer(customer_node:CustomerNode) -> void:
 	if customer_nodes.has(customer_node):
 		customer_nodes.erase(customer_node)
 	customer_node.leave()
-	$CustomerTimer.start(randi_range(1,2))
+	$CustomerTimer.start(randi_range(3,4))
 	$WaitTimer.stop()
 	clear_items()
 	print("Bye Felicia")
@@ -124,5 +124,5 @@ func _on_customer_timer_timeout() -> void:
 
 
 func _on_wait_timer_timeout() -> void:
-	customer_nodes[0].damage(3)
-	print("Time Passes")
+	customer_nodes[0].damage(2)
+	#print("Time Passes")
