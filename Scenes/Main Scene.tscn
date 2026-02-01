@@ -29,8 +29,9 @@
 [ext_resource type="AudioStream" uid="uid://xuit6twp15r8" path="res://Assets/Sounds/Train_Overhead.wav" id="23_1n7h2"]
 [ext_resource type="PackedScene" uid="uid://bctllivmcvv5h" path="res://Scenes/Character Stats.tscn" id="25_bgl0a"]
 [ext_resource type="AudioStream" uid="uid://qg8f6y2koavf" path="res://Assets/Sounds/Welding_Sparks.wav" id="28_qf2de"]
-[ext_resource type="Script" uid="uid://civlgr2erxdai" path="res://Scenes/ui_sounds.gd" id="29_v38rm"]
+[ext_resource type="Script" uid="uid://civlgr2erxdai" path="res://Scripts/ui_sounds.gd" id="29_v38rm"]
 [ext_resource type="AudioStream" uid="uid://5h56gmnlubea" path="res://Assets/Sounds/Track_8.ogg" id="30_fjyh7"]
+[ext_resource type="Script" uid="uid://dcb1dchykhvg8" path="res://Scripts/volume_slider.gd" id="30_laryo"]
 
 [sub_resource type="Resource" id="Resource_mlytr"]
 script = ExtResource("2_l533x")
@@ -235,6 +236,16 @@ theme_override_colors/font_color = Color(0.36862746, 0.99215686, 0.5529412, 1)
 theme_override_font_sizes/font_size = 10
 text = "Credits"
 
+[node name="OptionsButton" type="Button" parent="MainMenu" unique_id=1153712563 groups=["Button"]]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 100.0
+offset_right = 111.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(0.36862746, 0.39215687, 0.99215686, 1)
+theme_override_font_sizes/font_size = 10
+text = "Options"
+
 [node name="Credits" type="ColorRect" parent="." unique_id=1504391242]
 visible = false
 z_index = 30
@@ -305,6 +316,41 @@ offset_bottom = 103.0
 text = "Yinfinity
 Sound & Art"
 
+[node name="Options" type="ColorRect" parent="." unique_id=871676240]
+visible = false
+z_index = 30
+offset_right = 240.0
+offset_bottom = 135.0
+color = Color(0.23921569, 0.23137255, 0.37254903, 1)
+
+[node name="OptionsBackButton" type="Button" parent="Options" unique_id=1291964318 groups=["Button"]]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(0.36862746, 0.39215687, 0.99215686, 1)
+theme_override_font_sizes/font_size = 10
+text = "Back"
+
+[node name="VolumeSlider" type="HSlider" parent="Options" unique_id=1903272819]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 96.0
+offset_right = 213.0
+offset_bottom = 112.0
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("30_laryo")
+
+[node name="Label" type="Label" parent="Options" unique_id=1134208136]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 66.0
+offset_right = 145.0
+offset_bottom = 89.0
+theme_override_colors/font_color = Color(0.36862746, 0.39215687, 0.99215686, 1)
+text = "Volume"
+
 [node name="UISounds" type="AudioStreamPlayer" parent="." unique_id=1520807796]
 volume_db = -7.0
 script = ExtResource("29_v38rm")
@@ -324,4 +370,7 @@ parameters/looping = true
 [connection signal="timeout" from="WaitTimer" to="." method="_on_wait_timer_timeout"]
 [connection signal="pressed" from="MainMenu/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MainMenu/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="MainMenu/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="Credits/CreditsBackButton" to="." method="_on_credits_back_button_pressed"]
+[connection signal="pressed" from="Options/OptionsBackButton" to="." method="_on_options_back_button_pressed"]
+[connection signal="value_changed" from="Options/VolumeSlider" to="Options/VolumeSlider" method="_on_value_changed"]
