@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://w3nj60ktwukq"]
+
+[ext_resource type="Texture2D" uid="uid://cya7perkdex2" path="res://Assets/Art/UI/Dialog_Border.png" id="1_gltgw"]
+[ext_resource type="PackedScene" uid="uid://c2l3c07072dy1" path="res://Scenes/Dialog Text Left.tscn" id="1_j88vi"]
+[ext_resource type="Theme" uid="uid://c2aioqkqjvtck" path="res://Assets/scroll_box_theme.tres" id="1_mllq5"]
+[ext_resource type="Script" uid="uid://b2bt0y55dq2x4" path="res://Scripts/Dialog_Box.gd" id="1_xmc7n"]
+[ext_resource type="PackedScene" uid="uid://bgxw2ud04stvj" path="res://Scenes/Dialog Text Right.tscn" id="3_trjwt"]
+
+[node name="Dialog Box" type="Control" unique_id=2096750107 node_paths=PackedStringArray("list_node", "scroll_node")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+script = ExtResource("1_xmc7n")
+dialog_text_left = ExtResource("1_j88vi")
+dialog_text_right = ExtResource("3_trjwt")
+list_node = NodePath("MarginContainer/ScrollContainer/MarginContainer/VBoxContainer")
+scroll_node = NodePath("MarginContainer/ScrollContainer")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=115960605]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_gltgw")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=801871789]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer" unique_id=610633517]
+layout_mode = 2
+focus_mode = 2
+focus_behavior_recursive = 2
+theme = ExtResource("1_mllq5")
+follow_focus = true
+draw_focus_border = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ScrollContainer" unique_id=2102776660]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_right = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/MarginContainer" unique_id=635285487]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 10
+theme_override_constants/separation = 1
+alignment = 2

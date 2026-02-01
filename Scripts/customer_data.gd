@@ -13,6 +13,10 @@ class_name CustomerData
 
 @export var customer_scene: PackedScene
 
+@export var question_data: Array[QuestionData] = []
+@export var response_data: Dictionary[CustomerNode.Mood,Array] = {}
+
+
 
 func generate_new() -> CustomerNode:
 	var new_customer: CustomerNode = customer_scene.instantiate()
@@ -21,4 +25,12 @@ func generate_new() -> CustomerNode:
 	new_customer.mood_scale = randf_range(mood_scale_range[0],mood_scale_range[1])
 	new_customer.transition_in = CustomerNode.Transitions.values().pick_random()
 	new_customer.transition_out = CustomerNode.Transitions.values().pick_random()
+	new_customer.question = question_data.pick_random()
+	new_customer.customer_data = self
 	return new_customer
+
+func generate_response(mood:CustomerNode.Mood) -> String:
+	var response_list: Array[String] = []
+	response_list.assign(response_data[mood])
+	var response: String = response_list.pick_random()
+	return response

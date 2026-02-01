@@ -9,6 +9,10 @@ class_name MainNode
 @export var customer_data: CustomerData
 var items = []
 var scan_number: int
+var customer_leaving_early_damage: float = 15.0
+@export var customer_text_color: Color = Color(0.314, 0.475, 0.592, 1.0)
+@export var player_text_color: Color = Color(0.302, 0.49, 0.357, 1.0)
+
 
 ## -----------------------------------------------------------------------------
 ##             Node Attachements
@@ -18,6 +22,8 @@ var scan_number: int
 @export var customer_spawn: Marker2D
 @export var item_scene: PackedScene
 @export var player: CharacterStats
+@export var dialog_box: DialogBox
+@export var choice_box: ChoiceBox
 
 ## -----------------------------------------------------------------------------
 ##             Input
@@ -29,7 +35,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	## TODO: Remove these before export
 	elif event.is_action_pressed("Spawn New Customer"):
-		$CustomerTimer.stop()
+		$GameScene/Customer/CustomerTimer.stop()
 		new_customer()
 	elif event.is_action_pressed("Clear Customers"):
 		clear_customers()
@@ -40,9 +46,16 @@ func _unhandled_input(event: InputEvent) -> void:
 ## -----------------------------------------------------------------------------
 func _ready() -> void:
 	$MainMenu.visible = true
+	dialog_box.clear_text()
+	choice_box.clear_choices()
+	choice_box.clicked.connect(player_reponse)
+	player.game_over.connect(game_over)
 
 func start_game() -> void:
-	$CustomerTimer.start()
+	$GameScene/Customer/CustomerTimer.start()
+
+func game_over() -> void:
+	print("You bastards are lucky i need to make rent")
 
 
 ## -----------------------------------------------------------------------------
@@ -60,17 +73,23 @@ func add_customer(customer_node: CustomerNode) -> void:
 	customer_nodes.append(customer_node)
 	customer_node.leaving.connect(remove_customer)
 	customer_node.drop_item.connect(drop_items)
+	customer_node.ask_question.connect(ask_question)
+	customer_node.speak.connect(customer_speak)
 	customer_node.position = customer_spawn.position
 	add_child(customer_node)
 	customer_node.enter()
-	$WaitTimer.start()
+	$GameScene/Customer/WaitTimer.start()
 
-func remove_customer(customer_node:CustomerNode) -> void:
-	if customer_nodes.has(customer_node):
-		customer_nodes.erase(customer_node)
+
+func remove_customer(customer_node:CustomerNode, mad:bool=false) -> void:
+	choice_box.clear_choices(customer_node)
 	customer_node.leave()
-	$CustomerTimer.start(randf_range(3,4))
-	$WaitTimer.stop()
+	if customer_nodes.has(customer_node):
+		dialog_box.add_break()
+		customer_nodes.erase(customer_node)
+		if mad: player.damage(customer_leaving_early_damage)
+	$GameScene/Customer/CustomerTimer.start(randf_range(3,4))
+	$GameScene/Customer/WaitTimer.stop()
 	clear_items()
 	print("Bye Felicia")
 	
@@ -78,6 +97,26 @@ func clear_customers() -> void:
 	if customer_nodes.size() > 0:
 		for customer_node: CustomerNode in customer_nodes.duplicate():
 			remove_customer(customer_node)
+
+
+## -----------------------------------------------------------------------------
+##             Question and Dialog Methods
+## -----------------------------------------------------------------------------
+
+func ask_question(customer:CustomerNode, question:QuestionData) -> void:
+	customer_speak(question.text)
+	choice_box.add_choices(question.choices, customer)
+
+func customer_speak(text:String) -> void:
+	dialog_box.add_text(text,DialogBox.Direction.Left,customer_text_color)
+
+func player_speak(text:String) -> void:
+	dialog_box.add_text(text,DialogBox.Direction.Right,player_text_color)
+
+func player_reponse(customer:CustomerNode, text:String, player_damage:int, customer_damage:int) -> void:
+	player_speak(text)
+	player.damage(player_damage)
+	customer.damage(customer_damage)
 
 ## -----------------------------------------------------------------------------
 ##             Item Methods
@@ -88,8 +127,8 @@ func drop_items() -> void:
 	var n_items = randi_range(1,3)
 	for i in range(n_items):
 		var item = item_scene.instantiate()
-		item.initialize($Fg/ItemDrops.get_child(i).position)
-		$Fg.add_child(item)
+		item.initialize($GameScene/Fg/ItemDrops.get_child(i).position)
+		$GameScene/Fg.add_child(item)
 		item.connect("mistake",_on_item_mistake)
 		items.append(item)
 	scan_number = 0
