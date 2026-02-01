@@ -10,6 +10,7 @@ class_name MainNode
 var items = []
 var scan_number: int
 var customer_leaving_early_damage: float = 15.0
+var replay = false
 @export var customer_text_color: Color = Color(0.314, 0.475, 0.592, 1.0)
 @export var player_text_color: Color = Color(0.302, 0.49, 0.357, 1.0)
 
@@ -56,6 +57,9 @@ func start_game() -> void:
 
 func game_over() -> void:
 	print("You bastards are lucky i need to make rent")
+	$GameOver.visible = true
+	dialog_box.clear_text()
+	choice_box.clear_choices()
 
 ## -----------------------------------------------------------------------------
 ##             Customer Methods
@@ -177,7 +181,6 @@ func _on_start_button_pressed() -> void:
 	$MainMenu.visible = false
 	start_game()
 
-
 func _on_credits_button_pressed() -> void:
 	$Credits.visible = true
 
@@ -189,3 +192,8 @@ func _on_options_back_button_pressed() -> void:
 
 func _on_options_button_pressed() -> void:
 	$Options.visible = true
+	
+func _on_main_menu_button_pressed() -> void:
+	$GameOver.visible = false
+	get_tree().reload_current_scene()
+	
