@@ -2,20 +2,71 @@
 
 [ext_resource type="Script" uid="uid://doxe6253y3sku" path="res://scripts/main_scene.gd" id="1_4y6ly"]
 [ext_resource type="Texture2D" uid="uid://cpspwe73ld65c" path="res://Assets/Art/Background/wall_bg.png" id="1_atbvb"]
+[ext_resource type="PackedScene" uid="uid://rfyl0f42xd2f" path="res://Scenes/Item.tscn" id="2_56oky"]
 [ext_resource type="Texture2D" uid="uid://ujp8tw0paiu6" path="res://Assets/Art/Background/back_table.png" id="2_ke1vn"]
+[ext_resource type="Script" uid="uid://4t7ehoq1t80x" path="res://Scripts/customer_data.gd" id="2_l533x"]
+[ext_resource type="SpriteFrames" uid="uid://ig0bwfm563il" path="res://Assets/Art/Characters/customer_test_frames.tres" id="3_1051w"]
 [ext_resource type="Texture2D" uid="uid://qd1d050vdn30" path="res://Assets/Art/Background/front_table.png" id="3_v87v2"]
 [ext_resource type="Texture2D" uid="uid://b6ry56fg0rdoj" path="res://Assets/Art/Background/register.png" id="4_156p1"]
-[ext_resource type="PackedScene" uid="uid://05e0gnh4hnan" path="res://Scenes/Character Stats.tscn" id="4_v87v2"]
 [ext_resource type="Texture2D" uid="uid://j7ahjlb32un3" path="res://Assets/Art/Background/scanner_spot.png" id="5_7enb7"]
+[ext_resource type="SpriteFrames" uid="uid://peoq2t8hhfx6" path="res://Assets/Art/Characters/eye_girl_frames.tres" id="5_bgl0a"]
+[ext_resource type="Script" path="res://Scripts/FrequentAudioData.gd" id="5_s0c2j"]
+[ext_resource type="Script" path="res://Scripts/background_sounds.gd" id="5_uctcs"]
+[ext_resource type="SpriteFrames" uid="uid://borlb3ab3ej5x" path="res://Assets/Art/Characters/robot_frames.tres" id="6_777q4"]
 [ext_resource type="PackedScene" uid="uid://dfife271rokxq" path="res://Scenes/Customer.tscn" id="7_7enb7"]
 [ext_resource type="PackedScene" uid="uid://yvs2w16l73e7" path="res://Scenes/Dialog.tscn" id="9_105va"]
+[ext_resource type="Script" uid="uid://dw5l65yena3g6" path="res://Scripts/register.gd" id="9_mlytr"]
+[ext_resource type="AudioStream" uid="uid://b7yo0mbh8h2j0" path="res://Assets/Sounds/Register_Beep.wav" id="11_5ye1r"]
+[ext_resource type="AudioStream" uid="uid://btohdyemvub5e" path="res://Assets/Sounds/Register_Kaching.wav" id="12_5ye1r"]
+[ext_resource type="AudioStream" uid="uid://b26oyhgbm2dpi" path="res://Assets/Sounds/Background_Loop.ogg" id="17_mtrcc"]
+[ext_resource type="AudioStream" uid="uid://b8ik7htsx2j7g" path="res://Assets/Sounds/Bustling_People.wav" id="19_moxyw"]
+[ext_resource type="AudioStream" uid="uid://cpklr4e6fipph" path="res://Assets/Sounds/Siren_Close.wav" id="20_bgl0a"]
+[ext_resource type="AudioStream" uid="uid://dqb0tvtrm0wix" path="res://Assets/Sounds/Siren_Far.wav" id="21_777q4"]
+[ext_resource type="AudioStream" uid="uid://bt8ff4k6ganh6" path="res://Assets/Sounds/Train_Leaving.wav" id="22_n5ssh"]
+[ext_resource type="AudioStream" uid="uid://xuit6twp15r8" path="res://Assets/Sounds/Train_Overhead.wav" id="23_1n7h2"]
+[ext_resource type="PackedScene" uid="uid://bctllivmcvv5h" path="res://Scenes/Character Stats.tscn" id="25_bgl0a"]
+
+[sub_resource type="Resource" id="Resource_mlytr"]
+script = ExtResource("2_l533x")
+sprites = Array[SpriteFrames]([ExtResource("3_1051w"), ExtResource("5_bgl0a"), ExtResource("6_777q4")])
+customer_scene = ExtResource("7_7enb7")
+metadata/_custom_type_script = "uid://4t7ehoq1t80x"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4y6ly"]
-radius = 6.0
-height = 28.0
+radius = 3.0
+height = 18.0
 
-[node name="Main Scene" type="Node2D" unique_id=125374370]
+[sub_resource type="Resource" id="Resource_v38rm"]
+script = ExtResource("5_s0c2j")
+audio_track = ExtResource("19_moxyw")
+metadata/_custom_type_script = "uid://bgccdanfxwkna"
+
+[sub_resource type="Resource" id="Resource_fjyh7"]
+script = ExtResource("5_s0c2j")
+audio_track = ExtResource("20_bgl0a")
+metadata/_custom_type_script = "uid://bgccdanfxwkna"
+
+[sub_resource type="Resource" id="Resource_qf2de"]
+script = ExtResource("5_s0c2j")
+audio_track = ExtResource("21_777q4")
+metadata/_custom_type_script = "uid://bgccdanfxwkna"
+
+[sub_resource type="Resource" id="Resource_laryo"]
+script = ExtResource("5_s0c2j")
+audio_track = ExtResource("22_n5ssh")
+metadata/_custom_type_script = "uid://bgccdanfxwkna"
+
+[sub_resource type="Resource" id="Resource_qmgfp"]
+script = ExtResource("5_s0c2j")
+audio_track = ExtResource("23_1n7h2")
+metadata/_custom_type_script = "uid://bgccdanfxwkna"
+
+[node name="Main Scene" type="Node2D" unique_id=125374370 node_paths=PackedStringArray("customer_spawn", "player")]
 script = ExtResource("1_4y6ly")
+customer_data = SubResource("Resource_mlytr")
+customer_spawn = NodePath("CharacterSpawn")
+item_scene = ExtResource("2_56oky")
+player = NodePath("Character Stats")
 
 [node name="Bg" type="Node2D" parent="." unique_id=177786591]
 
@@ -49,29 +100,78 @@ offset_bottom = 40.0
 texture = ExtResource("3_v87v2")
 metadata/_edit_lock_ = true
 
-[node name="Regiester" type="Sprite2D" parent="Fg" unique_id=57658671]
+[node name="Register" type="Sprite2D" parent="Fg" unique_id=57658671]
 position = Vector2(137, 70)
 texture = ExtResource("4_156p1")
+script = ExtResource("9_mlytr")
 
-[node name="ScanSpot" type="Sprite2D" parent="Fg/Regiester" unique_id=1839340899]
+[node name="ScanSpot" type="Sprite2D" parent="Fg/Register" unique_id=1839340899]
 position = Vector2(-35, 15)
 texture = ExtResource("5_7enb7")
 
-[node name="ScanSpotArea" type="Area2D" parent="Fg/Regiester/ScanSpot" unique_id=859012442]
+[node name="ScanSpotArea" type="Area2D" parent="Fg/Register/ScanSpot" unique_id=859012442]
+collision_layer = 2
 
-[node name="ScanSpotShape" type="CollisionShape2D" parent="Fg/Regiester/ScanSpot/ScanSpotArea" unique_id=691975609]
+[node name="ScanSpotShape" type="CollisionShape2D" parent="Fg/Register/ScanSpot/ScanSpotArea" unique_id=691975609]
+position = Vector2(0, 1)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_4y6ly")
 
-[node name="Character Stats" parent="." unique_id=1264797244 instance=ExtResource("4_v87v2")]
-z_index = 20
-position = Vector2(196, 102)
+[node name="ClickBox" type="Area2D" parent="Fg/Register" unique_id=619295673]
+collision_layer = 4
+collision_mask = 0
 
-[node name="Customer" parent="." unique_id=1278525423 instance=ExtResource("7_7enb7")]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fg/Register/ClickBox" unique_id=1581214277]
+polygon = PackedVector2Array(-13, 18, -13, -18, 13, -18, 18, -15, 18, -4, 26, 12, 26, 19, -13, 19)
+
+[node name="Beeper" type="AudioStreamPlayer" parent="Fg/Register" unique_id=1662849847]
+stream = ExtResource("11_5ye1r")
+
+[node name="KaChing" type="AudioStreamPlayer" parent="Fg/Register" unique_id=796664077]
+stream = ExtResource("12_5ye1r")
+
+[node name="ItemDrops" type="Node2D" parent="Fg" unique_id=1262851053]
+visible = false
+
+[node name="Drop0" type="Marker2D" parent="Fg/ItemDrops" unique_id=1330372353]
 position = Vector2(44, 86)
+
+[node name="Drop1" type="Marker2D" parent="Fg/ItemDrops" unique_id=1042847844]
+position = Vector2(29, 86)
+
+[node name="Drop2" type="Marker2D" parent="Fg/ItemDrops" unique_id=2057453444]
+position = Vector2(14, 86)
 
 [node name="Dialog" parent="." unique_id=1176274323 instance=ExtResource("9_105va")]
 offset_left = 64.0
 offset_top = -2.0
 offset_right = 155.0
 offset_bottom = 50.0
+
+[node name="CharacterSpawn" type="Marker2D" parent="." unique_id=459509201]
+position = Vector2(44, 86)
+
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=825516288]
+position = Vector2(103, 64)
+
+[node name="BackgroundSoundPlayer" type="Node" parent="." unique_id=944899967]
+script = ExtResource("5_uctcs")
+looping_audio_tracks = Array[AudioStream]([ExtResource("17_mtrcc")])
+frequent_audio_tracks = Array[ExtResource("5_s0c2j")]([SubResource("Resource_v38rm"), SubResource("Resource_fjyh7"), SubResource("Resource_qf2de"), SubResource("Resource_laryo"), SubResource("Resource_qmgfp")])
+
+[node name="Character Stats" parent="." unique_id=1264797244 instance=ExtResource("25_bgl0a")]
+z_index = 20
+position = Vector2(197, 130)
+
+[node name="CustomerTimer" type="Timer" parent="." unique_id=1322700688]
+wait_time = 3.0
+one_shot = true
+
+[node name="WaitTimer" type="Timer" parent="." unique_id=78673344]
+
+[connection signal="checkout" from="Fg/Register" to="." method="_on_register_checkout"]
+[connection signal="scan" from="Fg/Register" to="." method="_on_register_scan"]
+[connection signal="area_entered" from="Fg/Register/ScanSpot/ScanSpotArea" to="Fg/Register" method="_on_scan_spot_area_area_entered"]
+[connection signal="input_event" from="Fg/Register/ClickBox" to="Fg/Register" method="_on_click_box_input_event"]
+[connection signal="timeout" from="CustomerTimer" to="." method="_on_customer_timer_timeout"]
+[connection signal="timeout" from="WaitTimer" to="." method="_on_wait_timer_timeout"]

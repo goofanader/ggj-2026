@@ -1,0 +1,38 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://borlb3ab3ej5x"]
+
+[ext_resource type="Texture2D" uid="uid://n8mt8waee7gg" path="res://Assets/Art/Characters/robot.png" id="1_cgj2d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjrfi"]
+atlas = ExtResource("1_cgj2d")
+region = Rect2(0, 0, 82, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrbup"]
+atlas = ExtResource("1_cgj2d")
+region = Rect2(164, 0, 82, 104)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjrfi")
+}],
+"loop": true,
+"name": &"Happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjrfi")
+}],
+"loop": true,
+"name": &"Neutral",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrbup")
+}],
+"loop": true,
+"name": &"Sad",
+"speed": 5.0
+}]
