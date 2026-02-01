@@ -6,11 +6,11 @@ class_name CustomerNode
 ## -----------------------------------------------------------------------------
 
 @export_group("Settings and Data")
-@export var mood_level_curve: Dictionary[String,Vector2i] = {
-	"Angry": Vector2i(0,20),
-	"Sad": Vector2i(21,40),
-	"Neutral": Vector2i(41,80),
-	"Happy": Vector2i(81,100),
+@export var mood_level_curve: Dictionary[String,int] = {
+	"Angry": 20,
+	"Sad": 40,
+	"Neutral": 80,
+	"Happy": 100,
 }
 @export var audio_files: Dictionary[String,AudioStream] = {}
 
@@ -39,11 +39,11 @@ class_name CustomerNode
 		if sprite_node:
 			sprite_node.sprite_frames = sprite_frames
 
-var _mood_level: int
+var _mood_level: int = 50
 @export var mood_level: int = 50:
 	set(value):
 		_mood_level = value
-		var mood_ind:int = mood_level_curve.values().find_custom(func(c): return _mood_level>=min(c.x,c.y) and _mood_level<=max(c.x,c.y))
+		var mood_ind:int = mood_level_curve.values().find_custom(func(c): return _mood_level<=c)
 		mood = Mood.keys().find(mood_level_curve.keys()[mood_ind]) as Mood
 		if _mood_level < 0:
 			leave()
@@ -143,3 +143,4 @@ func damage(value:float) -> void:
 
 func _ready() -> void:
 	sprite_frames = sprite_frames
+	mood_level = mood_level

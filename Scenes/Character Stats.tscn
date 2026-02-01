@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bctllivmcvv5h"]
 
+[ext_resource type="Script" uid="uid://b3ngm7008iqeh" path="res://Scripts/character_stats.gd" id="1_4kaq4"]
 [ext_resource type="Texture2D" uid="uid://ddolnq15tlah4" path="res://Assets/Art/Characters/player_sheet.png" id="1_g4mlw"]
 [ext_resource type="Texture2D" uid="uid://cya7perkdex2" path="res://Assets/Art/UI/Dialog_Border.png" id="2_tpcvg"]
 
@@ -82,7 +83,10 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 bg_color = Color(0.32941177, 0.6509804, 0.41568628, 1)
 corner_detail = 1
 
-[node name="Character Stats" type="Node2D" unique_id=1264797244]
+[node name="Character Stats" type="Node2D" unique_id=1264797244 node_paths=PackedStringArray("sprite_node", "bar_node")]
+script = ExtResource("1_4kaq4")
+sprite_node = NodePath("AnimatedSprite2D")
+bar_node = NodePath("NinePatchRect/NinePatchRect/ProgressBar Bg/ProgressBar")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=639407537]
 offset_left = -20.0
@@ -131,7 +135,7 @@ offset_bottom = 7.0
 color = Color(0.30588236, 0.24313726, 0.3529412, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureProgressBar" type="ProgressBar" parent="NinePatchRect/NinePatchRect/ProgressBar Bg" unique_id=1092823333]
+[node name="ProgressBar" type="ProgressBar" parent="NinePatchRect/NinePatchRect/ProgressBar Bg" unique_id=1092823333]
 layout_mode = 0
 offset_left = 1.0
 offset_top = 1.0
