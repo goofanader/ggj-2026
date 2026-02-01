@@ -14,6 +14,9 @@ var replay = false
 @export var customer_text_color: Color = Color(0.314, 0.475, 0.592, 1.0)
 @export var player_text_color: Color = Color(0.302, 0.49, 0.357, 1.0)
 
+@onready var register_sprite := $GameScene/Fg/Register
+@onready var register_shader_material := register_sprite.material as ShaderMaterial
+
 ## -----------------------------------------------------------------------------
 ##             Node Attachements
 ## -----------------------------------------------------------------------------
@@ -51,6 +54,7 @@ func _ready() -> void:
 	choice_box.clear_choices()
 	choice_box.clicked.connect(player_reponse)
 	player.game_over.connect(game_over)
+	register_sprite.material = null
 
 func start_game() -> void:
 	$GameScene/Customer/CustomerTimer.start()
@@ -154,7 +158,6 @@ func clear_items() -> void:
 func _on_register_scan() -> void:
 	scan_number += 1
 
-
 func _on_register_checkout() -> void:
 	print(customer_nodes)
 	if customer_nodes.size() > 0 and items.size() > 0:
@@ -164,11 +167,8 @@ func _on_register_checkout() -> void:
 		else:
 			remove_customer(customer_nodes[0])
 		
-
-
 func _on_customer_timer_timeout() -> void:
 	new_customer()
-
 
 func _on_wait_timer_timeout() -> void:
 	customer_nodes[0].damage(1)
@@ -194,4 +194,9 @@ func _on_options_button_pressed() -> void:
 func _on_main_menu_button_pressed() -> void:
 	$GameOver.visible = false
 	get_tree().reload_current_scene()
-	
+
+func _on_click_box_mouse_entered() -> void:	
+	register_sprite.material = register_shader_material
+
+func _on_click_box_mouse_exited() -> void:	
+	register_sprite.material = null

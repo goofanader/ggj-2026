@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://cdfq424n0esed" path="res://Scripts/background_sounds.gd" id="5_uctcs"]
 [ext_resource type="Texture2D" uid="uid://1xp7sa4enjc0" path="res://Assets/Art/Background/street.png" id="8_1n7h2"]
 [ext_resource type="Script" uid="uid://dsiwpy0t3rcm4" path="res://scripts/rain.gd" id="9_777q4"]
-[ext_resource type="Script" path="res://Scripts/register.gd" id="9_mlytr"]
+[ext_resource type="Script" uid="uid://dw5l65yena3g6" path="res://Scripts/register.gd" id="9_mlytr"]
 [ext_resource type="PackedScene" uid="uid://dxkajydmw3b80" path="res://Scenes/rain_drop.tscn" id="10_n5ssh"]
 [ext_resource type="AudioStream" uid="uid://b7yo0mbh8h2j0" path="res://Assets/Sounds/Register_Beep.wav" id="11_5ye1r"]
 [ext_resource type="Texture2D" uid="uid://bxubgsq3bmdbn" path="res://Assets/Art/Background/back_wall.png" id="11_v38rm"]
@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://b26oyhgbm2dpi" path="res://Assets/Sounds/Background_Loop.ogg" id="17_mtrcc"]
 [ext_resource type="AudioStream" uid="uid://b8ik7htsx2j7g" path="res://Assets/Sounds/Bustling_People.wav" id="19_moxyw"]
 [ext_resource type="AudioStream" uid="uid://cpklr4e6fipph" path="res://Assets/Sounds/Siren_Close.wav" id="20_bgl0a"]
+[ext_resource type="Shader" uid="uid://duh37qely848e" path="res://Assets/Outline.gdshader" id="20_laryo"]
 [ext_resource type="AudioStream" uid="uid://dqb0tvtrm0wix" path="res://Assets/Sounds/Siren_Far.wav" id="21_777q4"]
 [ext_resource type="AudioStream" uid="uid://bt8ff4k6ganh6" path="res://Assets/Sounds/Train_Leaving.wav" id="22_n5ssh"]
 [ext_resource type="AudioStream" uid="uid://xuit6twp15r8" path="res://Assets/Sounds/Train_Overhead.wav" id="23_1n7h2"]
@@ -67,9 +68,39 @@ script = ExtResource("5_s0c2j")
 audio_track = ExtResource("28_qf2de")
 period = Vector2i(10, 30)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qmgfp"]
+shader = ExtResource("20_laryo")
+shader_parameter/color = Color(0.19607843, 0.19215687, 0.23137255, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b8f0w"]
+shader = ExtResource("20_laryo")
+shader_parameter/color = Color(0.32941177, 0.6509804, 0.41568628, 0)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4y6ly"]
 radius = 3.0
 height = 18.0
+
+[sub_resource type="GDScript" id="GDScript_laryo"]
+script/source = "extends Node2D
+
+@onready var shader_material := material as ShaderMaterial
+			
+func _on_mouse_hover() -> void:
+	shader_material.set_shader_parameter(\"enabled\", true)
+
+func _on_mouse_exited() -> void:
+	shader_material.set_shader_parameter(\"enabled\", false)
+"
 
 [node name="Main Scene" type="Node2D" unique_id=125374370 node_paths=PackedStringArray("customer_spawn", "player", "dialog_box", "choice_box")]
 script = ExtResource("1_4y6ly")
@@ -136,11 +167,13 @@ texture = ExtResource("13_fjyh7")
 metadata/_edit_lock_ = true
 
 [node name="Register" type="Sprite2D" parent="GameScene/Fg" unique_id=57658671]
+material = SubResource("ShaderMaterial_qmgfp")
 position = Vector2(137, 70)
 texture = ExtResource("4_156p1")
 script = ExtResource("9_mlytr")
 
 [node name="ScanSpot" type="Sprite2D" parent="GameScene/Fg/Register" unique_id=1839340899]
+material = SubResource("ShaderMaterial_b8f0w")
 position = Vector2(-35, 15)
 texture = ExtResource("5_7enb7")
 
@@ -155,6 +188,7 @@ shape = SubResource("CapsuleShape2D_4y6ly")
 [node name="ClickBox" type="Area2D" parent="GameScene/Fg/Register" unique_id=619295673]
 collision_layer = 4
 collision_mask = 0
+script = SubResource("GDScript_laryo")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GameScene/Fg/Register/ClickBox" unique_id=1581214277]
 polygon = PackedVector2Array(-13, 18, -13, -18, 13, -18, 18, -15, 18, -4, 26, 12, 26, 19, -13, 19)
@@ -454,6 +488,8 @@ text = "Volume"
 [connection signal="scan" from="GameScene/Fg/Register" to="." method="_on_register_scan"]
 [connection signal="area_entered" from="GameScene/Fg/Register/ScanSpot/ScanSpotArea" to="GameScene/Fg/Register" method="_on_scan_spot_area_area_entered"]
 [connection signal="input_event" from="GameScene/Fg/Register/ClickBox" to="GameScene/Fg/Register" method="_on_click_box_input_event"]
+[connection signal="mouse_entered" from="GameScene/Fg/Register/ClickBox" to="." method="_on_click_box_mouse_entered"]
+[connection signal="mouse_exited" from="GameScene/Fg/Register/ClickBox" to="." method="_on_click_box_mouse_exited"]
 [connection signal="timeout" from="GameScene/Customer/CustomerTimer" to="." method="_on_customer_timer_timeout"]
 [connection signal="timeout" from="GameScene/Customer/WaitTimer" to="." method="_on_wait_timer_timeout"]
 [connection signal="pressed" from="MainMenu/StartButton" to="." method="_on_start_button_pressed"]

@@ -1,12 +1,22 @@
 [gd_scene format=3 uid="uid://rfyl0f42xd2f"]
 
 [ext_resource type="Script" uid="uid://bm2yebf4unob4" path="res://Scripts/item.gd" id="1_3r01x"]
+[ext_resource type="Shader" uid="uid://duh37qely848e" path="res://Assets/Outline.gdshader" id="1_o34di"]
 [ext_resource type="Texture2D" uid="uid://bomlcdl4nbd72" path="res://Assets/Art/Items/Cyber_Circle_Mask.png" id="2_6oc8a"]
 [ext_resource type="AudioStream" uid="uid://cjcbc47371the" path="res://Assets/Sounds/Object_Pickup.wav" id="3_08o4a"]
 [ext_resource type="AudioStream" uid="uid://cfstn3lwxg1fo" path="res://Assets/Sounds/Object_Putdown.wav" id="4_6oc8a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_08o4a"]
 size = Vector2(20, 19)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o34di"]
+shader = ExtResource("1_o34di")
+shader_parameter/color = Color(0.36862746, 0.99215686, 0.96862745, 1)
+shader_parameter/width = 1.0000000475
+shader_parameter/pattern = 2
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
 
 [node name="Item" type="Node2D" unique_id=1956444918]
 script = ExtResource("1_3r01x")
@@ -19,6 +29,7 @@ position = Vector2(0, -10.5)
 shape = SubResource("RectangleShape2D_08o4a")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1937111830]
+material = SubResource("ShaderMaterial_o34di")
 position = Vector2(0, -10)
 texture = ExtResource("2_6oc8a")
 
@@ -32,3 +43,5 @@ volume_db = -15.0
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="input_event" from="Hitbox" to="." method="_on_hitbox_input_event"]
+[connection signal="mouse_entered" from="Hitbox" to="." method="_on_hitbox_mouse_entered"]
+[connection signal="mouse_exited" from="Hitbox" to="." method="_on_hitbox_mouse_exited"]

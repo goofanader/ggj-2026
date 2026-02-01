@@ -1,11 +1,21 @@
 [gd_scene format=3 uid="uid://m0ynb0lsrpk"]
 
-[ext_resource type="Script" uid="uid://ws8e522lr8i3" path="res://Scripts/choice_text.gd" id="1_iba8c"]
+[ext_resource type="Script" uid="uid://ws8e522lr8i3" path="res://scripts/choice_text.gd" id="1_iba8c"]
 [ext_resource type="Texture2D" uid="uid://2ymdh0dvvus3" path="res://Assets/Art/UI/Dialog_Frame.png" id="2_iba8c"]
 [ext_resource type="FontFile" uid="uid://dwf2v3x68ys0h" path="res://Assets/Theme and Font/PetitePx.ttf" id="3_kmuuh"]
+[ext_resource type="Shader" uid="uid://duh37qely848e" path="res://Assets/Outline.gdshader" id="4_bjgak"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s402j"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gxws6"]
+shader = ExtResource("4_bjgak")
+shader_parameter/color = Color(0.3529412, 0.81960785, 0.4862745, 1)
+shader_parameter/width = 1.0000000475
+shader_parameter/pattern = 2
+shader_parameter/inside = true
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iwbgv"]
 expand_margin_left = 3.0
@@ -15,6 +25,8 @@ expand_margin_bottom = 3.0
 
 [sub_resource type="Theme" id="Theme_daetm"]
 Panel/styles/panel = SubResource("StyleBoxFlat_iwbgv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bjgak"]
 
 [node name="Choice Text" type="PanelContainer" unique_id=2116097664 node_paths=PackedStringArray("rich_text_node")]
 anchors_preset = 10
@@ -39,6 +51,7 @@ theme_override_constants/margin_bottom = 0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer3" unique_id=216187389]
 z_index = 2
+material = SubResource("ShaderMaterial_gxws6")
 layout_mode = 2
 mouse_filter = 1
 theme = SubResource("Theme_daetm")
@@ -90,6 +103,7 @@ theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 1
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer2" unique_id=1544786797]
+material = SubResource("ShaderMaterial_bjgak")
 layout_mode = 2
 color = Color(0.3019608, 0.49019608, 0.35686275, 1)
 
@@ -97,4 +111,6 @@ color = Color(0.3019608, 0.49019608, 0.35686275, 1)
 layout_mode = 2
 flat = true
 
+[connection signal="mouse_entered" from="MarginContainer2/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer2/Button" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="MarginContainer2/Button" to="." method="picked"]
