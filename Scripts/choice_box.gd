@@ -12,6 +12,8 @@ func add_choices(choices:Array[ChoiceData], customer:CustomerNode) -> void:
 	clear_choices()
 	last_customer = customer
 	visible = true
+	choices = choices.duplicate()
+	choices.shuffle()
 	for choice:ChoiceData in choices:
 		var t: ChoiceText = choice_text_scene.instantiate()
 		t.load_data(choice)

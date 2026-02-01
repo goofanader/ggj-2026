@@ -28,6 +28,7 @@
 [ext_resource type="AudioStream" uid="uid://5h56gmnlubea" path="res://Assets/Sounds/Track_8.ogg" id="30_fjyh7"]
 [ext_resource type="Script" uid="uid://dcb1dchykhvg8" path="res://Scripts/volume_slider.gd" id="30_laryo"]
 [ext_resource type="Theme" uid="uid://dr0407s0ett1j" path="res://Assets/Theme and Font/font_theme.tres" id="30_qf2de"]
+[ext_resource type="FontFile" uid="uid://xw3mwauixwlx" path="res://Assets/Theme and Font/TeenyPx.ttf" id="30_qmgfp"]
 [ext_resource type="PackedScene" uid="uid://w3nj60ktwukq" path="res://Scenes/Dialog Box.tscn" id="34_b8f0w"]
 [ext_resource type="PackedScene" uid="uid://dmbb8d07rfnbd" path="res://Scenes/Choice Box.tscn" id="35_7l4at"]
 [ext_resource type="FontFile" uid="uid://dwf2v3x68ys0h" path="res://Assets/Theme and Font/PetitePx.ttf" id="35_lmxys"]
@@ -81,6 +82,7 @@ dialog_box = NodePath("GameScene/UI/Dialog Box")
 choice_box = NodePath("GameScene/UI/ChoiceBox")
 
 [node name="GameScene" type="Node2D" parent="." unique_id=1221861134]
+visible = false
 
 [node name="Bg" type="Node2D" parent="GameScene" unique_id=177786591]
 
@@ -338,8 +340,7 @@ offset_top = 62.0
 offset_right = 528.0
 offset_bottom = 79.0
 theme_override_colors/font_color = Color(0.99215686, 0.99607843, 0.5372549, 1)
-theme_override_fonts/font = ExtResource("35_lmxys")
-theme_override_font_sizes/font_size = 15
+theme_override_fonts/font = ExtResource("30_qmgfp")
 text = "Ugh.. you bastards are lucky that I need to pay rent..."
 horizontal_alignment = 1
 
