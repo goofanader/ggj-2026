@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cll8ootvws0ws"
+
+[deps]
+
+files=["res://scripts/Dialogue/dialogue.choice1.translation", "res://scripts/Dialogue/dialogue.choice1.translation", "res://scripts/Dialogue/dialogue.choice1.translation", "res://scripts/Dialogue/dialogue.choice2.translation", "res://scripts/Dialogue/dialogue.choice2.translation", "res://scripts/Dialogue/dialogue.choice2.translation"]
+
+source_file="res://scripts/Dialogue/dialogue.csv"
+dest_files=["res://scripts/Dialogue/dialogue.choice1.translation", "res://scripts/Dialogue/dialogue.choice1.translation", "res://scripts/Dialogue/dialogue.choice1.translation", "res://scripts/Dialogue/dialogue.choice2.translation", "res://scripts/Dialogue/dialogue.choice2.translation", "res://scripts/Dialogue/dialogue.choice2.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

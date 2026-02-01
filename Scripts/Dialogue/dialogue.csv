@@ -1,2 +1,2 @@
-npc_text,choice1_text,choice1_damage,choice1_annoyance,choice2_text,choice2_damage,choice2_annoyance
+text, choicetext1, dmg, annoyance dmg, choicetext2, dmg, annoyance dmg
 "wat is up my dude","sell item",-1,-2,"insult",-3,-4
