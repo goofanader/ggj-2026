@@ -117,6 +117,7 @@ parameters/looping = true
 [node name="PauseMusic" type="AudioStreamPlayer" parent="GameScene/Bg" unique_id=1923249407]
 process_mode = 2
 stream = ExtResource("11_n5ssh")
+volume_db = -10.0
 autoplay = true
 
 [node name="Fg" type="Node2D" parent="GameScene" unique_id=180572099]
@@ -498,8 +499,8 @@ text = "Volume"
 [connection signal="pressed" from="MainMenu/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="MainMenu/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="GameOver/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
-[connection signal="pressed" from="GameOver/CreditsButton2" to="." method="_on_credits_button_2_pressed"]
 [connection signal="pressed" from="GameOver/CreditsButton2" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="GameOver/CreditsButton2" to="." method="_on_credits_button_2_pressed"]
 [connection signal="pressed" from="Credits/CreditsBackButton" to="." method="_on_credits_back_button_pressed"]
 [connection signal="pressed" from="Options/OptionsBackButton" to="." method="_on_options_back_button_pressed"]
 [connection signal="value_changed" from="Options/VolumeSlider" to="Options/VolumeSlider" method="_on_value_changed"]
