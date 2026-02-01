@@ -39,7 +39,7 @@ func read_farewell_data_fun() -> void:
 	var data: Array = csv_reader.load_csv(farewell_in_file)
 	for r:int in range(1,data.size()):
 		var row: Array = data[r]
-		var mood:CustomerNode.Mood = (int(row[1])-1) as CustomerNode.Mood
+		var mood:CustomerNode.Mood = (3-(int(row[1])-1)) as CustomerNode.Mood
 		if not responses.has(mood): responses[mood] = []
 		responses[mood].append(row[0])
 	if data_resource:
