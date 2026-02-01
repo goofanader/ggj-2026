@@ -68,6 +68,8 @@ script = ExtResource("5_s0c2j")
 audio_track = ExtResource("28_qf2de")
 period = Vector2i(10, 30)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_laryo"]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4y6ly"]
 radius = 3.0
 height = 18.0
@@ -137,6 +139,7 @@ texture = ExtResource("13_fjyh7")
 metadata/_edit_lock_ = true
 
 [node name="Register" type="Sprite2D" parent="GameScene/Fg" unique_id=57658671]
+material = SubResource("ShaderMaterial_laryo")
 position = Vector2(137, 70)
 texture = ExtResource("4_156p1")
 script = ExtResource("9_mlytr")
