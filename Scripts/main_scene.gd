@@ -110,10 +110,11 @@ func customer_speak(text:String) -> void:
 func player_speak(text:String) -> void:
 	dialog_box.add_text(text,DialogBox.Direction.Right,player_text_color)
 
-func player_reponse(customer:CustomerNode, text:String, player_damage:int, customer_damage:int) -> void:
-	player_speak(text)
-	player.damage(player_damage)
-	customer.damage(customer_damage)
+func player_reponse(customer:CustomerNode, choice:ChoiceData) -> void:
+	player_speak(choice.text)
+	player.damage(choice.player_damage)
+	customer_speak(choice.customer_response)
+	customer.damage(choice.customer_damage)
 
 
 ## -----------------------------------------------------------------------------

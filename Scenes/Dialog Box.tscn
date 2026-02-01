@@ -21,6 +21,7 @@ list_node = NodePath("MarginContainer/ScrollContainer/MarginContainer/VBoxContai
 scroll_node = NodePath("MarginContainer/ScrollContainer")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=115960605]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

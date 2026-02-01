@@ -77,8 +77,6 @@ theme_override_font_sizes/bold_font_size = 16
 theme_override_font_sizes/bold_italics_font_size = 16
 theme_override_font_sizes/italics_font_size = 16
 theme_override_font_sizes/mono_font_size = 16
-text = "Good Answer
-Hi"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="csv_reader" format=3 uid="uid://vikoq36v4o8d"]
+
+[ext_resource type="Script" uid="uid://cgi5fp7nw7t3n" path="res://Scripts/csv_reader.gd" id="1_o65pn"]
+[ext_resource type="Resource" uid="uid://by18pcudlsla4" path="res://Scripts/Character Data.tres" id="1_rm4fc"]
+
+[resource]
+script = ExtResource("1_o65pn")
+data_resource = ExtResource("1_rm4fc")
+question_in_file = "uid://b6vgtvh3loym7"
+farewell_in_file = "uid://cdx7larw8kkq4"
+metadata/_custom_type_script = "uid://cgi5fp7nw7t3n"

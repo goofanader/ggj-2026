@@ -6,7 +6,7 @@ class_name ChoiceBox
 
 var last_customer: CustomerNode
 
-signal clicked(customer_target, text, player_damage, customer_damage)
+signal clicked(customer_target, choice)
 
 func add_choices(choices:Array[ChoiceData], customer:CustomerNode) -> void:
 	clear_choices()
@@ -18,9 +18,9 @@ func add_choices(choices:Array[ChoiceData], customer:CustomerNode) -> void:
 		t.clicked.connect(clicked_choice)
 		list_node.add_child(t)
 
-func clicked_choice(text, player_damage, customer_damage) -> void:
+func clicked_choice(choice: ChoiceData) -> void:
 	clear_choices()
-	clicked.emit(last_customer ,text, player_damage, customer_damage)
+	clicked.emit(last_customer, choice)
 
 func clear_choices(customer:CustomerNode=null) -> void:
 	if customer==null or customer==last_customer:

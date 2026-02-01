@@ -129,7 +129,7 @@ var _is_leaving: bool = false
 func leave(mad:bool=false) -> void:
 	if _is_leaving: return
 	_is_leaving = true
-	speak.emit(customer_data.generate_response(self.mood))
+	speak.emit(customer_data.generate_farewell(self.mood))
 	leaving.emit(self,mad)
 	match transition_in:
 		Transitions.Walk:

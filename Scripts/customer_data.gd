@@ -1,4 +1,4 @@
-@tool
+
 extends Resource
 class_name CustomerData
 
@@ -14,11 +14,10 @@ class_name CustomerData
 
 @export var customer_scene: PackedScene
 
+
 @export var question_data: Array[QuestionData] = []
-@export var response_data: Dictionary[CustomerNode.Mood,Array] = {}
 
-
-
+@export var farewell_data: Dictionary[CustomerNode.Mood,Array] = {}
 
 
 func generate_new() -> CustomerNode:
@@ -32,8 +31,8 @@ func generate_new() -> CustomerNode:
 	new_customer.customer_data = self
 	return new_customer
 
-func generate_response(mood:CustomerNode.Mood) -> String:
-	var response_list: Array[String] = []
-	response_list.assign(response_data[mood])
-	var response: String = response_list.pick_random()
-	return response
+func generate_farewell(mood:CustomerNode.Mood) -> String:
+	var farewell_list: Array[String] = []
+	farewell_list.assign(farewell_data[mood])
+	var farewell: String = farewell_list.pick_random()
+	return farewell

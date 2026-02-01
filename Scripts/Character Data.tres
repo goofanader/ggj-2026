@@ -1,0 +1,99 @@
+[gd_resource type="Resource" script_class="CustomerData" format=3 uid="uid://by18pcudlsla4"]
+
+[ext_resource type="PackedScene" uid="uid://dfife271rokxq" path="res://Scenes/Customer.tscn" id="1_7uvi0"]
+[ext_resource type="Script" uid="uid://bn37jdrgm7ons" path="res://Scripts/Question Data.gd" id="2_25bka"]
+[ext_resource type="Script" uid="uid://boul3g5xuysqv" path="res://Scripts/Choice Data.gd" id="3_7uvi0"]
+[ext_resource type="Script" uid="uid://4t7ehoq1t80x" path="res://Scripts/customer_data.gd" id="4_ovwhk"]
+[ext_resource type="SpriteFrames" uid="uid://ig0bwfm563il" path="res://Assets/Art/Characters/antenna_guy_frames.tres" id="5_utm6n"]
+[ext_resource type="SpriteFrames" uid="uid://peoq2t8hhfx6" path="res://Assets/Art/Characters/eye_girl_frames.tres" id="6_ewlpx"]
+[ext_resource type="SpriteFrames" uid="uid://borlb3ab3ej5x" path="res://Assets/Art/Characters/robot_frames.tres" id="7_phip4"]
+[ext_resource type="SpriteFrames" uid="uid://bthkayp6slu28" path="res://Assets/Art/Characters/bald_guy_frames.tres" id="8_khgmt"]
+[ext_resource type="SpriteFrames" uid="uid://baye73um8p0rh" path="res://Assets/Art/Characters/catman_frames.tres" id="9_q5mrg"]
+[ext_resource type="SpriteFrames" uid="uid://doqme7apm36ps" path="res://Assets/Art/Characters/face_mask_frames.tres" id="10_1mw7c"]
+
+[sub_resource type="Resource" id="Resource_7uvi0"]
+script = ExtResource("3_7uvi0")
+text = "Here at Face Value, we gotchu! *grin*"
+customer_response = "Haha, you really got that customer service smile, huh?"
+player_damage = 10
+
+[sub_resource type="Resource" id="Resource_25bka"]
+script = ExtResource("3_7uvi0")
+text = "Actually, Wise Guise has better deals..."
+customer_response = "Wait, seriously? Thanks for the tip!"
+player_damage = 5
+customer_damage = -5
+
+[sub_resource type="Resource" id="Resource_weaqx"]
+script = ExtResource("2_25bka")
+text = "You always have the best deals!"
+choices = Array[ExtResource("3_7uvi0")]([SubResource("Resource_7uvi0"), SubResource("Resource_25bka")])
+
+[sub_resource type="Resource" id="Resource_ovwhk"]
+script = ExtResource("3_7uvi0")
+text = "I can't believe we had this either!"
+customer_response = "Buddy... you new or somethin'?"
+player_damage = 10
+customer_damage = 10
+
+[sub_resource type="Resource" id="Resource_utm6n"]
+script = ExtResource("3_7uvi0")
+text = "We're the only ones in the West End that's got it!"
+customer_response = "I'll def have to come back for more, thanks!"
+player_damage = 15
+customer_damage = -10
+
+[sub_resource type="Resource" id="Resource_ewlpx"]
+script = ExtResource("2_25bka")
+text = "I can't believe you had this!"
+choices = Array[ExtResource("3_7uvi0")]([SubResource("Resource_ovwhk"), SubResource("Resource_utm6n")])
+
+[sub_resource type="Resource" id="Resource_phip4"]
+script = ExtResource("3_7uvi0")
+text = "No problem. That'll be 100 chips."
+customer_response = "100 chips? Is that... a deal?"
+player_damage = 5
+customer_damage = 10
+
+[sub_resource type="Resource" id="Resource_khgmt"]
+script = ExtResource("3_7uvi0")
+text = "At Face Value, we've got all you need and more!"
+customer_response = "Thank ya! I can go to the party dressed up real nice now."
+player_damage = 10
+customer_damage = -10
+
+[sub_resource type="Resource" id="Resource_q5mrg"]
+script = ExtResource("2_25bka")
+text = "You really saved my chrome."
+choices = Array[ExtResource("3_7uvi0")]([SubResource("Resource_phip4"), SubResource("Resource_khgmt")])
+
+[sub_resource type="Resource" id="Resource_1mw7c"]
+script = ExtResource("3_7uvi0")
+text = "Let them know we got the best deals in the West End!"
+customer_response = "Yeah, they'll be here with all the chips! Rad."
+player_damage = 15
+
+[sub_resource type="Resource" id="Resource_52dru"]
+script = ExtResource("3_7uvi0")
+text = "You should really tell them about Wise Guise instead. They have better stock."
+customer_response = "Yo, sayin' that kinda stuff is gonna get ya in trouble with your boss, no?"
+player_damage = 5
+customer_damage = -5
+
+[sub_resource type="Resource" id="Resource_to2gf"]
+script = ExtResource("2_25bka")
+text = "I gotta tell my crew about this place!"
+choices = Array[ExtResource("3_7uvi0")]([SubResource("Resource_1mw7c"), SubResource("Resource_52dru")])
+
+[resource]
+script = ExtResource("4_ovwhk")
+sprites = Array[SpriteFrames]([ExtResource("5_utm6n"), ExtResource("6_ewlpx"), ExtResource("7_phip4"), ExtResource("8_khgmt"), ExtResource("9_q5mrg"), ExtResource("10_1mw7c")])
+customer_scene = ExtResource("1_7uvi0")
+question_data = Array[ExtResource("2_25bka")]([SubResource("Resource_weaqx"), SubResource("Resource_ewlpx"), SubResource("Resource_q5mrg"), SubResource("Resource_to2gf")])
+farewell_data = Dictionary[int, Array]({
+0: ["This place is RUSTED!", "Great, now I’m out of chips AND on the fritz...", "Now I GOTTA see a robot about a horse!", "You’re ripping me off!", "Unbelievable."],
+1: ["Whatever.", "I don't think this was a good deal...", "That took all my chips. What a ripoff.", "Never comin' again...", "Bye, see ya never!"],
+2: ["Thank ya!", "Thanks so much!", "See ya.", "Still got some chips left... Where to go next?", "Hehehe... Got the goods."],
+3: ["I gotta tell my crew about this place.", "You really saved my chrome!", "This will really help!", "Now I gotta go see a robot about a horse..."]
+})
+metadata/_custom_type_script = "uid://4t7ehoq1t80x"
