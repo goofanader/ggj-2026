@@ -26,8 +26,8 @@ class_name CharacterStats
 ## -----------------------------------------------------------------------------
 
 @export_group("External Data")
-var _mood_level: int = 1
-@export var mood_level: int = 1:
+var _mood_level: int = 100
+@export var mood_level: int = 100:
 	set(value):
 		_mood_level = value
 		var mood_ind:int = mood_level_curve.values().find_custom(func(c): return _mood_level<=c)
