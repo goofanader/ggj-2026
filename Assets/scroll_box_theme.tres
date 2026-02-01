@@ -1,0 +1,20 @@
+[gd_resource type="Theme" format=3 uid="uid://c2aioqkqjvtck"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6n7g"]
+bg_color = Color(0.8784314, 0.5529412, 0.48235294, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k05yx"]
+bg_color = Color(0.8784314, 0.5529412, 0.48235294, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x5tk2"]
+bg_color = Color(0.8784314, 0.5529412, 0.48235294, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f8mkw"]
+content_margin_left = 3.0
+bg_color = Color(0.654902, 0.4117647, 0.4745098, 1)
+
+[resource]
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_e6n7g")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_k05yx")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_x5tk2")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_f8mkw")

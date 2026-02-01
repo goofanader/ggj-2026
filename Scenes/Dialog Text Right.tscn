@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://bgxw2ud04stvj"]
+
+[ext_resource type="Script" uid="uid://dpq56er40agsx" path="res://Scripts/dialog_text.gd" id="1_ikt5d"]
+[ext_resource type="Texture2D" uid="uid://baicmg7406y6o" path="res://Assets/Art/UI/Tiny Frame Right.png" id="2_ikt5d"]
+[ext_resource type="FontFile" uid="uid://dwf2v3x68ys0h" path="res://Assets/PetitePx.ttf" id="3_7e0l7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s402j"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iwbgv"]
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="Theme" id="Theme_daetm"]
+Panel/styles/panel = SubResource("StyleBoxFlat_iwbgv")
+
+[node name="Dialog Text" type="PanelContainer" unique_id=2116097664 node_paths=PackedStringArray("rich_text_node", "color_node")]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 36.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_s402j")
+script = ExtResource("1_ikt5d")
+rich_text_node = NodePath("MarginContainer/RichTextLabel")
+color_node = NodePath("MarginContainer2/ColorRect")
+
+[node name="MarginContainer3" type="MarginContainer" parent="." unique_id=309236734]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer3" unique_id=216187389]
+z_index = 2
+layout_mode = 2
+theme = SubResource("Theme_daetm")
+texture = ExtResource("2_ikt5d")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 4
+patch_margin_bottom = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=29856814]
+layout_mode = 2
+focus_mode = 2
+focus_behavior_recursive = 2
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = -2
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer" unique_id=878835757]
+z_index = 1
+layout_mode = 2
+theme_override_colors/default_color = Color(0.19607843, 0.19215687, 0.23137255, 1)
+theme_override_constants/line_separation = -5
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/text_highlight_h_padding = 0
+theme_override_constants/text_highlight_v_padding = 0
+theme_override_constants/table_h_separation = 0
+theme_override_constants/table_v_separation = 0
+theme_override_fonts/normal_font = ExtResource("3_7e0l7")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+theme_override_font_sizes/bold_italics_font_size = 16
+theme_override_font_sizes/italics_font_size = 16
+theme_override_font_sizes/mono_font_size = 16
+text = "hello world"
+fit_content = true
+scroll_active = false
+vertical_alignment = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1389537701]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 1
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer2" unique_id=1544786797]
+layout_mode = 2
