@@ -166,6 +166,7 @@ one_shot = true
 [node name="WaitTimer" type="Timer" parent="." unique_id=78673344]
 
 [node name="MainMenu" type="ColorRect" parent="." unique_id=1829466965]
+visible = false
 z_index = 20
 offset_right = 240.0
 offset_bottom = 135.0
@@ -204,7 +205,6 @@ theme_override_font_sizes/font_size = 10
 text = "Credits"
 
 [node name="Credits" type="ColorRect" parent="." unique_id=1504391242]
-visible = false
 z_index = 30
 offset_right = 240.0
 offset_bottom = 135.0
@@ -261,7 +261,7 @@ offset_left = 128.0
 offset_top = 15.0
 offset_right = 237.0
 offset_bottom = 64.0
-text = "gentlecentaur
+text = "GentleCentaur
 Writing"
 
 [node name="Label6" type="Label" parent="Credits" unique_id=142139346]
@@ -270,8 +270,8 @@ offset_left = 141.0
 offset_top = 54.0
 offset_right = 242.0
 offset_bottom = 103.0
-text = "yinfinity
-Sounds & Art"
+text = "Yinfinity
+Sound & Art"
 
 [connection signal="checkout" from="Fg/Register" to="." method="_on_register_checkout"]
 [connection signal="scan" from="Fg/Register" to="." method="_on_register_scan"]

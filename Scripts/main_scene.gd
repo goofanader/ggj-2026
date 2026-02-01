@@ -26,7 +26,10 @@ var scan_number: int
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Quit"):
 		get_tree().quit()
+	
+	## TODO: Remove these before export
 	elif event.is_action_pressed("Spawn New Customer"):
+		$CustomerTimer.stop()
 		new_customer()
 	elif event.is_action_pressed("Clear Customers"):
 		clear_customers()
@@ -35,6 +38,9 @@ func _unhandled_input(event: InputEvent) -> void:
 ## -----------------------------------------------------------------------------
 ##             Game Logic
 ## -----------------------------------------------------------------------------
+func _ready() -> void:
+	$MainMenu.visible = true
+
 func start_game() -> void:
 	$CustomerTimer.start()
 
@@ -125,7 +131,7 @@ func _on_customer_timer_timeout() -> void:
 
 
 func _on_wait_timer_timeout() -> void:
-	customer_nodes[0].damage(2)
+	customer_nodes[0].damage(1)
 	#print("Time Passes")
 
 
