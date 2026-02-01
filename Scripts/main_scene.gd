@@ -35,8 +35,9 @@ func _unhandled_input(event: InputEvent) -> void:
 ## -----------------------------------------------------------------------------
 ##             Game Logic
 ## -----------------------------------------------------------------------------
-func _ready() -> void:
+func start_game() -> void:
 	$CustomerTimer.start()
+
 
 ## -----------------------------------------------------------------------------
 ##             Customer Methods
@@ -62,7 +63,7 @@ func remove_customer(customer_node:CustomerNode) -> void:
 	if customer_nodes.has(customer_node):
 		customer_nodes.erase(customer_node)
 	customer_node.leave()
-	$CustomerTimer.start(randi_range(3,4))
+	$CustomerTimer.start(randf_range(3,4))
 	$WaitTimer.stop()
 	clear_items()
 	print("Bye Felicia")
@@ -126,3 +127,15 @@ func _on_customer_timer_timeout() -> void:
 func _on_wait_timer_timeout() -> void:
 	customer_nodes[0].damage(2)
 	#print("Time Passes")
+
+
+func _on_start_button_pressed() -> void:
+	$MainMenu.visible = false
+	start_game()
+
+
+func _on_credits_button_pressed() -> void:
+	$Credits.visible = true
+
+func _on_credits_back_button_pressed() -> void:
+	$Credits.visible = false
