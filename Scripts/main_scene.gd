@@ -13,7 +13,6 @@ var customer_leaving_early_damage: float = 15.0
 @export var customer_text_color: Color = Color(0.314, 0.475, 0.592, 1.0)
 @export var player_text_color: Color = Color(0.302, 0.49, 0.357, 1.0)
 
-
 ## -----------------------------------------------------------------------------
 ##             Node Attachements
 ## -----------------------------------------------------------------------------
@@ -24,6 +23,7 @@ var customer_leaving_early_damage: float = 15.0
 @export var player: CharacterStats
 @export var dialog_box: DialogBox
 @export var choice_box: ChoiceBox
+
 
 ## -----------------------------------------------------------------------------
 ##             Input
@@ -57,7 +57,6 @@ func start_game() -> void:
 func game_over() -> void:
 	print("You bastards are lucky i need to make rent")
 
-
 ## -----------------------------------------------------------------------------
 ##             Customer Methods
 ## -----------------------------------------------------------------------------
@@ -80,7 +79,6 @@ func add_customer(customer_node: CustomerNode) -> void:
 	customer_node.enter()
 	$GameScene/Customer/WaitTimer.start()
 
-
 func remove_customer(customer_node:CustomerNode, mad:bool=false) -> void:
 	choice_box.clear_choices(customer_node)
 	customer_node.leave()
@@ -97,7 +95,6 @@ func clear_customers() -> void:
 	if customer_nodes.size() > 0:
 		for customer_node: CustomerNode in customer_nodes.duplicate():
 			remove_customer(customer_node)
-
 
 ## -----------------------------------------------------------------------------
 ##             Question and Dialog Methods
@@ -117,6 +114,7 @@ func player_reponse(customer:CustomerNode, text:String, player_damage:int, custo
 	player_speak(text)
 	player.damage(player_damage)
 	customer.damage(customer_damage)
+
 
 ## -----------------------------------------------------------------------------
 ##             Item Methods
@@ -184,3 +182,9 @@ func _on_credits_button_pressed() -> void:
 
 func _on_credits_back_button_pressed() -> void:
 	$Credits.visible = false
+
+func _on_options_back_button_pressed() -> void:
+	$Options.visible = false
+
+func _on_options_button_pressed() -> void:
+	$Options.visible = true

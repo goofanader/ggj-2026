@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://w3nj60ktwukq"]
 
 [ext_resource type="Texture2D" uid="uid://cya7perkdex2" path="res://Assets/Art/UI/Dialog_Border.png" id="1_gltgw"]
-[ext_resource type="PackedScene" uid="uid://c2l3c07072dy1" path="res://Scenes/Dialog Text Left.tscn" id="1_j88vi"]
 [ext_resource type="Theme" uid="uid://c2aioqkqjvtck" path="res://Assets/scroll_box_theme.tres" id="1_mllq5"]
 [ext_resource type="Script" uid="uid://b2bt0y55dq2x4" path="res://Scripts/Dialog_Box.gd" id="1_xmc7n"]
+[ext_resource type="PackedScene" uid="uid://c2l3c07072dy1" path="res://Scenes/Dialog Text Left.tscn" id="2_trjwt"]
 [ext_resource type="PackedScene" uid="uid://bgxw2ud04stvj" path="res://Scenes/Dialog Text Right.tscn" id="3_trjwt"]
 
 [node name="Dialog Box" type="Control" unique_id=2096750107 node_paths=PackedStringArray("list_node", "scroll_node")]
@@ -15,7 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 0
 script = ExtResource("1_xmc7n")
-dialog_text_left = ExtResource("1_j88vi")
+dialog_text_left = ExtResource("2_trjwt")
 dialog_text_right = ExtResource("3_trjwt")
 list_node = NodePath("MarginContainer/ScrollContainer/MarginContainer/VBoxContainer")
 scroll_node = NodePath("MarginContainer/ScrollContainer")
