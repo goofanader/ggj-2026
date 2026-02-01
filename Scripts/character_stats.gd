@@ -72,5 +72,6 @@ signal game_over
 
 func damage(value:float) -> void:
 	mood_level -= roundi(value)
-	$EmotionalDamage.play()
+	if value > 0:
+		$EmotionalDamage.play()
 	
