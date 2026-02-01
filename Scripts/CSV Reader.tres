@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_o65pn")
 data_resource = ExtResource("1_rm4fc")
-question_in_file = "uid://b6vgtvh3loym7"
-farewell_in_file = "uid://cdx7larw8kkq4"
+question_in_file = "uid://cjuxel7baid3h"
+farewell_in_file = "uid://dhxednpbbsa3l"
 metadata/_custom_type_script = "uid://cgi5fp7nw7t3n"

@@ -38,7 +38,7 @@ customer_damage = 10
 
 [sub_resource type="Resource" id="Resource_utm6n"]
 script = ExtResource("3_7uvi0")
-text = "We're the only ones in the West End that's got it!"
+text = "We're the only ones in the West Sec that's got it!"
 customer_response = "I'll def have to come back for more, thanks!"
 player_damage = 15
 customer_damage = -10
@@ -59,7 +59,7 @@ customer_damage = 10
 script = ExtResource("3_7uvi0")
 text = "At Face Value, we've got all you need and more!"
 customer_response = "Thank ya! I can go to the party dressed up real nice now."
-player_damage = 10
+player_damage = -5
 customer_damage = -10
 
 [sub_resource type="Resource" id="Resource_q5mrg"]
@@ -69,9 +69,9 @@ choices = Array[ExtResource("3_7uvi0")]([SubResource("Resource_phip4"), SubResou
 
 [sub_resource type="Resource" id="Resource_1mw7c"]
 script = ExtResource("3_7uvi0")
-text = "Let them know we got the best deals in the West End!"
+text = "Let them know we got the best deals in the West Sector!"
 customer_response = "Yeah, they'll be here with all the chips! Rad."
-player_damage = 15
+player_damage = -5
 
 [sub_resource type="Resource" id="Resource_52dru"]
 script = ExtResource("3_7uvi0")
@@ -85,15 +85,105 @@ script = ExtResource("2_25bka")
 text = "I gotta tell my crew about this place!"
 choices = Array[ExtResource("3_7uvi0")]([SubResource("Resource_1mw7c"), SubResource("Resource_52dru")])
 
+[sub_resource type="Resource" id="Resource_ctw06"]
+script = ExtResource("3_7uvi0")
+text = "That's what we're here for."
+customer_response = "Yup!"
+
+[sub_resource type="Resource" id="Resource_ux785"]
+script = ExtResource("3_7uvi0")
+text = "I hope so too..."
+customer_response = "You don't know?"
+player_damage = 10
+customer_damage = 10
+
+[sub_resource type="Resource" id="Resource_2snuk"]
+script = ExtResource("2_25bka")
+text = "I hope you can help me out!"
+choices = Array[ExtResource("3_7uvi0")]([SubResource("Resource_ctw06"), SubResource("Resource_ux785")])
+
+[sub_resource type="Resource" id="Resource_oahva"]
+script = ExtResource("3_7uvi0")
+text = "Who told you that?"
+customer_response = "Are you scamming me or something?"
+player_damage = 5
+customer_damage = 10
+
+[sub_resource type="Resource" id="Resource_a0kr2"]
+script = ExtResource("3_7uvi0")
+text = "Best in the biz. *big smile*"
+customer_response = "Tier."
+player_damage = 5
+customer_damage = -5
+
+[sub_resource type="Resource" id="Resource_j78dh"]
+script = ExtResource("2_25bka")
+text = "I heard you guys had good quality gear."
+choices = Array[ExtResource("3_7uvi0")]([SubResource("Resource_oahva"), SubResource("Resource_a0kr2")])
+
+[sub_resource type="Resource" id="Resource_r3i8n"]
+script = ExtResource("3_7uvi0")
+text = "You know it."
+customer_response = "Glad I came."
+player_damage = -5
+customer_damage = -5
+
+[sub_resource type="Resource" id="Resource_lkjpl"]
+script = ExtResource("3_7uvi0")
+text = "So I've been told."
+customer_response = "Hm?"
+customer_damage = 5
+
+[sub_resource type="Resource" id="Resource_74e4p"]
+script = ExtResource("2_25bka")
+text = "This is the place."
+choices = Array[ExtResource("3_7uvi0")]([SubResource("Resource_r3i8n"), SubResource("Resource_lkjpl")])
+
+[sub_resource type="Resource" id="Resource_6g446"]
+script = ExtResource("3_7uvi0")
+text = "Sure..."
+customer_response = "You should smile more..."
+player_damage = 5
+customer_damage = 5
+
+[sub_resource type="Resource" id="Resource_eskn7"]
+script = ExtResource("3_7uvi0")
+text = "Too sunny for me."
+customer_response = "You're a bit gloomy, aren't you?"
+player_damage = 5
+customer_damage = 5
+
+[sub_resource type="Resource" id="Resource_ophuu"]
+script = ExtResource("2_25bka")
+text = "Lovely day, eh?"
+choices = Array[ExtResource("3_7uvi0")]([SubResource("Resource_6g446"), SubResource("Resource_eskn7")])
+
+[sub_resource type="Resource" id="Resource_2dpta"]
+script = ExtResource("3_7uvi0")
+text = "West Sec block party is today."
+customer_response = "Too bad you gotta work."
+customer_damage = -10
+
+[sub_resource type="Resource" id="Resource_223t4"]
+script = ExtResource("3_7uvi0")
+text = "\"Face Value, providing service rain, shine, or fun!\""
+customer_response = "Um... okay..."
+player_damage = 15
+
+[sub_resource type="Resource" id="Resource_8ikry"]
+script = ExtResource("2_25bka")
+text = "Streets are packed today."
+choices = Array[ExtResource("3_7uvi0")]([SubResource("Resource_2dpta"), SubResource("Resource_223t4")])
+
 [resource]
 script = ExtResource("4_ovwhk")
 sprites = Array[SpriteFrames]([ExtResource("5_utm6n"), ExtResource("6_ewlpx"), ExtResource("7_phip4"), ExtResource("8_khgmt"), ExtResource("9_q5mrg"), ExtResource("10_1mw7c")])
 customer_scene = ExtResource("1_7uvi0")
-question_data = Array[ExtResource("2_25bka")]([SubResource("Resource_weaqx"), SubResource("Resource_ewlpx"), SubResource("Resource_q5mrg"), SubResource("Resource_to2gf")])
+question_data = Array[ExtResource("2_25bka")]([SubResource("Resource_weaqx"), SubResource("Resource_ewlpx"), SubResource("Resource_q5mrg"), SubResource("Resource_to2gf"), SubResource("Resource_2snuk"), SubResource("Resource_j78dh"), SubResource("Resource_74e4p"), SubResource("Resource_ophuu"), SubResource("Resource_8ikry")])
 farewell_data = Dictionary[int, Array]({
-0: ["This place is RUSTED!", "Great, now I’m out of chips AND on the fritz...", "Now I GOTTA see a robot about a horse!", "You’re ripping me off!", "Unbelievable."],
-1: ["Whatever.", "I don't think this was a good deal...", "That took all my chips. What a ripoff.", "Never comin' again...", "Bye, see ya never!"],
-2: ["Thank ya!", "Thanks so much!", "See ya.", "Still got some chips left... Where to go next?", "Hehehe... Got the goods."],
-3: ["I gotta tell my crew about this place.", "You really saved my chrome!", "This will really help!", "Now I gotta go see a robot about a horse..."]
+0: ["I gotta tell my crew about this place.", "You really saved my chrome!", "This will really help!", "Now I gotta go see a robot about a horse..."],
+1: ["Thank ya!", "Thanks so much!", "See ya.", "Still got some chips left... Where to go next?", "Hehehe... Got the goods."],
+2: ["Whatever.", "I don't think this was a good deal...", "That took all my chips. What a ripoff.", "Never comin' again...", "Bye, see ya never!"],
+3: ["This place is RUSTED!", "Great, now I'm out of chips AND on the fritz...", "Now I GOTTA see a robot about a horse!", "You're ripping me off!", "Unbelievable."]
 })
 metadata/_custom_type_script = "uid://4t7ehoq1t80x"
