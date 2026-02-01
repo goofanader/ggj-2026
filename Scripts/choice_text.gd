@@ -24,11 +24,11 @@ func load_data(data_:ChoiceData) -> void:
 
 signal clicked(choice)
 
-func _gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.pressed:
-			self.accept_event()
-			picked()
+#func _gui_input(event: InputEvent) -> void:
+	#if event is InputEventMouseButton:
+		#if event.pressed:
+			#self.accept_event()
+			#picked()
 
 
 func picked() -> void:
