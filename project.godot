@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Face-Value"
+config/name="Face Value"
 run/main_scene="uid://d2wig6v3ksphj"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="uid://v86eit10cwy4"
