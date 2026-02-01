@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="CustomerData" format=3 uid="uid://by18pcudlsla4"]
 
 [ext_resource type="PackedScene" uid="uid://dfife271rokxq" path="res://Scenes/Customer.tscn" id="1_7uvi0"]
-[ext_resource type="Script" uid="uid://bn37jdrgm7ons" path="res://Scripts/Question Data.gd" id="2_25bka"]
-[ext_resource type="Script" uid="uid://boul3g5xuysqv" path="res://Scripts/Choice Data.gd" id="3_7uvi0"]
-[ext_resource type="Script" uid="uid://4t7ehoq1t80x" path="res://Scripts/customer_data.gd" id="4_ovwhk"]
+[ext_resource type="Script" uid="uid://bn37jdrgm7ons" path="res://scripts/Question Data.gd" id="2_25bka"]
+[ext_resource type="Script" uid="uid://boul3g5xuysqv" path="res://scripts/Choice Data.gd" id="3_7uvi0"]
+[ext_resource type="Script" uid="uid://4t7ehoq1t80x" path="res://scripts/customer_data.gd" id="4_ovwhk"]
 [ext_resource type="SpriteFrames" uid="uid://ig0bwfm563il" path="res://Assets/Art/Characters/antenna_guy_frames.tres" id="5_utm6n"]
 [ext_resource type="SpriteFrames" uid="uid://peoq2t8hhfx6" path="res://Assets/Art/Characters/eye_girl_frames.tres" id="6_ewlpx"]
 [ext_resource type="SpriteFrames" uid="uid://borlb3ab3ej5x" path="res://Assets/Art/Characters/robot_frames.tres" id="7_phip4"]

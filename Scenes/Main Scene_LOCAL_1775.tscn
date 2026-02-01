@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://d2wig6v3ksphj"]
+[gd_scene format=3 uid="uid://dydmvh8w2diu4"]
 
 [ext_resource type="Script" uid="uid://doxe6253y3sku" path="res://scripts/main_scene.gd" id="1_4y6ly"]
 [ext_resource type="PackedScene" uid="uid://rfyl0f42xd2f" path="res://Scenes/Item.tscn" id="2_56oky"]
@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://ujp8tw0paiu6" path="res://Assets/Art/Background/back_table.png" id="2_ke1vn"]
 [ext_resource type="Texture2D" uid="uid://b6ry56fg0rdoj" path="res://Assets/Art/Background/register.png" id="4_156p1"]
 [ext_resource type="Texture2D" uid="uid://j7ahjlb32un3" path="res://Assets/Art/Background/scanner_spot.png" id="5_7enb7"]
-[ext_resource type="Script" uid="uid://bgccdanfxwkna" path="res://Scripts/FrequentAudioData.gd" id="5_s0c2j"]
-[ext_resource type="Script" uid="uid://cdfq424n0esed" path="res://Scripts/background_sounds.gd" id="5_uctcs"]
+[ext_resource type="Script" uid="uid://bgccdanfxwkna" path="res://scripts/FrequentAudioData.gd" id="5_s0c2j"]
+[ext_resource type="Script" uid="uid://cdfq424n0esed" path="res://scripts/background_sounds.gd" id="5_uctcs"]
 [ext_resource type="Texture2D" uid="uid://1xp7sa4enjc0" path="res://Assets/Art/Background/street.png" id="8_1n7h2"]
 [ext_resource type="Script" uid="uid://dsiwpy0t3rcm4" path="res://scripts/rain.gd" id="9_777q4"]
 [ext_resource type="Script" path="res://Scripts/register.gd" id="9_mlytr"]
@@ -27,7 +27,6 @@
 [ext_resource type="Script" uid="uid://civlgr2erxdai" path="res://scripts/ui_sounds.gd" id="29_v38rm"]
 [ext_resource type="AudioStream" uid="uid://5h56gmnlubea" path="res://Assets/Sounds/Track_8.ogg" id="30_fjyh7"]
 [ext_resource type="Script" uid="uid://dcb1dchykhvg8" path="res://scripts/volume_slider.gd" id="30_laryo"]
-[ext_resource type="Theme" uid="uid://dr0407s0ett1j" path="res://Assets/Theme and Font/font_theme.tres" id="30_qf2de"]
 [ext_resource type="PackedScene" uid="uid://w3nj60ktwukq" path="res://Scenes/Dialog Box.tscn" id="34_b8f0w"]
 [ext_resource type="PackedScene" uid="uid://dmbb8d07rfnbd" path="res://Scenes/Choice Box.tscn" id="35_7l4at"]
 [ext_resource type="FontFile" uid="uid://dwf2v3x68ys0h" path="res://Assets/Theme and Font/PetitePx.ttf" id="35_lmxys"]
@@ -110,7 +109,7 @@ metadata/_edit_lock_ = true
 [node name="BackgroundSoundPlayer" type="Node" parent="GameScene/Bg" unique_id=944899967]
 script = ExtResource("5_uctcs")
 looping_audio_tracks = Array[AudioStream]([ExtResource("17_mtrcc")])
-frequent_audio_tracks = [SubResource("Resource_v38rm"), SubResource("Resource_fjyh7"), SubResource("Resource_qf2de"), SubResource("Resource_laryo"), SubResource("Resource_qmgfp"), SubResource("Resource_b8f0w")]
+frequent_audio_tracks = Array[ExtResource("5_s0c2j")]([SubResource("Resource_v38rm"), SubResource("Resource_fjyh7"), SubResource("Resource_qf2de"), SubResource("Resource_laryo"), SubResource("Resource_qmgfp"), SubResource("Resource_b8f0w")])
 
 [node name="Music" type="AudioStreamPlayer" parent="GameScene/Bg" unique_id=1151610429]
 stream = ExtResource("30_fjyh7")
@@ -339,7 +338,6 @@ z_index = 1
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
-theme = ExtResource("30_qf2de")
 theme_override_colors/font_color = Color(0.36862746, 0.99215686, 0.5529412, 1)
 theme_override_fonts/font = ExtResource("35_lmxys")
 theme_override_font_sizes/font_size = 16
@@ -347,67 +345,55 @@ text = "Back"
 
 [node name="Label" type="Label" parent="Credits" unique_id=886956395]
 layout_mode = 0
-offset_left = 139.0
-offset_top = 4.0
-offset_right = 232.0
-offset_bottom = 39.0
-theme = ExtResource("30_qf2de")
-theme_override_colors/font_color = Color(0.36862746, 0.39215687, 0.99215686, 1)
+offset_left = 35.0
+offset_top = 1.0
+offset_right = 174.0
+offset_bottom = 50.0
 text = "Squishiest Grape
 Programming"
 
 [node name="Label2" type="Label" parent="Credits" unique_id=300618693]
 layout_mode = 0
-offset_left = 126.0
-offset_top = 49.0
-offset_right = 197.0
-offset_bottom = 85.0
-theme = ExtResource("30_qf2de")
-theme_override_colors/font_color = Color(0.96862745, 0.36862746, 0.8745098, 1)
+offset_left = 6.0
+offset_top = 43.0
+offset_right = 96.0
+offset_bottom = 92.0
 text = "goofanader
 Art"
 
 [node name="Label3" type="Label" parent="Credits" unique_id=694260813]
 layout_mode = 0
-offset_left = 25.0
-offset_top = 48.0
-offset_right = 109.0
-offset_bottom = 83.0
-theme = ExtResource("30_qf2de")
-theme_override_colors/font_color = Color(0.36862746, 0.99215686, 0.5529412, 1)
+offset_left = 14.0
+offset_top = 82.0
+offset_right = 120.0
+offset_bottom = 131.0
 text = "hamfie
 Programming"
 
 [node name="Label4" type="Label" parent="Credits" unique_id=1267342950]
 layout_mode = 0
-offset_left = 113.0
-offset_top = 94.0
-offset_right = 219.0
-offset_bottom = 143.0
-theme = ExtResource("30_qf2de")
-theme_override_colors/font_color = Color(0.99215686, 0.99607843, 0.5372549, 1)
+offset_left = 55.0
+offset_top = 63.0
+offset_right = 161.0
+offset_bottom = 112.0
 text = "Andrew
 Programming"
 
 [node name="Label5" type="Label" parent="Credits" unique_id=1817380043]
 layout_mode = 0
-offset_left = 9.0
-offset_top = 93.0
-offset_right = 95.0
-offset_bottom = 127.0
-theme = ExtResource("30_qf2de")
-theme_override_colors/font_color = Color(0.36862746, 0.99215686, 0.96862745, 1)
+offset_left = 128.0
+offset_top = 15.0
+offset_right = 237.0
+offset_bottom = 64.0
 text = "GentleCentaur
 Writing"
 
 [node name="Label6" type="Label" parent="Credits" unique_id=142139346]
 layout_mode = 0
-offset_left = 41.0
-offset_top = 5.0
-offset_right = 121.0
-offset_bottom = 43.0
-theme = ExtResource("30_qf2de")
-theme_override_colors/font_color = Color(0.99215686, 0.36862746, 0.39215687, 1)
+offset_left = 141.0
+offset_top = 54.0
+offset_right = 242.0
+offset_bottom = 103.0
 text = "Yinfinity
 Sound & Art"
 

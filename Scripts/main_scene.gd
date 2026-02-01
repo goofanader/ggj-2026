@@ -93,7 +93,6 @@ func remove_customer(customer_node:CustomerNode, mad:bool=false) -> void:
 	$GameScene/Customer/CustomerTimer.start(randf_range(3,4))
 	$GameScene/Customer/WaitTimer.stop()
 	clear_items()
-	print("Bye Felicia")
 	
 func clear_customers() -> void:
 	if customer_nodes.size() > 0:
@@ -139,7 +138,6 @@ func drop_items() -> void:
 
 func _on_item_mistake(type: String) -> void:
 	customer_nodes[0].damage(20)
-	print("I am very angry")
 	if type == "scan":
 		print("You scanned that item twice")
 

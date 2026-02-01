@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b3ngm7008iqeh" path="res://Scripts/character_stats.gd" id="1_4kaq4"]
 [ext_resource type="SpriteFrames" uid="uid://bv268ydwiv5k2" path="res://Assets/Art/Characters/player_frames.tres" id="2_4kaq4"]
 [ext_resource type="Texture2D" uid="uid://cya7perkdex2" path="res://Assets/Art/UI/Dialog_Border.png" id="2_tpcvg"]
+[ext_resource type="AudioStream" uid="uid://bbk7stvf6ne14" path="res://Assets/Sounds/Select_1.ogg" id="4_okjsw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4mlw"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -74,3 +75,6 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_tpcvg")
 value = 30.0
 show_percentage = false
 metadata/_edit_use_anchors_ = true
+
+[node name="EmotionalDamage" type="AudioStreamPlayer" parent="." unique_id=1233064364]
+stream = ExtResource("4_okjsw")

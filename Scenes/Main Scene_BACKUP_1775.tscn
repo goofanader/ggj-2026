@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://d2wig6v3ksphj"]
+[gd_scene format=3 uid="uid://4njbbee14fxh"]
 
 [ext_resource type="Script" uid="uid://doxe6253y3sku" path="res://scripts/main_scene.gd" id="1_4y6ly"]
 [ext_resource type="PackedScene" uid="uid://rfyl0f42xd2f" path="res://Scenes/Item.tscn" id="2_56oky"]
@@ -6,8 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://ujp8tw0paiu6" path="res://Assets/Art/Background/back_table.png" id="2_ke1vn"]
 [ext_resource type="Texture2D" uid="uid://b6ry56fg0rdoj" path="res://Assets/Art/Background/register.png" id="4_156p1"]
 [ext_resource type="Texture2D" uid="uid://j7ahjlb32un3" path="res://Assets/Art/Background/scanner_spot.png" id="5_7enb7"]
-[ext_resource type="Script" uid="uid://bgccdanfxwkna" path="res://Scripts/FrequentAudioData.gd" id="5_s0c2j"]
-[ext_resource type="Script" uid="uid://cdfq424n0esed" path="res://Scripts/background_sounds.gd" id="5_uctcs"]
+<<<<<<< HEAD
+[ext_resource type="Script" uid="uid://bgccdanfxwkna" path="res://scripts/FrequentAudioData.gd" id="5_s0c2j"]
+[ext_resource type="Script" uid="uid://cdfq424n0esed" path="res://scripts/background_sounds.gd" id="5_uctcs"]
+=======
+[ext_resource type="Script" path="res://Scripts/FrequentAudioData.gd" id="5_s0c2j"]
+[ext_resource type="Script" path="res://Scripts/background_sounds.gd" id="5_uctcs"]
+>>>>>>> 5ef72daad9501856832e2f445793e82eb125fabd
 [ext_resource type="Texture2D" uid="uid://1xp7sa4enjc0" path="res://Assets/Art/Background/street.png" id="8_1n7h2"]
 [ext_resource type="Script" uid="uid://dsiwpy0t3rcm4" path="res://scripts/rain.gd" id="9_777q4"]
 [ext_resource type="Script" path="res://Scripts/register.gd" id="9_mlytr"]
@@ -26,8 +31,12 @@
 [ext_resource type="AudioStream" uid="uid://qg8f6y2koavf" path="res://Assets/Sounds/Welding_Sparks.wav" id="28_qf2de"]
 [ext_resource type="Script" uid="uid://civlgr2erxdai" path="res://scripts/ui_sounds.gd" id="29_v38rm"]
 [ext_resource type="AudioStream" uid="uid://5h56gmnlubea" path="res://Assets/Sounds/Track_8.ogg" id="30_fjyh7"]
+<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://dcb1dchykhvg8" path="res://scripts/volume_slider.gd" id="30_laryo"]
+=======
+[ext_resource type="Script" uid="uid://dcb1dchykhvg8" path="res://Scripts/volume_slider.gd" id="30_laryo"]
 [ext_resource type="Theme" uid="uid://dr0407s0ett1j" path="res://Assets/Theme and Font/font_theme.tres" id="30_qf2de"]
+>>>>>>> 5ef72daad9501856832e2f445793e82eb125fabd
 [ext_resource type="PackedScene" uid="uid://w3nj60ktwukq" path="res://Scenes/Dialog Box.tscn" id="34_b8f0w"]
 [ext_resource type="PackedScene" uid="uid://dmbb8d07rfnbd" path="res://Scenes/Choice Box.tscn" id="35_7l4at"]
 [ext_resource type="FontFile" uid="uid://dwf2v3x68ys0h" path="res://Assets/Theme and Font/PetitePx.ttf" id="35_lmxys"]
@@ -110,7 +119,7 @@ metadata/_edit_lock_ = true
 [node name="BackgroundSoundPlayer" type="Node" parent="GameScene/Bg" unique_id=944899967]
 script = ExtResource("5_uctcs")
 looping_audio_tracks = Array[AudioStream]([ExtResource("17_mtrcc")])
-frequent_audio_tracks = [SubResource("Resource_v38rm"), SubResource("Resource_fjyh7"), SubResource("Resource_qf2de"), SubResource("Resource_laryo"), SubResource("Resource_qmgfp"), SubResource("Resource_b8f0w")]
+frequent_audio_tracks = Array[ExtResource("5_s0c2j")]([SubResource("Resource_v38rm"), SubResource("Resource_fjyh7"), SubResource("Resource_qf2de"), SubResource("Resource_laryo"), SubResource("Resource_qmgfp"), SubResource("Resource_b8f0w")])
 
 [node name="Music" type="AudioStreamPlayer" parent="GameScene/Bg" unique_id=1151610429]
 stream = ExtResource("30_fjyh7")
