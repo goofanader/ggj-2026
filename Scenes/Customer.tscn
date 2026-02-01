@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cyho4ggubdvhx" path="res://Assets/Art/Characters/Anger.png" id="3_j21p7"]
 [ext_resource type="AudioStream" uid="uid://bbnehfw45v3gl" path="res://Assets/Sounds/Beam_Down.wav" id="3_kosw0"]
 [ext_resource type="AudioStream" uid="uid://xwtv3v5lefag" path="res://Assets/Sounds/Door_Close.wav" id="4_1r5ol"]
-[ext_resource type="Texture2D" uid="uid://tli5yhf22qms" path="res://Assets/Art/Characters/Mood.png" id="4_rje0e"]
 [ext_resource type="AudioStream" uid="uid://s3cccg8tvs07" path="res://Assets/Sounds/Door_Open.wav" id="5_6nvjr"]
 [ext_resource type="AudioStream" uid="uid://ctalrj1cl3ssu" path="res://Assets/Sounds/Electric_Sparks.wav" id="6_4qdli"]
 
@@ -58,57 +57,6 @@ animations = [{
 }],
 "loop": true,
 "name": &"Angry 2",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6nvjr"]
-atlas = ExtResource("4_rje0e")
-region = Rect2(72, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4qdli"]
-atlas = ExtResource("4_rje0e")
-region = Rect2(0, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cl1o2"]
-atlas = ExtResource("4_rje0e")
-region = Rect2(24, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_27sx0"]
-atlas = ExtResource("4_rje0e")
-region = Rect2(48, 0, 24, 24)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_rje0e"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6nvjr")
-}],
-"loop": true,
-"name": &"Angry",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4qdli")
-}],
-"loop": true,
-"name": &"Happy",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cl1o2")
-}],
-"loop": true,
-"name": &"Neutral",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_27sx0")
-}],
-"loop": true,
-"name": &"Sad",
 "speed": 5.0
 }]
 
@@ -467,7 +415,7 @@ _data = {
 &"Walk Out": SubResource("Animation_1r5ol")
 }
 
-[node name="Customer" type="Node2D" unique_id=1278525423 node_paths=PackedStringArray("frame_node", "sprite_node", "mood_node", "expr_node", "animator", "audio_node")]
+[node name="Customer" type="Node2D" unique_id=1278525423 node_paths=PackedStringArray("frame_node", "sprite_node", "expr_node", "animator", "audio_node")]
 script = ExtResource("1_o7g7w")
 audio_files = Dictionary[String, AudioStream]({
 "Beam Down": ExtResource("3_kosw0"),
@@ -478,7 +426,6 @@ audio_files = Dictionary[String, AudioStream]({
 })
 frame_node = NodePath("Customer_Frame")
 sprite_node = NodePath("Customer_Frame/Customer Sprite")
-mood_node = NodePath("Customer_Frame/Moon Indicator")
 expr_node = NodePath("Customer_Frame/Customer Expression")
 animator = NodePath("Customer_Frame/AnimationPlayer")
 audio_node = NodePath("Customer_Frame/AudioStreamPlayer2D")
@@ -495,11 +442,6 @@ animation = &"Happy"
 position = Vector2(-5, -73)
 sprite_frames = SubResource("SpriteFrames_1r5ol")
 animation = &"Angry 2"
-
-[node name="Moon Indicator" type="AnimatedSprite2D" parent="Customer_Frame" unique_id=1084064898]
-position = Vector2(-25, -57)
-sprite_frames = SubResource("SpriteFrames_rje0e")
-animation = &"Happy"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Customer_Frame" unique_id=485819954]
 root_node = NodePath("../..")
