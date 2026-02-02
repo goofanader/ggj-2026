@@ -1135,8 +1135,3 @@ libraries/ = SubResource("AnimationLibrary_6nvjr")
 autoplay = &"RESET"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Customer_Frame" unique_id=1207895765]
-
-[node name="BackBufferCopy" type="BackBufferCopy" parent="Customer_Frame" unique_id=294931534]
-use_parent_material = true
-position = Vector2(0, -40)
-scale = Vector2(0.32, 0.39)
