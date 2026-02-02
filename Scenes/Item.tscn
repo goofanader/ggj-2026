@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://rfyl0f42xd2f"]
 
 [ext_resource type="Script" uid="uid://bm2yebf4unob4" path="res://Scripts/item.gd" id="1_3r01x"]
-[ext_resource type="Shader" path="res://Assets/Outline.gdshader" id="1_o34di"]
+[ext_resource type="Shader" uid="uid://duh37qely848e" path="res://Assets/Shaders/Outline.gdshader" id="1_o34di"]
 [ext_resource type="Texture2D" uid="uid://bomlcdl4nbd72" path="res://Assets/Art/Items/Cyber_Circle_Mask.png" id="2_6oc8a"]
 [ext_resource type="AudioStream" uid="uid://cjcbc47371the" path="res://Assets/Sounds/Object_Pickup.wav" id="3_08o4a"]
 [ext_resource type="AudioStream" uid="uid://cfstn3lwxg1fo" path="res://Assets/Sounds/Object_Putdown.wav" id="4_6oc8a"]
